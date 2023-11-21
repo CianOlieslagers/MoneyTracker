@@ -1,6 +1,6 @@
 package controller.person;
 
-import Person.Person;
+import person.Person;
 
 public interface Controller
 {

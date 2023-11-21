@@ -1,6 +1,6 @@
 package database;
 
-import Ticket.Ticket;
+import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
 

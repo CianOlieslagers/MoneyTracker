@@ -5,7 +5,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
 
-import Person.Person;
+import person.Person;
 
 
 public class PersonDB extends DatabasePersons
@@ -27,15 +27,36 @@ public class PersonDB extends DatabasePersons
     @Override
     public void addPerson(Person person)
     {
-        //support.firePropertyChange("PersonDB",,);
+        Person oldValue;
+        if (db.isEmpty())
+            oldValue = null;
+        else
+            oldValue = db.get(db.size() - 1);
+        support.firePropertyChange("PersonDB", oldValue, person);
         this.db.add(person);
     }
 
     @Override
     public void removePerson(Person person)
     {
-        //support.firePropertyChange("PersonDB",,);
+        Person oldValue;
+        if (db.isEmpty())
+            oldValue = null;
+        else
+            oldValue = db.get(db.size() - 1);
+        support.firePropertyChange("PersonDB", oldValue, person);
         this.db.remove(person);
+    }
+
+    @Override
+    public ArrayList<String> getNames()
+    {
+        ArrayList<String> names = new ArrayList<>();
+        for (Person person : db)
+        {
+           names.add(person.getName());
+        }
+        return names;
     }
 
     @Override

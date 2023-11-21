@@ -1,12 +1,10 @@
 package database;
 
-import Person.Person;
-import Ticket.Ticket;
+import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class TicketDB extends DatabaseTickets
 {
@@ -28,14 +26,24 @@ public class TicketDB extends DatabaseTickets
     @Override
     public void addTicket(Ticket ticket)
     {
-        //support.firePropertyChange("TicketDB",,);
+        Ticket oldValue;
+        if (db.isEmpty())
+            oldValue = null;
+        else
+            oldValue = db.get(db.size() - 1);
+        support.firePropertyChange("TicketDB", oldValue, ticket);
         db.add(ticket);
     }
 
     @Override
     public void removeTicket(Ticket ticket)
     {
-        //support.firePropertyChange("TicketDB", ,);
+        Ticket oldValue;
+        if (db.isEmpty())
+            oldValue = null;
+        else
+            oldValue = db.get(db.size() - 1);
+        support.firePropertyChange("TicketDB", oldValue, ticket);
         db.remove(ticket);
     }
 

@@ -1,15 +1,16 @@
 package controller.person;
 
-import Person.Person;
+import database.DatabasePersons;
+import person.Person;
 import database.PersonDB;
 
 public class PersonController implements Controller
 {
 
-    private PersonDB db;
+    private DatabasePersons db;
 
 
-    public PersonController(PersonDB db)
+    public PersonController(DatabasePersons db)
     {
         this.db = db;
     }

@@ -1,6 +1,6 @@
 package controller.ticket;
 
-import Ticket.Ticket;
+import ticket.Ticket;
 
 public interface Controller
 {

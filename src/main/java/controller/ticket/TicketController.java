@@ -1,13 +1,14 @@
 package controller.ticket;
 
-import Ticket.Ticket;
+import database.DatabaseTickets;
+import ticket.Ticket;
 import database.TicketDB;
 
 public class TicketController implements Controller
 {
-    private TicketDB db;
+    private DatabaseTickets db;
 
-    public TicketController(TicketDB db)
+    public TicketController(DatabaseTickets db)
     {
         this.db = db;
     }
