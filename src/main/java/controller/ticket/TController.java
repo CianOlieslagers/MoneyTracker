@@ -2,7 +2,7 @@ package controller.ticket;
 
 import ticket.Ticket;
 
-public interface Controller
+public interface TController
 {
     void addTicket(Ticket ticket);
 

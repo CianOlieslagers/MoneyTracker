@@ -2,7 +2,7 @@ package controller.person;
 
 import person.Person;
 
-public interface Controller
+public interface PController
 {
     void addPerson(Person person);
 

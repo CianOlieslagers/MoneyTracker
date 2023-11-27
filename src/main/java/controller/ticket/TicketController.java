@@ -1,22 +1,24 @@
 package controller.ticket;
 
 import database.DatabaseTickets;
+import observers.PrintUpdated;
 import ticket.Ticket;
-import database.TicketDB;
 
-public class TicketController implements Controller
+public class TicketController implements TController
 {
     private DatabaseTickets db;
 
     public TicketController(DatabaseTickets db)
     {
         this.db = db;
+        db.addPropertyChangeListener(new PrintUpdated());
     }
 
     @Override
     public void addTicket(Ticket ticket)
     {
         db.addTicket(ticket);
+        db.firePropertyChange(ticket);
     }
 
     @Override
