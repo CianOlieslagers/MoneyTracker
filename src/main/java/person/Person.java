@@ -30,4 +30,12 @@ public class Person
     {
         this.accountNumber = accountNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
+                '}';
+    }
 }

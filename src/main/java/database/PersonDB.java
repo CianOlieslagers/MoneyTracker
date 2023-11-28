@@ -30,7 +30,7 @@ public class PersonDB extends DatabasePersons
     @Override
     public void addPerson(Person person)
     {
-        support.firePropertyChange("PersonDB", null, person);
+        support.firePropertyChange("PersonDB add", null, person);
         this.db.put(personCount, person);
         personCount++;
     }
@@ -38,7 +38,7 @@ public class PersonDB extends DatabasePersons
     @Override
     public void removePerson(Person person)
     {
-        support.firePropertyChange("PersonDB", null, person);
+        support.firePropertyChange("PersonDB remove", null, person);
         this.db.remove(personCount, person);
         personCount--;
     }

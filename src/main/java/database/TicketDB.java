@@ -30,7 +30,7 @@ public class TicketDB extends DatabaseTickets
     @Override
     public void addTicket(Ticket ticket)
     {
-        support.firePropertyChange("TicketDB", null, ticket);
+        support.firePropertyChange("TicketDB add", null, ticket);
         this.db.put(ticketCount, ticket);
         ticketCount++;
     }
@@ -38,7 +38,7 @@ public class TicketDB extends DatabaseTickets
     @Override
     public void removeTicket(Ticket ticket)
     {
-        support.firePropertyChange("TicketDB", null, ticket);
+        support.firePropertyChange("TicketDB remove", null, ticket);
         this.db.remove(ticketCount, ticket);
         ticketCount--;
     }

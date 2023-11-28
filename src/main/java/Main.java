@@ -37,10 +37,11 @@ public class Main
         Ticket TicketMelanie = TF1.getTicket("Melanie", 20, Category.Food);
         Tregister.addTicket(TicketMelanie);
 
+        Pregister.removePerson(Melanie);
+        Tregister.removeTicket(TicketMelanie);
+
         // Frame Logica
         SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
-
-
 
 
     }
