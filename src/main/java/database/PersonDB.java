@@ -41,17 +41,6 @@ public class PersonDB extends DatabasePersons
     }
 
     @Override
-    public ArrayList<String> getNames()
-    {
-        ArrayList<String> names = new ArrayList<>();
-        for (Person person : db)
-        {
-           names.add(person.getName());
-        }
-        return names;
-    }
-
-    @Override
     public void addObserver(PropertyChangeListener pcl)
     {
         support.addPropertyChangeListener(pcl);
@@ -62,4 +51,16 @@ public class PersonDB extends DatabasePersons
     {
         support.removePropertyChangeListener(pcl);
     }
+
+    @Override
+    public ArrayList<String> getNames()
+    {
+        ArrayList<String> names = new ArrayList<>();
+        for (Person person : db)
+        {
+            names.add(person.getName());
+        }
+        return names;
+    }
+
 }

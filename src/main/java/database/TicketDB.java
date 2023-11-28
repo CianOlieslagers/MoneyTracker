@@ -28,17 +28,15 @@ public class TicketDB extends DatabaseTickets
     @Override
     public void addTicket(Ticket ticket)
     {
-
         support.firePropertyChange("TicketDB", null, ticket);
-        db.add(ticket);
+        this.db.add(ticket);
     }
 
     @Override
     public void removeTicket(Ticket ticket)
     {
-
         support.firePropertyChange("TicketDB", null, ticket);
-        db.remove(ticket);
+        this.db.remove(ticket);
     }
 
     @Override
