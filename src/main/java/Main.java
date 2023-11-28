@@ -1,3 +1,4 @@
+import GUI.MainFrame;
 import controller.person.PController;
 import controller.person.PersonController;
 import controller.ticket.TController;
@@ -8,6 +9,8 @@ import factory.TicketFactory;
 import person.Person;
 import ticket.Category;
 import ticket.Ticket;
+
+import javax.swing.*;
 
 public class Main
 {
@@ -33,6 +36,11 @@ public class Main
         TicketFactory TF1 = new TicketFactory();
         Ticket TicketMelanie = TF1.getTicket("Melanie", 20, Category.Food);
         Tregister.addTicket(TicketMelanie);
+
+        // Frame Logica
+        SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
+
+
 
 
     }
