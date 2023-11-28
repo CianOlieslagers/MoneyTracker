@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="pom file">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/observers/EntryChangePerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/observers/EntryChangeTicket.java" afterDir="false" />
+    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="Observer en singleton af">
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/BaseFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Frame1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Frame2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Frame3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/person/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/person/PController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/person/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/person/PersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ticket/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ticket/TController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ticket/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ticket/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/DatabasePersons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DatabasePersons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,21 +41,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/Universiteit UA/AlgemeneTest/softDesign/test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Universiteit UA/AlgemeneTest/softDesign/Test3&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -84,6 +79,8 @@
       <option name="presentableId" value="Default" />
       <updated>1699959217364</updated>
       <workItem from="1699959218555" duration="7035000" />
+      <workItem from="1701103442761" duration="2936000" />
+      <workItem from="1701121385366" duration="1957000" />
     </task>
     <task id="LOCAL-00001" summary="pom file">
       <option name="closed" value="true" />
@@ -93,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699960190522</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Observer en singleton af">
+      <created>1701103510223</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701103510223</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +116,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pom file" />
-    <option name="LAST_COMMIT_MESSAGE" value="pom file" />
+    <MESSAGE value="Observer en singleton af" />
+    <option name="LAST_COMMIT_MESSAGE" value="Observer en singleton af" />
   </component>
 </project>
