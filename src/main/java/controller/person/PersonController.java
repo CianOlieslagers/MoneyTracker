@@ -1,7 +1,6 @@
 package controller.person;
 
 import database.DatabasePersons;
-import observers.PrintUpdated;
 import person.Person;
 
 public class PersonController implements PController
@@ -13,14 +12,12 @@ public class PersonController implements PController
     public PersonController(DatabasePersons db)
     {
         this.db = db;
-
     }
 
     @Override
     public void addPerson(Person person)
     {
         db.addPerson(person);
-
     }
 
     @Override
