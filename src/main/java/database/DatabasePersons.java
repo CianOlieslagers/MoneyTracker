@@ -3,7 +3,6 @@ package database;
 import person.Person;
 
 import java.beans.PropertyChangeListener;
-import java.util.ArrayList;
 
 public abstract class DatabasePersons
 {
