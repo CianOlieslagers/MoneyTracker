@@ -11,14 +11,12 @@ public class TicketController implements TController
     public TicketController(DatabaseTickets db)
     {
         this.db = db;
-        db.addPropertyChangeListener(new PrintUpdated());
     }
 
     @Override
     public void addTicket(Ticket ticket)
     {
         db.addTicket(ticket);
-        db.firePropertyChange(ticket);
     }
 
     @Override

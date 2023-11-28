@@ -1,11 +1,9 @@
 package database;
 
-import observers.EntryChangeTicket;
 import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.ArrayList;
 
 public abstract class DatabaseTickets
 {
@@ -41,8 +39,8 @@ public abstract class DatabaseTickets
         propertyChangeSupport.removePropertyChangeListener(listener);
     }
     public void firePropertyChange(Ticket T) {
-        EntryChangeTicket event = new EntryChangeTicket(this, T);
-        propertyChangeSupport.firePropertyChange("TicketDB", null, event);
+
+        propertyChangeSupport.firePropertyChange("TicketDB", null, T);
     }
 
 

@@ -5,6 +5,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
 
+import observers.PrintUpdated;
 import person.Person;
 
 
@@ -17,6 +18,7 @@ public class PersonDB extends DatabasePersons
     public PersonDB()
     {
         this.db = new ArrayList<>();
+        this.addObserver(new PrintUpdated());
     }
 
     public static DatabasePersons getInstance()
@@ -27,24 +29,14 @@ public class PersonDB extends DatabasePersons
     @Override
     public void addPerson(Person person)
     {
-        Person oldValue;
-        if (db.isEmpty())
-            oldValue = null;
-        else
-            oldValue = db.get(db.size() - 1);
-        support.firePropertyChange("PersonDB", oldValue, person);
+        support.firePropertyChange("PersonDB", null, person);
         this.db.add(person);
     }
 
     @Override
     public void removePerson(Person person)
     {
-        Person oldValue;
-        if (db.isEmpty())
-            oldValue = null;
-        else
-            oldValue = db.get(db.size() - 1);
-        support.firePropertyChange("PersonDB", oldValue, person);
+        support.firePropertyChange("PersonDB", null, person);
         this.db.remove(person);
     }
 

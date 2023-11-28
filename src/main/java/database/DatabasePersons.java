@@ -1,9 +1,6 @@
 package database;
 
-import observers.EntryChangePerson;
-import observers.EntryChangeTicket;
 import person.Person;
-import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -23,6 +20,7 @@ public abstract class DatabasePersons
     public static DatabasePersons getInstance() { // First we check if the database already exist. If it does we use that database instead.
         if (instance == null) {
             instance = new PersonDB(); // Or any other implementation you prefer
+
         }
         return instance;
     }
@@ -38,8 +36,7 @@ public abstract class DatabasePersons
         propertyChangeSupport.removePropertyChangeListener(listener);
     }
     public void firePropertyChange(Person P) {
-        EntryChangePerson event = new EntryChangePerson(this, P);
-        propertyChangeSupport.firePropertyChange("PersonDB", null, event);
+        propertyChangeSupport.firePropertyChange("PersonDB", null, P);
     }
     //
 
