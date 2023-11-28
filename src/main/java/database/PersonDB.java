@@ -3,6 +3,7 @@ package database;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 
 import observers.PrintUpdated;
@@ -11,13 +12,14 @@ import person.Person;
 
 public class PersonDB extends DatabasePersons
 {
-    private final ArrayList<Person> db;
+    private final LinkedHashMap<Integer, Person> db;
     private static final PersonDB personDB = new PersonDB();
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
+    private int personCount = 0;
 
     public PersonDB()
     {
-        this.db = new ArrayList<>();
+        this.db = new LinkedHashMap<>();
         this.addObserver(new PrintUpdated());
     }
 
@@ -30,14 +32,16 @@ public class PersonDB extends DatabasePersons
     public void addPerson(Person person)
     {
         support.firePropertyChange("PersonDB", null, person);
-        this.db.add(person);
+        this.db.put(personCount, person);
+        personCount++;
     }
 
     @Override
     public void removePerson(Person person)
     {
         support.firePropertyChange("PersonDB", null, person);
-        this.db.remove(person);
+        this.db.remove(personCount, person);
+        personCount--;
     }
 
     @Override
@@ -52,15 +56,6 @@ public class PersonDB extends DatabasePersons
         support.removePropertyChangeListener(pcl);
     }
 
-    @Override
-    public ArrayList<String> getNames()
-    {
-        ArrayList<String> names = new ArrayList<>();
-        for (Person person : db)
-        {
-            names.add(person.getName());
-        }
-        return names;
-    }
+
 
 }
