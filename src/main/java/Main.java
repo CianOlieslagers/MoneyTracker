@@ -30,15 +30,23 @@ public class Main
         DatabaseTickets DbT1 = DatabaseTickets.getInstance();
         TController Tregister = new TicketController(DbT1);
 
+
         Person Melanie = new Person("Melanie","1" );
+        Person Mel = new Person("Mel","22" );
+        Person Bob = new Person("Bob","2" );
+
         Pregister.addPerson(Melanie);
+        Pregister.addPerson(Mel);
+        Pregister.addPerson(Bob);
+
+        Pregister.removePerson(Melanie);
+        Pregister.removePerson(Mel);
+        Pregister.removePerson(Bob);
 
         TicketFactory TF1 = new TicketFactory();
         Ticket TicketMelanie = TF1.getTicket("Melanie", 20, Category.Food);
         Tregister.addTicket(TicketMelanie);
 
-        Pregister.removePerson(Melanie);
-        Tregister.removeTicket(TicketMelanie);
 
         // Frame Logica
         SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));

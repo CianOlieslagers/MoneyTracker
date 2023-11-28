@@ -3,6 +3,7 @@ package database;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 import observers.PrintUpdated;
@@ -30,17 +31,49 @@ public class PersonDB extends DatabasePersons
     @Override
     public void addPerson(Person person)
     {
-        support.firePropertyChange("PersonDB add", null, person);
-        this.db.put(personCount, person);
-        personCount++;
+        boolean existing = false;
+        for(Map.Entry<Integer, Person> entry: db.entrySet())
+        {
+            Person e_person = entry.getValue();
+
+            if (e_person.getName().equals(person.getName()))
+            {
+                existing = true;
+                System.out.println(person.getName() + " is already in use!");
+                break;
+            }
+            if (e_person.getAccountNumber().equals(person.getAccountNumber()))
+            {
+                existing = true;
+                System.out.println("accountnumber: " + person.getAccountNumber() + " is already in use!");
+                break;
+            }
+        }
+
+        if (!existing)
+        {
+            this.db.put(personCount,person);
+            support.firePropertyChange("PersonDB add", null, person);
+            personCount++;
+        }
     }
 
     @Override
     public void removePerson(Person person)
     {
-        support.firePropertyChange("PersonDB remove", null, person);
-        this.db.remove(personCount, person);
-        personCount--;
+        for (Map.Entry<Integer, Person> entry: db.entrySet())
+        {
+            int e_personID = entry.getKey();
+            Person e_person = entry.getValue();
+
+            if (e_person.getName().equals(person.getName()) && e_person.getAccountNumber().equals(person.getAccountNumber()))
+            {
+                this.db.remove(e_personID,e_person);
+                support.firePropertyChange("PersonDB remove", null, person);
+                personCount--;
+                break;
+            }
+        }
     }
 
     @Override
