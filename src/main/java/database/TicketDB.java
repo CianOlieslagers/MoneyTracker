@@ -13,7 +13,7 @@ public class TicketDB extends DatabaseTickets
     private static final TicketDB ticketDB = new TicketDB();
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
-    private TicketDB()
+    public TicketDB() // Stond private origineel maar maakte problemen met Singleton toevoeging dus naar een public omgezet
     {
         this.db = new ArrayList<>();
     }

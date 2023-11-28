@@ -1,10 +1,10 @@
 package controller.person;
 
 import database.DatabasePersons;
+import observers.PrintUpdated;
 import person.Person;
-import database.PersonDB;
 
-public class PersonController implements Controller
+public class PersonController implements PController
 {
 
     private DatabasePersons db;
@@ -13,12 +13,14 @@ public class PersonController implements Controller
     public PersonController(DatabasePersons db)
     {
         this.db = db;
+        db.addPropertyChangeListener(new PrintUpdated());
     }
 
     @Override
     public void addPerson(Person person)
     {
         db.addPerson(person);
+        db.firePropertyChange(person)   ;
     }
 
     @Override
