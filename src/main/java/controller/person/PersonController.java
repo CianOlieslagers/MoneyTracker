@@ -13,14 +13,14 @@ public class PersonController implements PController
     public PersonController(DatabasePersons db)
     {
         this.db = db;
-        db.addPropertyChangeListener(new PrintUpdated());
+
     }
 
     @Override
     public void addPerson(Person person)
     {
         db.addPerson(person);
-        db.firePropertyChange(person)   ;
+
     }
 
     @Override

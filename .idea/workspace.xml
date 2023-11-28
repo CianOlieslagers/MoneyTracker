@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="Observer en singleton af" />
+    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="Observer en singleton af">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/DatabasePersons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DatabasePersons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/PersonDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/PersonDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/observers/EntryChangePerson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/observers/EntryChangeTicket.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +81,7 @@
       <workItem from="1699959218555" duration="7035000" />
       <workItem from="1701103442761" duration="2936000" />
       <workItem from="1701121385366" duration="1957000" />
-      <workItem from="1701165206978" duration="327000" />
+      <workItem from="1701165206978" duration="2567000" />
     </task>
     <task id="LOCAL-00001" summary="pom file">
       <option name="closed" value="true" />
@@ -97,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701165487460</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Observer en singleton af">
+      <created>1701165550281</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701165550281</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,5 +1,6 @@
 package database;
 
+import observers.PrintUpdated;
 import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
@@ -16,6 +17,7 @@ public class TicketDB extends DatabaseTickets
     public TicketDB() // Stond private origineel maar maakte problemen met Singleton toevoeging dus naar een public omgezet
     {
         this.db = new ArrayList<>();
+        this.addObserver(new PrintUpdated());
     }
 
     public static DatabaseTickets getInstance()
@@ -26,24 +28,16 @@ public class TicketDB extends DatabaseTickets
     @Override
     public void addTicket(Ticket ticket)
     {
-        Ticket oldValue;
-        if (db.isEmpty())
-            oldValue = null;
-        else
-            oldValue = db.get(db.size() - 1);
-        support.firePropertyChange("TicketDB", oldValue, ticket);
+
+        support.firePropertyChange("TicketDB", null, ticket);
         db.add(ticket);
     }
 
     @Override
     public void removeTicket(Ticket ticket)
     {
-        Ticket oldValue;
-        if (db.isEmpty())
-            oldValue = null;
-        else
-            oldValue = db.get(db.size() - 1);
-        support.firePropertyChange("TicketDB", oldValue, ticket);
+
+        support.firePropertyChange("TicketDB", null, ticket);
         db.remove(ticket);
     }
 
