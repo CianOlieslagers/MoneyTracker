@@ -3,6 +3,7 @@ package database;
 import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
+import java.util.Iterator;
 
 public abstract class DatabaseTickets
 {
@@ -29,4 +30,9 @@ public abstract class DatabaseTickets
     public abstract void removeTicket(Ticket ticket);
     public abstract void addObserver(PropertyChangeListener pcl);
     public abstract void removeObserver(PropertyChangeListener pcl);
+
+
+
+
+    public abstract Double totaalSum();
 }

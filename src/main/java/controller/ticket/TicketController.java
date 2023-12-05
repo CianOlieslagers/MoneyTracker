@@ -1,8 +1,8 @@
 package controller.ticket;
 
 import database.DatabaseTickets;
-import observers.PrintUpdated;
 import ticket.Ticket;
+
 
 public class TicketController implements TController
 {
@@ -24,4 +24,14 @@ public class TicketController implements TController
     {
         db.removeTicket(ticket);
     }
+
+    @Override
+    public double totaalSum(DatabaseTickets dbt) {
+        return dbt.totaalSum();
+    }
+
+
+
+
+
 }

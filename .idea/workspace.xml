@@ -4,14 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="Observer en singleton af">
+    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="Observer af">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Decorator/ActivitiesTicketDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Decorator/AirplaneTicketDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Decorator/DrinksTicketDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Decorator/FoodTicketDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Decorator/OthersTicketDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Decorator/TaxiTicketDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Decorator/TicketDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/DatabasePersons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DatabasePersons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ticket/TController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ticket/TController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ticket/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ticket/TicketController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/PersonDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/PersonDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/observers/EntryChangePerson.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/observers/EntryChangeTicket.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +53,13 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Universiteit UA/AlgemeneTest/softDesign/Test3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/32497/JavaProjects/Semester5/Labo1/Lab1_Diagrams&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -81,7 +88,11 @@
       <workItem from="1699959218555" duration="7035000" />
       <workItem from="1701103442761" duration="2936000" />
       <workItem from="1701121385366" duration="1957000" />
-      <workItem from="1701165206978" duration="2567000" />
+      <workItem from="1701165206978" duration="7289000" />
+      <workItem from="1701525519587" duration="1279000" />
+      <workItem from="1701611313799" duration="1200000" />
+      <workItem from="1701616278656" duration="5993000" />
+      <workItem from="1701763856386" duration="1934000" />
     </task>
     <task id="LOCAL-00001" summary="pom file">
       <option name="closed" value="true" />
@@ -112,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701165550281</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Observer af">
+      <created>1701167839492</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701167839492</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +150,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pom file" />
     <MESSAGE value="Observer en singleton af" />
-    <option name="LAST_COMMIT_MESSAGE" value="Observer en singleton af" />
+    <MESSAGE value="Observer af" />
+    <option name="LAST_COMMIT_MESSAGE" value="Observer af" />
   </component>
 </project>
