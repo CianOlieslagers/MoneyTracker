@@ -33,7 +33,7 @@ public class TicketDB extends DatabaseTickets
     @Override
     public void addTicket(Ticket ticket)
     {
-        if (dbPersons.getNames().contains(ticket.getName()))
+        if (dbPersons.getNames().contains(ticket.getPayer()))
         {
             support.firePropertyChange("TicketDB add", null, ticket);
             this.db.put(ticketCount, ticket);
@@ -76,6 +76,5 @@ public class TicketDB extends DatabaseTickets
         }
         return totaal;
     }
-
 
 }

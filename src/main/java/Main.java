@@ -1,4 +1,4 @@
-import GUI.MainFrame;
+import GUI.homescreen.HomeFrame;
 import controller.Decorator.AirplaneTicketDecorator;
 import controller.person.PController;
 import controller.person.PersonController;
@@ -13,7 +13,6 @@ import person.Person;
 import ticket.Category;
 import ticket.Ticket;
 
-import javax.swing.*;
 import java.util.HashMap;
 
 public class Main
@@ -32,7 +31,7 @@ public class Main
         PController Pregister = new PersonController(DbP1);
 
         DatabaseTickets DbT1 = TicketDB.getInstance();
-        TController Tregister = new TicketController(DbT1, DbP1);
+        TController Tregister = new TicketController(DbT1);
 
 
         Person Melanie = new Person("Melanie","1" );
@@ -61,6 +60,8 @@ public class Main
 
         Tregister.addTicket(TicketMelanie);
 
+
+
         double Totaal = Tregister.totaalSum(DbT1);
         System.out.print(Totaal+ "\n");
 
@@ -70,7 +71,10 @@ public class Main
 
 
         // Frame Logica
-        SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
+        //SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
+
+        HomeFrame view = new HomeFrame();
+        view.initialize();
 
 
 

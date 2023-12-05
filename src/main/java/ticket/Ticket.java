@@ -51,12 +51,12 @@ public class Ticket
 
     public String getName()
     {
-        return payer;
+        return name;
     }
 
     public void setName(String name)
     {
-        this.payer = name;
+        this.name = name;
     }
 
     public double getAmount()

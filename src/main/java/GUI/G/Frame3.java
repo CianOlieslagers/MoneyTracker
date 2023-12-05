@@ -1,8 +1,6 @@
-package GUI;
+package GUI.G;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 class Frame3 extends BaseFrame {
