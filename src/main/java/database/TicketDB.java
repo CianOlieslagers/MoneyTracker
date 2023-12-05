@@ -1,10 +1,12 @@
 package database;
 
 import observers.PrintUpdated;
+import person.Person;
 import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,7 +67,17 @@ public class TicketDB extends DatabaseTickets
         support.removePropertyChangeListener(pcl);
     }
 
-
+    @Override
+    public ArrayList<Ticket> getTickets()
+    {
+        ArrayList<Ticket> ticketList = new ArrayList<>();
+        for(Map.Entry<Integer, Ticket> e: this.db.entrySet())
+        {
+            Ticket e_Value = e.getValue();
+            ticketList.add(e_Value);
+        }
+        return ticketList;
+    }
 
     @Override
     public Double totaalSum() {

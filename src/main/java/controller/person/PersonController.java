@@ -3,6 +3,8 @@ package controller.person;
 import database.DatabasePersons;
 import person.Person;
 
+import java.util.ArrayList;
+
 public class PersonController implements PController
 {
 
@@ -24,5 +26,16 @@ public class PersonController implements PController
     public void removePerson(Person person)
     {
         db.removePerson(person);
+    }
+
+    @Override
+    public ArrayList<String> getNames() {
+        return (db.getNames());
+    }
+
+    @Override
+    public ArrayList<Person> getPersons()
+    {
+        return db.getPersons();
     }
 }

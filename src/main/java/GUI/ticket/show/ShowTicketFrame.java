@@ -1,6 +1,7 @@
 package GUI.ticket.show;
 
 import GUI.homescreen.panels.HomePanel;
+import GUI.ticket.show.panels.ShowTicketPanel;
 import controller.person.PersonController;
 import controller.ticket.TicketController;
 import database.PersonDB;
@@ -14,7 +15,7 @@ public class ShowTicketFrame extends JFrame
     PersonController personController = new PersonController(PersonDB.getInstance());
     TicketController ticketController = new TicketController(TicketDB.getInstance());
 
-    HomePanel buttons;
+    ShowTicketPanel buttons;
 
     public ShowTicketFrame()
     {
@@ -24,7 +25,7 @@ public class ShowTicketFrame extends JFrame
     public void initialize()
     {
         this.setSize(500, 300);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         setLocationRelativeTo(null);
 
@@ -32,7 +33,7 @@ public class ShowTicketFrame extends JFrame
         this.setLayout(layout);
 
         // Pass the controller to the ButtonPanel
-        buttons = new HomePanel(personController, ticketController);
+        buttons = new ShowTicketPanel(personController, ticketController);
 
         this.add(buttons);
         this.setVisible(true);

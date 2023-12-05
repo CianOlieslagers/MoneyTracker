@@ -1,5 +1,6 @@
-package GUI.ticket.add;
+package GUI.person.show;
 
+import GUI.person.show.panels.ShowPersonPanel;
 import GUI.ticket.add.panels.AddTicketPanel;
 import controller.person.PersonController;
 import controller.ticket.TicketController;
@@ -9,17 +10,17 @@ import database.TicketDB;
 import javax.swing.*;
 import java.awt.*;
 
-public class AddTicketFrame extends JFrame
+public class ShowPersonFrame extends JFrame
 {
     PersonController personController = new PersonController(PersonDB.getInstance());
     TicketController ticketController = new TicketController(TicketDB.getInstance());
 
-    AddTicketPanel buttons;
+    ShowPersonPanel buttons;
 
 
-    public AddTicketFrame()
+    public ShowPersonFrame()
     {
-        super("TICKET");
+        super("PERSON");
     }
 
     public void initialize()
@@ -33,14 +34,9 @@ public class AddTicketFrame extends JFrame
         this.setLayout(layout);
 
         // Pass the controller to the ButtonPanel
-        buttons = new AddTicketPanel(personController, ticketController);
+        buttons = new ShowPersonPanel(personController, ticketController);
 
         this.add(buttons);
         this.setVisible(true);
-    }
-
-    public void closeFrame()
-    {
-        this.setVisible(false);
     }
 }

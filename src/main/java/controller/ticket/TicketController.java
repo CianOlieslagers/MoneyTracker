@@ -3,6 +3,8 @@ package controller.ticket;
 import database.DatabaseTickets;
 import ticket.Ticket;
 
+import java.util.ArrayList;
+
 
 public class TicketController implements TController
 {
@@ -23,6 +25,12 @@ public class TicketController implements TController
     public void removeTicket(Ticket ticket)
     {
         db.removeTicket(ticket);
+    }
+
+    @Override
+    public ArrayList<Ticket> getTickets()
+    {
+        return (db.getTickets());
     }
 
     @Override

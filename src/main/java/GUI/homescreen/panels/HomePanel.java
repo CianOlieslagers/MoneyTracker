@@ -1,6 +1,8 @@
 package GUI.homescreen.panels;
 
 
+import GUI.person.add.AddPersonFrame;
+import GUI.person.show.ShowPersonFrame;
 import GUI.ticket.add.AddTicketFrame;
 import GUI.ticket.show.ShowTicketFrame;
 import controller.person.PersonController;
@@ -82,7 +84,8 @@ public class HomePanel extends JPanel
         {
             // Insert here your controller functionality
             System.out.println("[HOME-FRAME] : add person");
-
+            AddPersonFrame frame = new AddPersonFrame();
+            frame.initialize();
         });
     }
 
@@ -91,7 +94,8 @@ public class HomePanel extends JPanel
         this.showPersons.addActionListener(listener ->
         {
             System.out.println("[HOME-FRAME] : show persons");
-
+            ShowPersonFrame frame = new ShowPersonFrame();
+            frame.initialize();
         });
     }
 

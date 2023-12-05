@@ -37,15 +37,15 @@ public class Main
         Person Melanie = new Person("Melanie","1" );
         Person Melanie2 = new Person("Melanie","55" );
         Person Mel = new Person("Mel","2" );
-        Person Bob = new Person("Bob","2" );
+        Person Bob = new Person("Bob","22" );
+        Person Charlie = new Person("Charlie","33");
 
         Pregister.addPerson(Melanie);
         Pregister.addPerson(Melanie2);
         Pregister.addPerson(Mel);
         Pregister.addPerson(Bob);
+        Pregister.addPerson(Charlie);
 
-        Pregister.removePerson(Mel);
-        Pregister.removePerson(Bob);
 
         HashMap<Double,Person> TestValues = new HashMap<>();
         TestValues.put(10.0, Melanie);
@@ -55,19 +55,18 @@ public class Main
 
         TicketFactory TF1 = new TicketFactory();
         Ticket TicketMelanie = TF1.getTicket("x","Melanie", 60, Category.Food,false, TestValues);
+        Ticket Ticket2 = TF1.getTicket("y","Charlie", 44.4, Category.Food,false, TestValues);
 
         System.out.println(DbP1.getNames());
 
         Tregister.addTicket(TicketMelanie);
-
+        Tregister.addTicket(Ticket2);
 
 
         double Totaal = Tregister.totaalSum(DbT1);
         System.out.print(Totaal+ "\n");
 
-        TicketMelanie = new AirplaneTicketDecorator(TicketMelanie);
 
-        Tregister.removeTicket(TicketMelanie);
 
 
         // Frame Logica

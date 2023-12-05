@@ -7,7 +7,9 @@ import person.Person;
 import ticket.Category;
 
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class AddTicketPanel extends JPanel
 {
@@ -17,15 +19,14 @@ public class AddTicketPanel extends JPanel
 
     Category[] categories = Category.values();
 
-    private JComboBox comboBox;
-    private JLabel comboLabel;
+    private JComboBox categoryBox;
+    private JLabel categoryLabel;
     private JButton save;
-    private JButton back;
     private JLabel activityLabel;
     private JLabel payerLabel;
     private JLabel amountLabel;
     private JTextField activityField;
-    private JTextField payerField;
+    private JComboBox payerBox;
     private JTextField amountField;
     private JLabel splitLabel;
     private JCheckBox checkBox;
@@ -35,18 +36,17 @@ public class AddTicketPanel extends JPanel
     {
         this.personController = personController;
         this.ticketController = ticketController;
-        this.comboBox = new JComboBox(categories);
+        this.categoryBox = new JComboBox(categories);
         this.save = new JButton("Save");
-        this.back = new JButton("Back");
         this.activityLabel = new JLabel("Activity name:");
         this.payerLabel = new JLabel("Payer:");
         this.amountLabel = new JLabel("Amount:");
         this.activityField = new JTextField();
-        this.payerField = new JTextField();
+        this.payerBox = new JComboBox(personController.getNames().toArray());
         this.amountField = new JTextField();
         this.splitLabel = new JLabel("Split evenly:");
         this.checkBox = new JCheckBox();
-        this.comboLabel = new JLabel("Select category:");
+        this.categoryLabel = new JLabel("Select category:");
 
 
         boxActionListener();
@@ -66,14 +66,13 @@ public class AddTicketPanel extends JPanel
                                 .addComponent(this.payerLabel)
                                 .addComponent(this.amountLabel)
                                 .addComponent(this.splitLabel)
-                                .addComponent(this.comboLabel)
-                                .addComponent(this.back))
+                                .addComponent(this.categoryLabel))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                                 .addComponent(this.activityField)
-                                .addComponent(this.payerField)
+                                .addComponent(this.payerBox)
                                 .addComponent(this.amountField)
                                 .addComponent(this.checkBox)
-                                .addComponent(this.comboBox)
+                                .addComponent(this.categoryBox)
                                 .addComponent(this.save))
         );
         layout.setVerticalGroup(
@@ -83,7 +82,7 @@ public class AddTicketPanel extends JPanel
                                 .addComponent(this.activityField))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                                 .addComponent(this.payerLabel)
-                                .addComponent(this.payerField))
+                                .addComponent(this.payerBox))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                                 .addComponent(this.amountLabel)
                                 .addComponent(this.amountField))
@@ -91,10 +90,9 @@ public class AddTicketPanel extends JPanel
                                 .addComponent(this.splitLabel)
                                 .addComponent(this.checkBox))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                                .addComponent(this.comboLabel)
-                                .addComponent(this.comboBox))
+                                .addComponent(this.categoryLabel)
+                                .addComponent(this.categoryBox))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                                .addComponent(this.back)
                                 .addComponent(this.save))
         );
 
@@ -104,9 +102,9 @@ public class AddTicketPanel extends JPanel
 
     public void boxActionListener()
     {
-        this.comboBox.addActionListener(listener ->
+        this.categoryBox.addActionListener(listener ->
         {
-            System.out.println(comboBox.getSelectedItem());
+            //System.out.println(categoryBox.getSelectedItem());
         });
     }
 
@@ -116,19 +114,18 @@ public class AddTicketPanel extends JPanel
         {
             System.out.println("save");
             String name = this.activityField.getText();
-            String payer = this.payerField.getText();
+            String payer = (String) this.payerBox.getSelectedItem();
             double amount = Double.parseDouble(this.amountField.getText());
-            Category category = (Category) this.comboBox.getSelectedItem();
+            Category category = (Category) this.categoryBox.getSelectedItem();
             Boolean splitEvenly = this.checkBox.isSelected();
             HashMap<Double, Person> amountPerPerson = new HashMap<>();
             amountPerPerson.put(10.0, new Person("Melanie","fd"));
             amountPerPerson.put(20.0, new Person("Mel","snel"));
             amountPerPerson.put(30.0, new Person("Bob","de bouwer"));
 
-            System.out.println(factory.getTicket(name, payer, amount, category, splitEvenly, amountPerPerson));
+            ticketController.addTicket(factory.getTicket(name, payer, amount, category, splitEvenly, amountPerPerson));
 
         });
     }
-
 
 }
