@@ -55,7 +55,7 @@ public class Main
 
 
         TicketFactory TF1 = new TicketFactory();
-        Ticket TicketMelanie = TF1.getTicket("Melanie", 60, Category.Food,false, TestValues);
+        Ticket TicketMelanie = TF1.getTicket("x","Melanie", 60, Category.Food,false, TestValues);
 
         System.out.println(DbP1.getNames());
 
@@ -67,10 +67,6 @@ public class Main
         TicketMelanie = new AirplaneTicketDecorator(TicketMelanie);
 
         Tregister.removeTicket(TicketMelanie);
-
-
-
-
 
 
         // Frame Logica

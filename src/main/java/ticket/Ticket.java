@@ -7,21 +7,22 @@ import java.util.HashMap;
 
 public class Ticket
 {
+    private String name;
     private String payer;
     private double amount;
     private Category category;
     private Boolean splitEvenly;
     private HashMap<Double, Person> amountPerPerson;
 
-    public Ticket(String payer, double amount, Category category, Boolean splitEvenly, HashMap<Double,Person> amountPerPerson)
+    public Ticket(String name, String payer, double amount, Category category, Boolean splitEvenly, HashMap<Double,Person> amountPerPerson)
     {
+        this.name = name;
         this.payer = payer;
         this.amount = amount;
         this.category = category;
         this.splitEvenly = splitEvenly;
         this.amountPerPerson = amountPerPerson;
     }
-
 
 
     public String getPayer() {
@@ -81,7 +82,8 @@ public class Ticket
     @Override
     public String toString() {
         return "Ticket{" +
-                "payer='" + payer + '\'' +
+                "name='" + name + '\'' +
+                ", payer='" + payer + '\'' +
                 ", amount=" + amount +
                 ", category=" + category +
                 ", splitEvenly=" + splitEvenly +
