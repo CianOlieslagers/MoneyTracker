@@ -17,7 +17,7 @@ public class PersonDB extends DatabasePersons
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     private int personCount = 0;
 
-    public PersonDB()
+    private PersonDB()
     {
         this.db = new LinkedHashMap<>();
         this.addObserver(new PrintUpdated());

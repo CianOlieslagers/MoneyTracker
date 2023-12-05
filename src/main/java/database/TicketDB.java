@@ -5,6 +5,7 @@ import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,10 +16,10 @@ public class TicketDB extends DatabaseTickets
     private static final TicketDB ticketDB = new TicketDB();
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     private int ticketCount = 0;
-    private PersonDB dbPersons = new PersonDB();
+    private final DatabasePersons dbPersons = PersonDB.getInstance();
 
 
-    public TicketDB() // Stond private origineel maar maakte problemen met Singleton toevoeging dus naar een public omgezet
+    private TicketDB() // Stond private origineel maar maakte problemen met Singleton toevoeging dus naar een public omgezet
     {
         this.db = new HashMap<>();
         this.addObserver(new PrintUpdated());
@@ -43,7 +44,6 @@ public class TicketDB extends DatabaseTickets
         {
             System.out.println("Database doesn't contains this name");
         }
-
     }
 
     @Override

@@ -6,12 +6,15 @@ import controller.ticket.TController;
 import controller.ticket.TicketController;
 import database.DatabasePersons;
 import database.DatabaseTickets;
+import database.PersonDB;
+import database.TicketDB;
 import factory.TicketFactory;
 import person.Person;
 import ticket.Category;
 import ticket.Ticket;
 
 import javax.swing.*;
+import java.util.HashMap;
 
 public class Main
 {
@@ -25,10 +28,10 @@ public class Main
         Main main = new Main();
         main.run();
 
-        DatabasePersons DbP1 = DatabasePersons.getInstance();
+        DatabasePersons DbP1 = PersonDB.getInstance();
         PController Pregister = new PersonController(DbP1);
 
-        DatabaseTickets DbT1 = DatabaseTickets.getInstance();
+        DatabaseTickets DbT1 = TicketDB.getInstance();
         TController Tregister = new TicketController(DbT1, DbP1);
 
 
@@ -42,26 +45,27 @@ public class Main
         Pregister.addPerson(Mel);
         Pregister.addPerson(Bob);
 
-        Pregister.removePerson(Melanie);
         Pregister.removePerson(Mel);
         Pregister.removePerson(Bob);
 
-        HashMap<Double,Person> TestValues = new HashMap<Double, Person>();
+        HashMap<Double,Person> TestValues = new HashMap<>();
         TestValues.put(10.0, Melanie);
-        TestValues.put(20.0,Mel);
-        TestValues.put(30.0,Bob);
-
+        TestValues.put(20.0, Mel);
+        TestValues.put(30.0, Bob);
 
 
         TicketFactory TF1 = new TicketFactory();
-        Ticket TicketMelanie = TF1.getTicket("Melanie", 20, Category.Food,true,TestValues );
+        Ticket TicketMelanie = TF1.getTicket("Melanie", 60, Category.Food,false, TestValues);
+
+        System.out.println(DbP1.getNames());
+
+        Tregister.addTicket(TicketMelanie);
 
         double Totaal = Tregister.totaalSum(DbT1);
         System.out.print(Totaal+ "\n");
 
         TicketMelanie = new AirplaneTicketDecorator(TicketMelanie);
 
-        Pregister.removePerson(Melanie);
         Tregister.removeTicket(TicketMelanie);
 
 
