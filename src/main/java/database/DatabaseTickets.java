@@ -3,7 +3,6 @@ package database;
 import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
-import java.util.Iterator;
 
 public abstract class DatabaseTickets
 {

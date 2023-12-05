@@ -35,6 +35,7 @@ public class TicketDB extends DatabaseTickets
         support.firePropertyChange("TicketDB add", null, ticket);
         this.db.put(ticketCount, ticket);
         ticketCount++;
+
     }
 
     @Override

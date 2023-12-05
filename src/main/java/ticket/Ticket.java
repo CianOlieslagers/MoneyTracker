@@ -1,30 +1,33 @@
 package ticket;
 
-import java.util.ArrayList;
+import database.DatabasePersons;
+import person.Person;
+
+import java.util.HashMap;
 
 public class Ticket
 {
-    private String name;
+    private String payer;
     private double amount;
     private Category category;
-    private ArrayList<String> names;
     private Boolean splitEvenly;
+    private HashMap<Double, Person> amountPerPerson;
 
-    public Ticket(String name, double amount, Category category)
+    public Ticket(String payer, double amount, Category category)
     {
-        this.name = name;
+        this.payer = payer;
         this.amount = amount;
         this.category = category;
     }
 
     public String getName()
     {
-        return name;
+        return payer;
     }
 
     public void setName(String name)
     {
-        this.name = name;
+        this.payer = name;
     }
 
     public double getAmount()
@@ -47,10 +50,11 @@ public class Ticket
         this.category = category;
     }
 
+
     @Override
     public String toString() {
         return "Ticket{" +
-                "name='" + name + '\'' +
+                "payer='" + payer + '\'' +
                 ", amount=" + amount +
                 ", category=" + category +
                 '}';

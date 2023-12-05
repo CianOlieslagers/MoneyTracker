@@ -3,6 +3,9 @@ package database;
 import person.Person;
 
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public abstract class DatabasePersons
 {
@@ -26,5 +29,6 @@ public abstract class DatabasePersons
     public abstract void removePerson(Person person);
     public abstract void addObserver(PropertyChangeListener pcl);
     public abstract void removeObserver(PropertyChangeListener pcl);
+    public abstract ArrayList<Person> getPersons();
 
 }

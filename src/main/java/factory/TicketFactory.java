@@ -10,7 +10,7 @@ public class TicketFactory
     public Ticket getTicket(String name, double amount, Category category)
     {
         if (Objects.equals(category, Category.Food))
-            return new Ticket(name,amount, Category.Food);
+            return new Ticket(name, amount, Category.Food);
         else if (Objects.equals(category, Category.Taxi))
             return new Ticket(name, amount, Category.Taxi);
         else if (Objects.equals(category, Category.Drinks))

@@ -33,7 +33,7 @@ public class Main
         PController Pregister = new PersonController(DbP1);
 
         DatabaseTickets DbT1 = DatabaseTickets.getInstance();
-        TController Tregister = new TicketController(DbT1);
+        TController Tregister = new TicketController(DbT1, DbP1);
 
 
         Person Melanie = new Person("Melanie","1" );
@@ -44,13 +44,14 @@ public class Main
         Pregister.addPerson(Mel);
         Pregister.addPerson(Bob);
 
+        DbP1.getPersons();
+
         Pregister.removePerson(Melanie);
         Pregister.removePerson(Mel);
         Pregister.removePerson(Bob);
 
         TicketFactory TF1 = new TicketFactory();
         Ticket TicketMelanie = TF1.getTicket("Melanie", 20, Category.Food);
-        Tregister.addTicket(TicketMelanie);
 
         double Totaal = Tregister.totaalSum(DbT1);
         System.out.print(Totaal);
@@ -59,6 +60,8 @@ public class Main
 
         Pregister.removePerson(Melanie);
         Tregister.removeTicket(TicketMelanie);
+
+
 
 
 

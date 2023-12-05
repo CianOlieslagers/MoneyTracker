@@ -2,6 +2,8 @@ package database;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -88,6 +90,9 @@ public class PersonDB extends DatabasePersons
         support.removePropertyChangeListener(pcl);
     }
 
-
-
+    @Override
+    public ArrayList<Person> getPersons()
+    {
+        return null;
+    }
 }
