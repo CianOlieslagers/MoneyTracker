@@ -5,7 +5,6 @@ import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +18,7 @@ public class TicketDB extends DatabaseTickets
     private final DatabasePersons dbPersons = PersonDB.getInstance();
 
 
-    private TicketDB() // Stond private origineel maar maakte problemen met Singleton toevoeging dus naar een public omgezet
+    private TicketDB()
     {
         this.db = new HashMap<>();
         this.addObserver(new PrintUpdated());
