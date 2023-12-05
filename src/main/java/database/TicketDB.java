@@ -6,6 +6,7 @@ import ticket.Ticket;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.HashMap;
+import java.util.Map;
 
 public class TicketDB extends DatabaseTickets
 {
@@ -21,6 +22,7 @@ public class TicketDB extends DatabaseTickets
         this.db = new HashMap<>();
         this.addObserver(new PrintUpdated());
     }
+
 
     public static DatabaseTickets getInstance()
     {
@@ -54,4 +56,19 @@ public class TicketDB extends DatabaseTickets
     {
         support.removePropertyChangeListener(pcl);
     }
+
+
+
+    @Override
+    public Double totaalSum() {
+        Double totaal = 0.0;
+        for(Map.Entry<Integer, Ticket> e: this.db.entrySet()){
+            int e_TicketId = e.getKey();
+            Ticket e_Value = e.getValue();
+            totaal = e_Value.getAmount() + totaal;
+        }
+        return totaal;
+    }
+
+
 }
