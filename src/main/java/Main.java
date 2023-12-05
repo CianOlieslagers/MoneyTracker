@@ -6,16 +6,12 @@ import controller.ticket.TController;
 import controller.ticket.TicketController;
 import database.DatabasePersons;
 import database.DatabaseTickets;
-import database.TicketDB;
 import factory.TicketFactory;
 import person.Person;
 import ticket.Category;
 import ticket.Ticket;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.swing.*;
-import java.util.Iterator;
 
 public class Main
 {
@@ -37,14 +33,14 @@ public class Main
 
 
         Person Melanie = new Person("Melanie","1" );
-        Person Mel = new Person("Mel","22" );
+        Person Melanie2 = new Person("Melanie","55" );
+        Person Mel = new Person("Mel","2" );
         Person Bob = new Person("Bob","2" );
 
         Pregister.addPerson(Melanie);
+        Pregister.addPerson(Melanie2);
         Pregister.addPerson(Mel);
         Pregister.addPerson(Bob);
-
-        System.out.println(DbP1.getPersons());
 
         Pregister.removePerson(Melanie);
         Pregister.removePerson(Mel);

@@ -3,14 +3,11 @@ package database;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
 import observers.PrintUpdated;
 import person.Person;
-import ticket.Ticket;
 
 
 public class PersonDB extends DatabasePersons
@@ -94,11 +91,24 @@ public class PersonDB extends DatabasePersons
     @Override
     public ArrayList<Person> getPersons()
     {
-        ArrayList<Person> value = new ArrayList<>();
-        for(Map.Entry<Integer, Person> e: this.db.entrySet()){
+        ArrayList<Person> personList = new ArrayList<>();
+        for(Map.Entry<Integer, Person> e: this.db.entrySet())
+        {
             Person e_Value = e.getValue();
-            value.add(e_Value);
+            personList.add(e_Value);
         }
-        return value;
+        return personList;
+    }
+
+    @Override
+    public ArrayList<String> getNames()
+    {
+        ArrayList<String> nameList = new ArrayList<>();
+        for(Map.Entry<Integer, Person> e: this.db.entrySet())
+        {
+            String name = e.getValue().getName();
+            nameList.add(name);
+        }
+        return nameList;
     }
 }

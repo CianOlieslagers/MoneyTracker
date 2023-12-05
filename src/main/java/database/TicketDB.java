@@ -15,6 +15,7 @@ public class TicketDB extends DatabaseTickets
     private static final TicketDB ticketDB = new TicketDB();
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     private int ticketCount = 0;
+    private PersonDB dbPersons = new PersonDB();
 
 
     public TicketDB() // Stond private origineel maar maakte problemen met Singleton toevoeging dus naar een public omgezet
@@ -32,9 +33,16 @@ public class TicketDB extends DatabaseTickets
     @Override
     public void addTicket(Ticket ticket)
     {
-        support.firePropertyChange("TicketDB add", null, ticket);
-        this.db.put(ticketCount, ticket);
-        ticketCount++;
+        if (dbPersons.getNames().contains(ticket.getName()))
+        {
+            support.firePropertyChange("TicketDB add", null, ticket);
+            this.db.put(ticketCount, ticket);
+            ticketCount++;
+        }
+        else
+        {
+            System.out.println("Database doesn't contains this name");
+        }
 
     }
 
@@ -64,7 +72,6 @@ public class TicketDB extends DatabaseTickets
     public Double totaalSum() {
         Double totaal = 0.0;
         for(Map.Entry<Integer, Ticket> e: this.db.entrySet()){
-            int e_TicketId = e.getKey();
             Ticket e_Value = e.getValue();
             totaal = e_Value.getAmount() + totaal;
         }
