@@ -10,6 +10,7 @@ import java.util.Map;
 
 import observers.PrintUpdated;
 import person.Person;
+import ticket.Ticket;
 
 
 public class PersonDB extends DatabasePersons
@@ -93,6 +94,11 @@ public class PersonDB extends DatabasePersons
     @Override
     public ArrayList<Person> getPersons()
     {
-        return null;
+        ArrayList<Person> value = new ArrayList<>();
+        for(Map.Entry<Integer, Person> e: this.db.entrySet()){
+            Person e_Value = e.getValue();
+            value.add(e_Value);
+        }
+        return value;
     }
 }

@@ -44,7 +44,7 @@ public class Main
         Pregister.addPerson(Mel);
         Pregister.addPerson(Bob);
 
-        DbP1.getPersons();
+        System.out.println(DbP1.getPersons());
 
         Pregister.removePerson(Melanie);
         Pregister.removePerson(Mel);
