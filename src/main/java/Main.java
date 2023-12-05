@@ -50,11 +50,18 @@ public class Main
         Pregister.removePerson(Mel);
         Pregister.removePerson(Bob);
 
+        HashMap<Double,Person> TestValues = new HashMap<Double, Person>();
+        TestValues.put(10.0, Melanie);
+        TestValues.put(20.0,Mel);
+        TestValues.put(30.0,Bob);
+
+
+
         TicketFactory TF1 = new TicketFactory();
-        Ticket TicketMelanie = TF1.getTicket("Melanie", 20, Category.Food);
+        Ticket TicketMelanie = TF1.getTicket("Melanie", 20, Category.Food,true,TestValues );
 
         double Totaal = Tregister.totaalSum(DbT1);
-        System.out.print(Totaal);
+        System.out.print(Totaal+ "\n");
 
         TicketMelanie = new AirplaneTicketDecorator(TicketMelanie);
 
