@@ -20,7 +20,7 @@ public class ShowPersonFrame extends JFrame
 
     public ShowPersonFrame()
     {
-        super("PERSON");
+        super("SHOW PERSON SCREEN");
     }
 
     public void initialize()

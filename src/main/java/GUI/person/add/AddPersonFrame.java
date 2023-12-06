@@ -20,7 +20,7 @@ public class AddPersonFrame extends JFrame
 
     public AddPersonFrame()
     {
-        super("PERSON");
+        super("ADD PERSON SCREEN");
     }
 
     public void initialize()

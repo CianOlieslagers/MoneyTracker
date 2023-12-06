@@ -19,7 +19,7 @@ public class ShowTicketFrame extends JFrame
 
     public ShowTicketFrame()
     {
-        super("SHOW TICKET");
+        super("SHOW TICKET SCREEN");
     }
 
     public void initialize()

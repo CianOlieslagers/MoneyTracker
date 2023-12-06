@@ -19,7 +19,7 @@ public class HomeFrame extends JFrame
 
     public HomeFrame()
     {
-        super("START");
+        super("HOMESCREEN");
     }
 
     public void initialize()

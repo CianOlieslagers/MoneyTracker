@@ -19,7 +19,7 @@ public class AddTicketFrame extends JFrame
 
     public AddTicketFrame()
     {
-        super("TICKET");
+        super("ADD TICKET SCREEN");
     }
 
     public void initialize()
