@@ -1,9 +1,10 @@
-package controller.Decorator;
+package controller.decorator;
 
 import ticket.Category;
 import ticket.Ticket;
 
-public abstract class TicketDecorator extends Ticket {
+public abstract class TicketDecorator extends Ticket
+{
     private Ticket decoratedTicket;
 
     public TicketDecorator(Ticket decoratedTicket)
@@ -13,7 +14,8 @@ public abstract class TicketDecorator extends Ticket {
     }
 
     @Override
-    public Category getCategory() {
+    public Category getCategory()
+    {
         // Replace this with the desired behavior to modify or replace the category
         return decoratedTicket.getCategory();
     }

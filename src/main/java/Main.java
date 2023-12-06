@@ -1,5 +1,4 @@
 import GUI.homescreen.HomeFrame;
-import controller.Decorator.AirplaneTicketDecorator;
 import controller.person.PController;
 import controller.person.PersonController;
 import controller.ticket.TController;

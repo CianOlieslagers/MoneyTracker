@@ -1,4 +1,4 @@
-package controller.Decorator;
+package controller.decorator;
 
 import ticket.Category;
 import ticket.Ticket;
