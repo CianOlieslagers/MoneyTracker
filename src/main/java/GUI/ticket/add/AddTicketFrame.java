@@ -3,6 +3,7 @@ package GUI.ticket.add;
 import GUI.ticket.add.panels.AddTicketPanel;
 import controller.person.PersonController;
 import controller.ticket.TicketController;
+import database.DatabaseTickets;
 import database.PersonDB;
 import database.TicketDB;
 
@@ -13,6 +14,8 @@ public class AddTicketFrame extends JFrame
 {
     PersonController personController = new PersonController(PersonDB.getInstance());
     TicketController ticketController = new TicketController(TicketDB.getInstance());
+
+    DatabaseTickets ticketDB = TicketDB.getInstance();
 
     AddTicketPanel buttons;
 
@@ -34,6 +37,8 @@ public class AddTicketFrame extends JFrame
 
         // Pass the controller to the ButtonPanel
         buttons = new AddTicketPanel(personController, ticketController);
+
+        ticketDB.addObserver(buttons);
 
         this.add(buttons);
         this.setVisible(true);

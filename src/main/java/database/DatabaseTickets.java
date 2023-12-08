@@ -8,12 +8,10 @@ import java.util.ArrayList;
 
 public abstract class DatabaseTickets
 {
-
     protected DatabaseTickets()
     {
 
     }
-
 
     public abstract void addTicket(Ticket ticket);
     public abstract void removeTicket(Ticket ticket);

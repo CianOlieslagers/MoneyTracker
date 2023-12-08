@@ -4,8 +4,10 @@ import GUI.person.show.panels.ShowPersonPanel;
 import GUI.ticket.add.panels.AddTicketPanel;
 import controller.person.PersonController;
 import controller.ticket.TicketController;
+import database.DatabasePersons;
 import database.PersonDB;
 import database.TicketDB;
+import person.Person;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +16,7 @@ public class ShowPersonFrame extends JFrame
 {
     PersonController personController = new PersonController(PersonDB.getInstance());
     TicketController ticketController = new TicketController(TicketDB.getInstance());
+    DatabasePersons personDB = PersonDB.getInstance();
 
     ShowPersonPanel buttons;
 
@@ -35,6 +38,8 @@ public class ShowPersonFrame extends JFrame
 
         // Pass the controller to the ButtonPanel
         buttons = new ShowPersonPanel(personController, ticketController);
+
+        personDB.addObserver(buttons);
 
         this.add(buttons);
         this.setVisible(true);

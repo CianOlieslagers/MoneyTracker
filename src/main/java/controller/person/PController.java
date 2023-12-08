@@ -10,4 +10,6 @@ public interface PController
     void removePerson(Person person);
     ArrayList<String> getNames();
     ArrayList<Person> getPersons();
+
+    Person getPerson(String name);
 }

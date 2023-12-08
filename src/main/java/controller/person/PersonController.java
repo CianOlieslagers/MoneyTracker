@@ -38,4 +38,10 @@ public class PersonController implements PController
     {
         return db.getPersons();
     }
+
+    @Override
+    public Person getPerson(String name)
+    {
+        return db.getPerson(name);
+    }
 }

@@ -7,11 +7,12 @@ import person.Person;
 import ticket.Category;
 
 import javax.swing.*;
-import java.util.ArrayList;
+import java.awt.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.HashMap;
-import java.util.List;
 
-public class AddTicketPanel extends JPanel
+public class AddTicketPanel extends JPanel implements PropertyChangeListener
 {
     PersonController personController;
     TicketController ticketController;
@@ -30,6 +31,8 @@ public class AddTicketPanel extends JPanel
     private JTextField amountField;
     private JLabel splitLabel;
     private JCheckBox checkBox;
+    private JLabel nameLabel;
+    private JTextField amountPerPersonField;
 
 
     public AddTicketPanel(PersonController personController, TicketController ticketController)
@@ -51,6 +54,7 @@ public class AddTicketPanel extends JPanel
 
         boxActionListener();
         saveButtonActionListener();
+        checkboxActionListener();
 
 
         GroupLayout layout = new GroupLayout(this);
@@ -127,5 +131,30 @@ public class AddTicketPanel extends JPanel
 
         });
     }
+
+    public void checkboxActionListener()
+    {
+        this.checkBox.addActionListener(listener ->
+        {
+            System.out.println("checkbox action");
+            for (Person person : personController.getPersons())
+            {
+                this.nameLabel = new JLabel(person.getName());
+                this.amountPerPersonField = new JTextField();
+
+            }
+        });
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt)
+    {
+        if (evt.getPropertyName().equals("TicketDB add"))
+        {
+            this.activityField.setText("");
+            this.amountField.setText("");
+        }
+    }
+
 
 }

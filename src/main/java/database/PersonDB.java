@@ -31,6 +31,13 @@ public class PersonDB extends DatabasePersons
     @Override
     public void addPerson(Person person)
     {
+        boolean empty = false;
+        if (person.getName().isEmpty() || person.getAccountNumber().isEmpty())
+        {
+            empty = true;
+            System.out.println("Name or accountnumber is empty!");
+        }
+
         boolean existing = false;
         for(Map.Entry<Integer, Person> entry: db.entrySet())
         {
@@ -50,7 +57,7 @@ public class PersonDB extends DatabasePersons
             }
         }
 
-        if (!existing)
+        if (!existing && !empty)
         {
             this.db.put(personCount,person);
             support.firePropertyChange("PersonDB add", null, person);
@@ -110,5 +117,20 @@ public class PersonDB extends DatabasePersons
             nameList.add(name);
         }
         return nameList;
+    }
+
+    @Override
+    public Person getPerson(String name)
+    {
+        Person person = null;
+        for (Map.Entry<Integer, Person> e : this.db.entrySet())
+        {
+            if (e.getValue().getName().equals(name))
+            {
+                person =  e.getValue();
+                break;
+            }
+        }
+        return person;
     }
 }
