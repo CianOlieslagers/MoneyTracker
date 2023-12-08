@@ -7,7 +7,6 @@ import person.Person;
 import ticket.Category;
 
 import javax.swing.*;
-import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashMap;
@@ -46,13 +45,12 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         this.amountLabel = new JLabel("Amount:");
         this.activityField = new JTextField();
         this.payerBox = new JComboBox(personController.getNames().toArray());
-        this.amountField = new JTextField();
+        this.amountField = new JTextField(String.valueOf(0.0));
         this.splitLabel = new JLabel("Split evenly:");
         this.checkBox = new JCheckBox();
         this.categoryLabel = new JLabel("Select category:");
 
 
-        boxActionListener();
         saveButtonActionListener();
         checkboxActionListener();
 
@@ -104,13 +102,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
 
     }
 
-    public void boxActionListener()
-    {
-        this.categoryBox.addActionListener(listener ->
-        {
-            //System.out.println(categoryBox.getSelectedItem());
-        });
-    }
+
 
     public void saveButtonActionListener()
     {
@@ -153,6 +145,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         {
             this.activityField.setText("");
             this.amountField.setText("");
+
         }
     }
 

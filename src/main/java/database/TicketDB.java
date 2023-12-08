@@ -35,16 +35,24 @@ public class TicketDB extends DatabaseTickets
     @Override
     public void addTicket(Ticket ticket)
     {
-        if (dbPersons.getNames().contains(ticket.getPayer()))
+        if (ticket.getName().isEmpty() || ticket.getAmount() <= 0.0)
         {
-            support.firePropertyChange("TicketDB add", null, ticket);
-            this.db.put(ticketCount, ticket);
-            ticketCount++;
+            System.out.println("TicketDB: Activity name is empty or amount is equal or smaller than 0.0 ");
         }
         else
         {
-            System.out.println("Database doesn't contains this name");
+            if (dbPersons.getNames().contains(ticket.getPayer()))    // is met een ComboBox dus moet normaal altijd true zijn
+            {
+                support.firePropertyChange("TicketDB add", null, ticket);
+                this.db.put(ticketCount, ticket);
+                ticketCount++;
+            }
+            else
+            {
+                System.out.println("Database doesn't contains this name");
+            }
         }
+
     }
 
     @Override
