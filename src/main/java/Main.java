@@ -57,8 +57,8 @@ public class Main
 
         TicketFactory TF1 = new TicketFactory();
         Ticket TicketMelanie = TF1.getTicket("x","Melanie", 60, Category.Food,false, TestValues);
-        Ticket Ticket2 = TF1.getTicket("y","Charlie", 44.4, Category.Food,false, TestValues);
-        Ticket Ticket3 = TF1.getTicket("y","Mel", 44.4, Category.Food,false, TestValues);
+        Ticket Ticket2 = TF1.getTicket("y","Charlie", 60, Category.Food,false, TestValues);
+        Ticket Ticket3 = TF1.getTicket("y","Melanie", 60, Category.Food,false, TestValues);
 
 
 
