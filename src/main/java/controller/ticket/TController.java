@@ -4,6 +4,7 @@ import database.DatabaseTickets;
 import ticket.Ticket;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface TController
 {
@@ -12,4 +13,5 @@ public interface TController
     ArrayList<Ticket> getTickets();
     double totaalSum(DatabaseTickets dbt);
 
+    HashMap<String, Double> KostPP(String user, DatabaseTickets dbt);
 }

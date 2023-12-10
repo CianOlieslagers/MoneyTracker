@@ -9,6 +9,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class TicketDB extends DatabaseTickets
 {
@@ -87,6 +88,57 @@ public class TicketDB extends DatabaseTickets
             totaal = e_Value.getAmount() + totaal;
         }
         return totaal;
+    }
+
+    @Override
+    public HashMap<String, Double> KostPP(String user) {
+
+        HashMap<String,Double> RekeningPP = new HashMap<>();
+
+        for(Map.Entry<Integer, Ticket> e: this.db.entrySet()){
+            Ticket ticket = e.getValue();
+            String payer = ticket.getPayer(); // Persoon die betaalt
+            HashMap<Double, Person> WaardePP = ticket.getAmountPerPerson();
+
+            if (ticket.getSplitEvenly()){
+                Integer aantal = WaardePP.size();
+                Double bedrag = ticket.getAmount();
+                if (RekeningPP.containsKey(payer)){
+                    double Oldvalue = RekeningPP.get(payer);
+                    double Newvalue = Oldvalue + (bedrag/aantal);
+                    RekeningPP.put(payer,Newvalue);
+                }
+                else{
+                    RekeningPP.put(payer, bedrag/aantal);
+
+                }
+            }
+            else{
+                for(Map.Entry<Double,Person> e2: WaardePP.entrySet()){
+                    Person persoon= e2.getValue();
+                    if(Objects.equals(persoon.getName(), user)){
+
+                        Double bedrag = e2.getKey();
+                        if(RekeningPP.containsKey(payer)){
+                            double Oldvalue = RekeningPP.get(payer);
+                            double Newvalue = bedrag + Oldvalue;
+                            RekeningPP.put(payer,Newvalue);
+
+                        }
+                        else{
+                            RekeningPP.put(payer,bedrag);
+                        }
+
+                    }
+
+                }
+
+            }
+
+
+        }
+
+        return RekeningPP;
     }
 
 }

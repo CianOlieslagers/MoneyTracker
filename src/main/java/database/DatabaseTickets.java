@@ -5,6 +5,7 @@ import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract class DatabaseTickets
 {
@@ -21,4 +22,8 @@ public abstract class DatabaseTickets
     public abstract void removeObserver(PropertyChangeListener pcl);
     public abstract ArrayList<Ticket> getTickets();
     public abstract Double totaalSum();
+
+    public abstract HashMap<String,Double> KostPP(String user);
+
+
 }

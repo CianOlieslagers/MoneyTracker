@@ -4,6 +4,7 @@ import database.DatabaseTickets;
 import ticket.Ticket;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class TicketController implements TController
@@ -36,6 +37,12 @@ public class TicketController implements TController
     @Override
     public double totaalSum(DatabaseTickets dbt) {
         return dbt.totaalSum();
+    }
+
+    @Override
+    public HashMap<String, Double> KostPP(String user, DatabaseTickets dbt){
+
+        return dbt.KostPP(user);
     }
 
 
