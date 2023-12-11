@@ -10,7 +10,6 @@ public abstract class DatabasePersons
 {
     protected DatabasePersons()
     {
-
     }
 
     public abstract void addPerson(Person person);
@@ -19,5 +18,6 @@ public abstract class DatabasePersons
     public abstract void removeObserver(PropertyChangeListener pcl);
     public abstract ArrayList<Person> getPersons();
     public abstract ArrayList<String> getNames();
+    public abstract Person getPerson(String name);
 
 }

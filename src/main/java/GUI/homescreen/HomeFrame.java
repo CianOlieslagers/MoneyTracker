@@ -1,6 +1,5 @@
 package GUI.homescreen;
 
-
 import GUI.homescreen.panels.HomePanel;
 import controller.person.PersonController;
 import controller.ticket.TicketController;
@@ -14,17 +13,18 @@ public class HomeFrame extends JFrame
 {
     PersonController personController = new PersonController(PersonDB.getInstance());
     TicketController ticketController = new TicketController(TicketDB.getInstance());
-
     HomePanel buttons;
+
 
     public HomeFrame()
     {
         super("HOMESCREEN");
     }
 
+
     public void initialize()
     {
-        this.setSize(500, 300);
+        this.setSize(600, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setLocationRelativeTo(null);

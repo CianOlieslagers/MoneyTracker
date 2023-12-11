@@ -13,7 +13,6 @@ import javax.swing.*;
 
 public class HomePanel extends JPanel
 {
-
     private PersonController personController;
     private TicketController ticketController;
 
@@ -22,7 +21,6 @@ public class HomePanel extends JPanel
     private JButton addTicket;
     private JButton showTickets;
     private JButton calculate;
-
 
 
     public HomePanel(PersonController personController, TicketController ticketController)
@@ -52,7 +50,6 @@ public class HomePanel extends JPanel
         layout.setAutoCreateGaps(true);
         layout.setAutoCreateContainerGaps(true);
 
-
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
                         .addComponent(label)
@@ -78,6 +75,7 @@ public class HomePanel extends JPanel
 
     }
 
+
     public void addPersonButtonActionListener()
     {
         this.addPerson.addActionListener(listener ->
@@ -89,6 +87,7 @@ public class HomePanel extends JPanel
         });
     }
 
+
     public void showPersonButtonActionListener()
     {
         this.showPersons.addActionListener(listener ->
@@ -98,6 +97,7 @@ public class HomePanel extends JPanel
             frame.initialize();
         });
     }
+
 
     public void addTicketButtonActionListener()
     {
@@ -109,6 +109,7 @@ public class HomePanel extends JPanel
         });
     }
 
+
     public void showTicketButtonActionListener()
     {
         this.showTickets.addActionListener(listener ->
@@ -119,6 +120,7 @@ public class HomePanel extends JPanel
         });
     }
 
+
     public void calculateButtonActionListener()
     {
         this.calculate.addActionListener(listener ->
@@ -126,5 +128,4 @@ public class HomePanel extends JPanel
             System.out.println("[HOME-FRAME] : calculate");
         });
     }
-
 }

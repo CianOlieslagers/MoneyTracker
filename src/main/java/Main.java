@@ -52,25 +52,15 @@ public class Main
         TestValues.put(30.0, Bob);
 
 
-
-
-
         TicketFactory TF1 = new TicketFactory();
         Ticket TicketMelanie = TF1.getTicket("x","Melanie", 60, Category.Food,false, TestValues);
-        Ticket Ticket2 = TF1.getTicket("y","Charlie", 60, Category.Food,false, TestValues);
-        Ticket Ticket3 = TF1.getTicket("y","Melanie", 60, Category.Food,false, TestValues);
-
-
+        Ticket Ticket2 = TF1.getTicket("y","Charlie", 44.4, Category.Food,false, TestValues);
 
         System.out.println(DbP1.getNames());
 
         Tregister.addTicket(TicketMelanie);
         Tregister.addTicket(Ticket2);
-        Tregister.addTicket(Ticket3);
 
-        HashMap<String,Double> AfrekeningBob = new HashMap<>();
-        AfrekeningBob = Tregister.KostPP("Bob", DbT1);
-        System.out.print("Rekening voor Bob: " + AfrekeningBob+ "\n");
 
         double Totaal = Tregister.totaalSum(DbT1);
         System.out.print(Totaal+ "\n");
@@ -81,8 +71,8 @@ public class Main
         // Frame Logica
         //SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
 
-        //HomeFrame view = new HomeFrame();
-        //view.initialize();
+        HomeFrame view = new HomeFrame();
+        view.initialize();
 
 
 

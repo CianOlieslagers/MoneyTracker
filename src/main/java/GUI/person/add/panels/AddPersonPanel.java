@@ -5,8 +5,10 @@ import controller.ticket.TicketController;
 import person.Person;
 
 import javax.swing.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
-public class AddPersonPanel extends JPanel
+public class AddPersonPanel extends JPanel implements PropertyChangeListener
 {
     PersonController personController;
     TicketController ticketController;
@@ -73,4 +75,15 @@ public class AddPersonPanel extends JPanel
         });
     }
 
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt)
+    {
+        if (evt.getPropertyName().equals("PersonDB add"))
+        {
+            //GOEDE MANIER???
+            this.nameField.setText("");
+            this.accountField.setText("");
+        }
+    }
 }

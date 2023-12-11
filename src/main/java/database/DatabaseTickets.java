@@ -1,6 +1,5 @@
 package database;
 
-import person.Person;
 import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
@@ -9,12 +8,9 @@ import java.util.HashMap;
 
 public abstract class DatabaseTickets
 {
-
     protected DatabaseTickets()
     {
-
     }
-
 
     public abstract void addTicket(Ticket ticket);
     public abstract void removeTicket(Ticket ticket);

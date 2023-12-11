@@ -16,11 +16,13 @@ public class PersonController implements PController
         this.db = db;
     }
 
+
     @Override
     public void addPerson(Person person)
     {
         db.addPerson(person);
     }
+
 
     @Override
     public void removePerson(Person person)
@@ -28,14 +30,23 @@ public class PersonController implements PController
         db.removePerson(person);
     }
 
+
     @Override
     public ArrayList<String> getNames() {
         return (db.getNames());
     }
 
+
     @Override
     public ArrayList<Person> getPersons()
     {
         return db.getPersons();
+    }
+
+
+    @Override
+    public Person getPerson(String name)
+    {
+        return db.getPerson(name);
     }
 }
