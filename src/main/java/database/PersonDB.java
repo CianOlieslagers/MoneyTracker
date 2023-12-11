@@ -17,16 +17,19 @@ public class PersonDB extends DatabasePersons
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     private int personCount = 0;
 
+
     private PersonDB()
     {
         this.db = new LinkedHashMap<>();
         this.addObserver(new PrintUpdated());
     }
 
+
     public static DatabasePersons getInstance()
     {
         return personDB;
     }
+
 
     @Override
     public void addPerson(Person person)
@@ -65,6 +68,7 @@ public class PersonDB extends DatabasePersons
         }
     }
 
+
     @Override
     public void removePerson(Person person)
     {
@@ -83,17 +87,20 @@ public class PersonDB extends DatabasePersons
         }
     }
 
+
     @Override
     public void addObserver(PropertyChangeListener pcl)
     {
         support.addPropertyChangeListener(pcl);
     }
 
+
     @Override
     public void removeObserver(PropertyChangeListener pcl)
     {
         support.removePropertyChangeListener(pcl);
     }
+
 
     @Override
     public ArrayList<Person> getPersons()
@@ -107,6 +114,7 @@ public class PersonDB extends DatabasePersons
         return personList;
     }
 
+
     @Override
     public ArrayList<String> getNames()
     {
@@ -118,6 +126,7 @@ public class PersonDB extends DatabasePersons
         }
         return nameList;
     }
+
 
     @Override
     public Person getPerson(String name)

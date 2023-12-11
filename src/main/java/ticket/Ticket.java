@@ -1,6 +1,5 @@
 package ticket;
 
-import database.DatabasePersons;
 import person.Person;
 
 import java.util.HashMap;

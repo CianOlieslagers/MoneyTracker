@@ -2,7 +2,6 @@ package GUI.ticket.show.panels;
 
 import controller.person.PersonController;
 import controller.ticket.TicketController;
-import person.Person;
 import ticket.Ticket;
 
 import javax.swing.*;
@@ -17,13 +16,10 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
 
     private JLabel ticketLabel;
     private JButton deleteButton;
-
     private JList<Ticket> ticketJList;
     private DefaultListModel<Ticket> ticketListModel;
-
     private JList<String> ticketNameJList;
     private DefaultListModel<String> ticketNameModel;
-
     private JList<Double> ticketAmountJList;
     private DefaultListModel<Double> ticketAmountModel;
 

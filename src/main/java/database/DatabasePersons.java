@@ -10,7 +10,6 @@ public abstract class DatabasePersons
 {
     protected DatabasePersons()
     {
-
     }
 
     public abstract void addPerson(Person person);

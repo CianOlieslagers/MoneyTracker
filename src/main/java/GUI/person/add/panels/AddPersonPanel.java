@@ -5,7 +5,6 @@ import controller.ticket.TicketController;
 import person.Person;
 
 import javax.swing.*;
-import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
@@ -87,5 +86,4 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
             this.accountField.setText("");
         }
     }
-
 }

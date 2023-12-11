@@ -11,7 +11,6 @@ import java.util.Map;
 
 public class EvenlyPaidPanel extends JPanel
 {
-
     PersonController personController;
     TicketController ticketController;
 
@@ -21,6 +20,7 @@ public class EvenlyPaidPanel extends JPanel
 
     private HashMap<Person, JCheckBox> personJCheckBoxHashMap;
     private HashMap<Person, JTextField> personJTextFieldHashMap;
+
 
     public EvenlyPaidPanel(PersonController personController, TicketController ticketController)
     {
@@ -46,8 +46,8 @@ public class EvenlyPaidPanel extends JPanel
             this.personJTextFieldHashMap.put(p, this.amountPerPersonField);
             this.personJCheckBoxHashMap.put(p, this.checkBox);
         }
-
     }
+
 
     public void setAmountPerPersonField(boolean bool) {
         for (Map.Entry<Person, JTextField> e : this.personJTextFieldHashMap.entrySet())
@@ -56,6 +56,7 @@ public class EvenlyPaidPanel extends JPanel
             textField.setVisible(bool);
         }
     }
+
 
     public HashMap<Person,Double> getInformation(double totalAmount, boolean splitEvenly)
     {
@@ -83,6 +84,7 @@ public class EvenlyPaidPanel extends JPanel
         return result;
     }
 
+
     private int getTotalPersons()
     {
         int totalPersons = 0;
@@ -96,6 +98,7 @@ public class EvenlyPaidPanel extends JPanel
         }
         return totalPersons;
     }
+
 
     public void resetPanel()
     {
@@ -111,5 +114,4 @@ public class EvenlyPaidPanel extends JPanel
             e.getValue().setVisible(false);
         }
     }
-
 }

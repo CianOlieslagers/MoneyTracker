@@ -1,6 +1,5 @@
 package database;
 
-import person.Person;
 import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
@@ -10,7 +9,6 @@ public abstract class DatabaseTickets
 {
     protected DatabaseTickets()
     {
-
     }
 
     public abstract void addTicket(Ticket ticket);

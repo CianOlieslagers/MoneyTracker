@@ -31,6 +31,7 @@ public class AddTicketFrame extends JFrame
         super("ADD TICKET SCREEN");
     }
 
+
     public void initialize()
     {
         this.setSize(600, 400);
@@ -60,9 +61,9 @@ public class AddTicketFrame extends JFrame
         gridBagConstraints.gridy = 2;
         this.add(evenlyPaidPanel, gridBagConstraints);
 
-
         this.setVisible(true);
     }
+
 
     public void setField(Boolean bool)
     {

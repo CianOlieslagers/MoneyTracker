@@ -11,5 +11,4 @@ public interface TController
     void removeTicket(Ticket ticket);
     ArrayList<Ticket> getTickets();
     double totaalSum(DatabaseTickets dbt);
-
 }

@@ -1,13 +1,11 @@
 package GUI.person.show;
 
 import GUI.person.show.panels.ShowPersonPanel;
-import GUI.ticket.add.panels.AddTicketPanel;
 import controller.person.PersonController;
 import controller.ticket.TicketController;
 import database.DatabasePersons;
 import database.PersonDB;
 import database.TicketDB;
-import person.Person;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,6 +23,7 @@ public class ShowPersonFrame extends JFrame
     {
         super("SHOW PERSON SCREEN");
     }
+
 
     public void initialize()
     {

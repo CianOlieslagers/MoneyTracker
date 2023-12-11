@@ -66,16 +66,8 @@ public class Main
         System.out.print(Totaal+ "\n");
 
 
-
-
-        // Frame Logica
-        //SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
-
         HomeFrame view = new HomeFrame();
         view.initialize();
-
-
-
     }
 
 

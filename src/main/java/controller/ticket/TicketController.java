@@ -10,10 +10,12 @@ public class TicketController implements TController
 {
     private DatabaseTickets db;
 
+
     public TicketController(DatabaseTickets db)
     {
         this.db = db;
     }
+
 
     @Override
     public void addTicket(Ticket ticket)
@@ -21,11 +23,13 @@ public class TicketController implements TController
         db.addTicket(ticket);
     }
 
+
     @Override
     public void removeTicket(Ticket ticket)
     {
         db.removeTicket(ticket);
     }
+
 
     @Override
     public ArrayList<Ticket> getTickets()
@@ -33,13 +37,9 @@ public class TicketController implements TController
         return (db.getTickets());
     }
 
+
     @Override
     public double totaalSum(DatabaseTickets dbt) {
         return dbt.totaalSum();
     }
-
-
-
-
-
 }

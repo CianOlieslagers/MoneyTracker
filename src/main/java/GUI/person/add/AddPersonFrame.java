@@ -1,7 +1,6 @@
 package GUI.person.add;
 
 import GUI.person.add.panels.AddPersonPanel;
-import GUI.ticket.add.panels.AddTicketPanel;
 import controller.person.PersonController;
 import controller.ticket.TicketController;
 import database.DatabasePersons;
@@ -20,10 +19,12 @@ public class AddPersonFrame extends JFrame
 
     AddPersonPanel buttons;
 
+
     public AddPersonFrame()
     {
         super("ADD PERSON SCREEN");
     }
+
 
     public void initialize()
     {

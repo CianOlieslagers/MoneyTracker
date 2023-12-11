@@ -10,7 +10,6 @@ import java.beans.PropertyChangeListener;
 
 public class ShowPersonPanel extends JPanel implements PropertyChangeListener
 {
-
     PersonController personController;
     TicketController ticketController;
 

@@ -32,8 +32,8 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
     private JTextField amountField;
     private JLabel splitLabel;
     private JCheckBox checkBox;
-
     private AddTicketFrame frame;
+
 
     public AddTicketPanel(PersonController personController, TicketController ticketController, AddTicketFrame frame)
     {
@@ -100,33 +100,25 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                                 .addComponent(this.save))
         );
-
-
     }
-
 
 
     public void saveButtonActionListener()
     {
         this.save.addActionListener(listener ->
         {
-            System.out.println("save");
             String name = this.activityField.getText();
             String payer = (String) this.payerBox.getSelectedItem();
             double amount = Double.parseDouble(this.amountField.getText());
             Category category = (Category) this.categoryBox.getSelectedItem();
             Boolean splitEvenly = this.checkBox.isSelected();
-            //HashMap<Double, Person> amountPerPerson = new HashMap<>();
-            //amountPerPerson.put(10.0, new Person("Melanie","fd"));
-            //amountPerPerson.put(20.0, new Person("Mel","snel"));
-            //amountPerPerson.put(30.0, new Person("Bob","de bouwer"));
 
             HashMap<Person,Double> amountPerPerson = frame.getInformation(amount, splitEvenly);
 
             ticketController.addTicket(factory.getTicket(name, payer, amount, category, splitEvenly, amountPerPerson));
-
         });
     }
+
 
     public void checkboxActionListener()
     {
@@ -144,6 +136,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         });
     }
 
+
     @Override
     public void propertyChange(PropertyChangeEvent evt)
     {
@@ -155,6 +148,4 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
             this.frame.resetEvenlyPaidPanel();
         }
     }
-
-
 }

@@ -1,7 +1,6 @@
 package database;
 
 import observers.PrintUpdated;
-import person.Person;
 import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
@@ -12,7 +11,6 @@ import java.util.Map;
 
 public class TicketDB extends DatabaseTickets
 {
-
     private final HashMap<Integer, Ticket> db;
     private static final TicketDB ticketDB = new TicketDB();
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
@@ -31,6 +29,7 @@ public class TicketDB extends DatabaseTickets
     {
         return ticketDB;
     }
+
 
     @Override
     public void addTicket(Ticket ticket)
@@ -55,6 +54,7 @@ public class TicketDB extends DatabaseTickets
 
     }
 
+
     @Override
     public void removeTicket(Ticket ticket)
     {
@@ -63,17 +63,20 @@ public class TicketDB extends DatabaseTickets
         ticketCount--;
     }
 
+
     @Override
     public void addObserver(PropertyChangeListener pcl)
     {
         support.addPropertyChangeListener(pcl);
     }
 
+
     @Override
     public void removeObserver(PropertyChangeListener pcl)
     {
         support.removePropertyChangeListener(pcl);
     }
+
 
     @Override
     public ArrayList<Ticket> getTickets()
@@ -87,6 +90,7 @@ public class TicketDB extends DatabaseTickets
         return ticketList;
     }
 
+
     @Override
     public Double totaalSum() {
         Double totaal = 0.0;
@@ -96,5 +100,4 @@ public class TicketDB extends DatabaseTickets
         }
         return totaal;
     }
-
 }
