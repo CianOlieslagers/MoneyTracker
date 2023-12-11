@@ -116,10 +116,12 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
             double amount = Double.parseDouble(this.amountField.getText());
             Category category = (Category) this.categoryBox.getSelectedItem();
             Boolean splitEvenly = this.checkBox.isSelected();
-            HashMap<Double, Person> amountPerPerson = new HashMap<>();
-            amountPerPerson.put(10.0, new Person("Melanie","fd"));
-            amountPerPerson.put(20.0, new Person("Mel","snel"));
-            amountPerPerson.put(30.0, new Person("Bob","de bouwer"));
+            //HashMap<Double, Person> amountPerPerson = new HashMap<>();
+            //amountPerPerson.put(10.0, new Person("Melanie","fd"));
+            //amountPerPerson.put(20.0, new Person("Mel","snel"));
+            //amountPerPerson.put(30.0, new Person("Bob","de bouwer"));
+
+            HashMap<Person,Double> amountPerPerson = frame.getInformation(amount, splitEvenly);
 
             ticketController.addTicket(factory.getTicket(name, payer, amount, category, splitEvenly, amountPerPerson));
 
@@ -150,7 +152,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
             this.activityField.setText("");
             this.amountField.setText("");
             this.checkBox.setSelected(true);
-
+            this.frame.resetEvenlyPaidPanel();
         }
     }
 

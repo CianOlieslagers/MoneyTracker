@@ -7,9 +7,11 @@ import controller.ticket.TicketController;
 import database.DatabaseTickets;
 import database.PersonDB;
 import database.TicketDB;
+import person.Person;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 
 public class AddTicketFrame extends JFrame
 {
@@ -67,4 +69,15 @@ public class AddTicketFrame extends JFrame
         this.evenlyPaidPanel.setAmountPerPersonField(bool);
     }
 
+
+    public HashMap<Person,Double> getInformation(double totalAmount, boolean splitEvenly)
+    {
+        return this.evenlyPaidPanel.getInformation(totalAmount, splitEvenly);
+    }
+
+
+    public void resetEvenlyPaidPanel()
+    {
+        this.evenlyPaidPanel.resetPanel();
+    }
 }

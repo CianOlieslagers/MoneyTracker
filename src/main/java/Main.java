@@ -46,10 +46,10 @@ public class Main
         Pregister.addPerson(Charlie);
 
 
-        HashMap<Double,Person> TestValues = new HashMap<>();
-        TestValues.put(10.0, Melanie);
-        TestValues.put(20.0, Mel);
-        TestValues.put(30.0, Bob);
+        HashMap<Person,Double> TestValues = new HashMap<>();
+        TestValues.put(Melanie, 10.0);
+        TestValues.put(Mel, 20.0);
+        TestValues.put(Bob, 30.0);
 
 
         TicketFactory TF1 = new TicketFactory();

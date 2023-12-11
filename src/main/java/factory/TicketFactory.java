@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public class TicketFactory
 {
-    public Ticket getTicket(String name, String payer, double amount, Category category, Boolean splitEvenly, HashMap<Double, Person> amountPerPerson)
+    public Ticket getTicket(String name, String payer, double amount, Category category, Boolean splitEvenly, HashMap<Person,Double> amountPerPerson)
     {
         if (Objects.equals(category, Category.Food))
             return new Ticket(name, payer, amount, Category.Food,splitEvenly,amountPerPerson);

@@ -12,9 +12,9 @@ public class Ticket
     private double amount;
     private Category category;
     private Boolean splitEvenly;
-    private HashMap<Double, Person> amountPerPerson;
+    private HashMap<Person,Double> amountPerPerson;
 
-    public Ticket(String name, String payer, double amount, Category category, Boolean splitEvenly, HashMap<Double,Person> amountPerPerson)
+    public Ticket(String name, String payer, double amount, Category category, Boolean splitEvenly, HashMap<Person,Double> amountPerPerson)
     {
         this.name = name;
         this.payer = payer;
@@ -41,11 +41,11 @@ public class Ticket
         this.splitEvenly = splitEvenly;
     }
 
-    public HashMap<Double, Person> getAmountPerPerson() {
+    public HashMap<Person,Double> getAmountPerPerson() {
         return amountPerPerson;
     }
 
-    public void setAmountPerPerson(HashMap<Double, Person> amountPerPerson) {
+    public void setAmountPerPerson(HashMap<Person,Double> amountPerPerson) {
         this.amountPerPerson = amountPerPerson;
     }
 
