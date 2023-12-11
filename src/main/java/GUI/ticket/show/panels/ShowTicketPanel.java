@@ -21,6 +21,12 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
     private JList<Ticket> ticketJList;
     private DefaultListModel<Ticket> ticketListModel;
 
+    private JList<String> ticketNameJList;
+    private DefaultListModel<String> ticketNameModel;
+
+    private JList<Double> ticketAmountJList;
+    private DefaultListModel<Double> ticketAmountModel;
+
     public ShowTicketPanel(PersonController personController, TicketController ticketController)
     {
 
@@ -34,7 +40,10 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
         for (Ticket ticket : ticketController.getTickets())
         {
             ticketListModel.addElement(ticket);
+            //ticketNameModel.addElement(ticket.getName());
+            //ticketAmountModel.addElement(ticket.getAmount());
         }
+
 
         this.ticketJList = new JList<>(ticketListModel);
 

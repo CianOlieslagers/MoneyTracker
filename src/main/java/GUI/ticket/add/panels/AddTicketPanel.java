@@ -1,5 +1,6 @@
 package GUI.ticket.add.panels;
 
+import GUI.ticket.add.AddTicketFrame;
 import controller.person.PersonController;
 import controller.ticket.TicketController;
 import factory.TicketFactory;
@@ -17,6 +18,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
     TicketController ticketController;
     private final TicketFactory factory = new TicketFactory();
 
+
     Category[] categories = Category.values();
 
     private JComboBox categoryBox;
@@ -30,11 +32,10 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
     private JTextField amountField;
     private JLabel splitLabel;
     private JCheckBox checkBox;
-    private JLabel nameLabel;
-    private JTextField amountPerPersonField;
 
+    private AddTicketFrame frame;
 
-    public AddTicketPanel(PersonController personController, TicketController ticketController)
+    public AddTicketPanel(PersonController personController, TicketController ticketController, AddTicketFrame frame)
     {
         this.personController = personController;
         this.ticketController = ticketController;
@@ -47,8 +48,9 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         this.payerBox = new JComboBox(personController.getNames().toArray());
         this.amountField = new JTextField(String.valueOf(0.0));
         this.splitLabel = new JLabel("Split evenly:");
-        this.checkBox = new JCheckBox();
+        this.checkBox = new JCheckBox((Icon) null, true);
         this.categoryLabel = new JLabel("Select category:");
+        this.frame = frame;
 
 
         saveButtonActionListener();
@@ -60,6 +62,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
 
         layout.setAutoCreateGaps(true);
         layout.setAutoCreateContainerGaps(true);
+
 
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
@@ -99,7 +102,6 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         );
 
 
-
     }
 
 
@@ -129,11 +131,13 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         this.checkBox.addActionListener(listener ->
         {
             System.out.println("checkbox action");
-            for (Person person : personController.getPersons())
+            if (this.checkBox.isSelected())
             {
-                this.nameLabel = new JLabel(person.getName());
-                this.amountPerPersonField = new JTextField();
-
+                this.frame.setField(false);
+            }
+            else
+            {
+                this.frame.setField(true);
             }
         });
     }
@@ -145,6 +149,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         {
             this.activityField.setText("");
             this.amountField.setText("");
+            this.checkBox.setSelected(true);
 
         }
     }

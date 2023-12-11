@@ -24,7 +24,7 @@ public class HomeFrame extends JFrame
 
     public void initialize()
     {
-        this.setSize(500, 300);
+        this.setSize(600, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setLocationRelativeTo(null);
