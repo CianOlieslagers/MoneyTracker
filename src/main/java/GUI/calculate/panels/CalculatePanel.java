@@ -2,8 +2,10 @@ package GUI.calculate.panels;
 
 import controller.person.PersonController;
 import controller.ticket.TicketController;
+import person.Person;
 
 import javax.swing.*;
+import java.util.HashMap;
 
 public class CalculatePanel extends JPanel
 {
@@ -20,7 +22,7 @@ public class CalculatePanel extends JPanel
         this.ticketController = ticketController;
 
         this.selectBox = new JComboBox<>(personController.getNames().toArray());
-        this.amountPerson = new JLabel(String.valueOf(ticketController.totaalSum()));
+        this.amountPerson = new JLabel(String.valueOf(ticketController.totaalSum())); //tijdelijk
 
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -44,6 +46,15 @@ public class CalculatePanel extends JPanel
         );
     }
 
+
+    public void selecBoxActionListener()
+    {
+        this.selectBox.addActionListener(listener ->
+        {
+            HashMap<String,Double> map = ticketController.KostPP((String) selectBox.getSelectedItem());
+            //this.amountPerson = new JLabel(String.valueOf(map.get(selectBox.getSelectedItem())));
+        });
+    }
 
 
 }

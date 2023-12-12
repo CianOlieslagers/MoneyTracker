@@ -161,7 +161,8 @@ public class TicketDB extends DatabaseTickets
                             RekeningPP.put(payer,Newvalue);
 
                         }
-                        else{
+                        else
+                        {
                             RekeningPP.put(payer,bedrag);
                         }
                     }
