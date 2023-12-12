@@ -32,35 +32,29 @@ public class PersonDB extends DatabasePersons
 
 
     @Override
-    public void addPerson(Person person)
+    public void addPerson(Person person) throws Exception
     {
-        boolean empty = false;
-        if (person.getName().isEmpty() || person.getAccountNumber().isEmpty())
-        {
-            empty = true;
-            System.out.println("Name or accountnumber is empty!");
-        }
-
         boolean existing = false;
+
         for(Map.Entry<Integer, Person> entry: db.entrySet())
         {
             Person e_person = entry.getValue();
-
             if (e_person.getName().equals(person.getName()))
             {
                 existing = true;
                 System.out.println(person.getName() + " is already in use!");
-                break;
+                throw new Exception(person.getName() + " is already in use!");
             }
+
             if (e_person.getAccountNumber().equals(person.getAccountNumber()))
             {
                 existing = true;
-                System.out.println("accountnumber: " + person.getAccountNumber() + " is already in use!");
-                break;
+                System.out.println("Accountnumber: " + person.getAccountNumber() + " is already in use!");
+                throw new Exception("Accountnumber: " + person.getAccountNumber() + " is already in use!");
             }
         }
 
-        if (!existing && !empty)
+        if (!existing)
         {
             this.db.put(personCount,person);
             support.firePropertyChange("PersonDB add", null, person);
@@ -70,20 +64,28 @@ public class PersonDB extends DatabasePersons
 
 
     @Override
-    public void removePerson(Person person)
+    public void removePerson(Person person) throws Exception
     {
-        for (Map.Entry<Integer, Person> entry: db.entrySet())
+        boolean removable = false;
+
+        for (Map.Entry<Integer,Person> entry: db.entrySet())
         {
             int e_personID = entry.getKey();
             Person e_person = entry.getValue();
 
             if (e_person.getName().equals(person.getName()) && e_person.getAccountNumber().equals(person.getAccountNumber()))
             {
+                removable = true;
                 this.db.remove(e_personID,e_person);
                 support.firePropertyChange("PersonDB remove", null, person);
                 personCount--;
                 break;
             }
+        }
+
+        if (!removable)
+        {
+            throw new Exception(person.getName() + " can not be removed!");
         }
     }
 

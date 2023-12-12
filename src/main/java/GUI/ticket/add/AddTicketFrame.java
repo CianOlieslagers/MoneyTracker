@@ -71,8 +71,7 @@ public class AddTicketFrame extends JFrame
     }
 
 
-    public HashMap<Person,Double> getInformation(double totalAmount, boolean splitEvenly)
-    {
+    public HashMap<Person,Double> getInformation(double totalAmount, boolean splitEvenly) throws Exception {
         return this.evenlyPaidPanel.getInformation(totalAmount, splitEvenly);
     }
 

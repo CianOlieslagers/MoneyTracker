@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public interface PController
 {
-    void addPerson(Person person);
-    void removePerson(Person person);
+    void addPerson(Person person) throws Exception;
+    void removePerson(Person person) throws Exception;
     ArrayList<String> getNames();
     ArrayList<Person> getPersons();
     Person getPerson(String name);

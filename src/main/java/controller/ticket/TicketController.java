@@ -17,7 +17,7 @@ public class TicketController implements TController
     }
 
     @Override
-    public void addTicket(Ticket ticket)
+    public void addTicket(Ticket ticket) throws Exception
     {
         db.addTicket(ticket);
     }
@@ -45,8 +45,11 @@ public class TicketController implements TController
         return dbt.KostPP(user);
     }
 
-
-
+    @Override
+    public void setActivity()
+    {
+        //DECORATOR
+    }
 
 
 }

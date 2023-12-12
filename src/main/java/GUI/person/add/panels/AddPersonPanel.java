@@ -7,6 +7,7 @@ import person.Person;
 import javax.swing.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.security.spec.ECField;
 
 public class AddPersonPanel extends JPanel implements PropertyChangeListener
 {
@@ -69,9 +70,28 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
     {
         this.save.addActionListener(listener ->
         {
-            String name = this.nameField.getText();
-            String accountNumber = this.accountField.getText();
-            this.personController.addPerson(new Person(name,accountNumber));
+            if (!this.nameField.getText().isEmpty() && !this.accountField.getText().isEmpty())
+            {
+                String name = this.nameField.getText();
+                String accountNumber = this.accountField.getText();
+                try {
+                    this.personController.addPerson(new Person(name,accountNumber));
+                }
+                catch (Exception e)
+                {
+                    JOptionPane.showMessageDialog(this,e.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            else
+            {
+                if (this.nameField.getText().isEmpty())
+                {
+                    JOptionPane.showMessageDialog(this, "Name field is empty", "Warning", JOptionPane.WARNING_MESSAGE);
+                }
+
+                if (this.accountField.getText().isEmpty() && !this.nameField.getText().isEmpty())
+                    JOptionPane.showMessageDialog(this,"Accountnumber field is empty","Warning",JOptionPane.WARNING_MESSAGE);
+            }
         });
     }
 
@@ -81,9 +101,10 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
     {
         if (evt.getPropertyName().equals("PersonDB add"))
         {
-            //GOEDE MANIER???
+            Person person = (Person) evt.getNewValue();
             this.nameField.setText("");
             this.accountField.setText("");
+            JOptionPane.showMessageDialog(this,person.getName() + " is added!","Person added",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

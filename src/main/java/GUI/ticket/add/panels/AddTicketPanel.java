@@ -6,6 +6,7 @@ import controller.ticket.TicketController;
 import factory.TicketFactory;
 import person.Person;
 import ticket.Category;
+import ticket.Ticket;
 
 import javax.swing.*;
 import java.beans.PropertyChangeEvent;
@@ -33,6 +34,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
     private JLabel splitLabel;
     private JCheckBox checkBox;
     private AddTicketFrame frame;
+    private double amount;
 
 
     public AddTicketPanel(PersonController personController, TicketController ticketController, AddTicketFrame frame)
@@ -109,13 +111,49 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         {
             String name = this.activityField.getText();
             String payer = (String) this.payerBox.getSelectedItem();
-            double amount = Double.parseDouble(this.amountField.getText());
             Category category = (Category) this.categoryBox.getSelectedItem();
             Boolean splitEvenly = this.checkBox.isSelected();
 
-            HashMap<Person,Double> amountPerPerson = frame.getInformation(amount, splitEvenly);
+            try
+            {
+                this.amount = Double.parseDouble(this.amountField.getText());
+            }
+            catch (NumberFormatException nfe)
+            {
+                JOptionPane.showMessageDialog(this,"Give a valid value for amount! e.g. '10.45'","Warning",JOptionPane.WARNING_MESSAGE);
+            }
 
-            ticketController.addTicket(factory.getTicket(name, payer, amount, category, splitEvenly, amountPerPerson));
+            if (!name.isEmpty() && !this.amountField.getText().isEmpty() && splitEvenly)
+            {
+                try
+                {
+                    HashMap<Person,Double> amountPerPerson = frame.getInformation(amount, splitEvenly);
+                    ticketController.addTicket(factory.getTicket(name, payer, amount, category, splitEvenly, amountPerPerson));
+                }
+                catch (Exception e)
+                {
+                    JOptionPane.showMessageDialog(this,e.getMessage(),"",JOptionPane.WARNING_MESSAGE);
+                }
+
+            }
+            else if (!name.isEmpty() && !this.amountField.getText().isEmpty() && !splitEvenly)
+            {
+                try
+                {
+                    HashMap<Person,Double> amountPerPerson = frame.getInformation(amount, splitEvenly);
+                    ticketController.addTicket(factory.getTicket(name, payer, amount, category, splitEvenly, amountPerPerson));
+                }
+                catch (Exception e)
+                {
+                    JOptionPane.showMessageDialog(this,e.getMessage()," ",JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this,"Name or Amount is empty","Warning",JOptionPane.WARNING_MESSAGE);
+            }
+
+
         });
     }
 
@@ -142,10 +180,12 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
     {
         if (evt.getPropertyName().equals("TicketDB add"))
         {
+            Ticket ticket = (Ticket) evt.getNewValue();
             this.activityField.setText("");
             this.amountField.setText("");
             this.checkBox.setSelected(true);
             this.frame.resetEvenlyPaidPanel();
+            JOptionPane.showMessageDialog(this,"Ticket: " + ticket.getName() + "(" + ticket.getAmount() + ") is added!","Ticket added",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

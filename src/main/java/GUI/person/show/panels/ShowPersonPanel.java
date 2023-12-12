@@ -7,6 +7,7 @@ import person.Person;
 import javax.swing.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.security.spec.ECField;
 
 public class ShowPersonPanel extends JPanel implements PropertyChangeListener
 {
@@ -94,18 +95,34 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
     {
         this.deleteButton.addActionListener(listener ->
         {
-            if (!namesJList.getSelectedValue().isEmpty() && this.personController.getPersons().contains(this.personController.getPerson(this.namesJList.getSelectedValue())))
+            /*if (!namesJList.getSelectedValue().isEmpty() && this.personController.getPersons().contains(this.personController.getPerson(this.namesJList.getSelectedValue())))
             {
                 System.out.println("You've selected: " + namesJList.getSelectedValue());
                 Person deletedPerson = this.personController.getPerson(this.namesJList.getSelectedValue());
                 this.personController.removePerson(deletedPerson);
-                //this.namesListModel.removeElement(deletedPerson.getName());
-                //this.accountListModel.removeElement(deletedPerson.getAccountNumber());
-                // HOE HET BESTE IMPLEMENTER? OP DEZE MANIER OF VIA DE PROPERTY CHANGE LISTENER ZOALS HIER BENEDEN
             }
             else
             {
                 System.out.println("No person selected!");
+            }*/
+            if (!this.namesJList.isSelectionEmpty())
+            {
+                //System.out.println("You've selected: " + namesJList.getSelectedValue());
+                Person deletedPerson = this.personController.getPerson(this.namesJList.getSelectedValue());
+
+                try
+                {
+                    this.personController.removePerson(deletedPerson);
+                }
+                catch (Exception e)
+                {
+                    JOptionPane.showMessageDialog(this,e.getMessage(),"Test?",JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            else
+            {
+                System.out.println("No person selected!");
+                JOptionPane.showMessageDialog(this,"No person selected","Warning",JOptionPane.WARNING_MESSAGE);
             }
         });
     }
@@ -120,6 +137,7 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
             this.namesListModel.removeElement(person.getName());
             this.accountListModel.removeElement(person.getAccountNumber());
             this.personDefaultListModel.removeElement(person);
+            JOptionPane.showMessageDialog(this,person.getName() + " is removed!","Person removed",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

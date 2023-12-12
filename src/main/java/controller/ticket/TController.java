@@ -8,10 +8,11 @@ import java.util.HashMap;
 
 public interface TController
 {
-    void addTicket(Ticket ticket);
+    void addTicket(Ticket ticket) throws Exception;
     void removeTicket(Ticket ticket);
     ArrayList<Ticket> getTickets();
     double totaalSum(DatabaseTickets dbt);
-
     HashMap<String, Double> KostPP(String user, DatabaseTickets dbt);
+
+    void setActivity();
 }

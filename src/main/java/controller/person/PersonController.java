@@ -18,14 +18,14 @@ public class PersonController implements PController
 
 
     @Override
-    public void addPerson(Person person)
+    public void addPerson(Person person) throws Exception
     {
         db.addPerson(person);
     }
 
 
     @Override
-    public void removePerson(Person person)
+    public void removePerson(Person person) throws Exception
     {
         db.removePerson(person);
     }

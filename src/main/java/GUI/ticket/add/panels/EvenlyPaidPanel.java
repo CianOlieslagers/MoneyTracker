@@ -17,6 +17,7 @@ public class EvenlyPaidPanel extends JPanel
     private JLabel nameLabel;
     private JTextField amountPerPersonField;
     private JCheckBox checkBox;
+    private double amountPerson;
 
     private HashMap<Person, JCheckBox> personJCheckBoxHashMap;
     private HashMap<Person, JTextField> personJTextFieldHashMap;
@@ -58,8 +59,7 @@ public class EvenlyPaidPanel extends JPanel
     }
 
 
-    public HashMap<Person,Double> getInformation(double totalAmount, boolean splitEvenly)
-    {
+    public HashMap<Person,Double> getInformation(double totalAmount, boolean splitEvenly) throws Exception {
         HashMap<Person,Double> result = new HashMap<>();
         int totalPersons = getTotalPersons();
 
@@ -75,8 +75,23 @@ public class EvenlyPaidPanel extends JPanel
                 }
                 else
                 {
-                    double amountPerson = Double.parseDouble(this.personJTextFieldHashMap.get(e.getKey()).getText());
-                    result.put(e.getKey(), amountPerson);
+                    if (!this.personJTextFieldHashMap.get(e.getKey()).getText().isEmpty())
+                    {
+                        try
+                        {
+                             this.amountPerson = Double.parseDouble(this.personJTextFieldHashMap.get(e.getKey()).getText());
+                        }
+                        catch (NumberFormatException nfe)
+                        {
+                            throw new NumberFormatException(nfe.getMessage());
+                        }
+                        result.put(e.getKey(), amountPerson);
+                    }
+                    else
+                    {
+                        //JOptionPane.showMessageDialog(this,"Fill in an amount for every selected person!","Warning",JOptionPane.WARNING_MESSAGE);
+                        throw new Exception("Fill in an amount for every selected person!");
+                    }
                     //System.out.println(e.getKey().getName() + " participated at the activity and it cost " + amountPerson);
                 }
             }
@@ -85,7 +100,7 @@ public class EvenlyPaidPanel extends JPanel
     }
 
 
-    private int getTotalPersons()
+    private int getTotalPersons() throws Exception
     {
         int totalPersons = 0;
 
@@ -96,6 +111,10 @@ public class EvenlyPaidPanel extends JPanel
                 totalPersons++;
             }
         }
+
+        if (totalPersons == 0)
+            throw new Exception("Select at least one person!");
+
         return totalPersons;
     }
 

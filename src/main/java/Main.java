@@ -22,7 +22,7 @@ public class Main
 
     }
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
         Main main = new Main();
         main.run();
@@ -35,13 +35,11 @@ public class Main
 
 
         Person Melanie = new Person("Melanie","1" );
-        Person Melanie2 = new Person("Melanie","55" );
         Person Mel = new Person("Mel","2" );
         Person Bob = new Person("Bob","22" );
         Person Charlie = new Person("Charlie","33");
 
         Pregister.addPerson(Melanie);
-        Pregister.addPerson(Melanie2);
         Pregister.addPerson(Mel);
         Pregister.addPerson(Bob);
         Pregister.addPerson(Charlie);
@@ -55,11 +53,10 @@ public class Main
 
 
 
-
         TicketFactory TF1 = new TicketFactory();
         Ticket TicketMelanie = TF1.getTicket("x","Melanie", 60, Category.Food,false, TestValues);
         Ticket Ticket2 = TF1.getTicket("y","Charlie", 60, Category.Food,false, TestValues);
-        Ticket Ticket3 = TF1.getTicket("y","MEl", 60, Category.Food,false, TestValues);
+        Ticket Ticket3 = TF1.getTicket("y","Mel", 60, Category.Food,false, TestValues);
 
 
 
@@ -82,9 +79,8 @@ public class Main
         // Frame Logica
         //SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
 
-        //HomeFrame view = new HomeFrame();
-        //view.initialize();
-
+        HomeFrame view = new HomeFrame();
+        view.initialize();
 
 
     }

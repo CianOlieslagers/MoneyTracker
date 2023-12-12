@@ -12,7 +12,7 @@ public abstract class DatabaseTickets
     {
     }
 
-    public abstract void addTicket(Ticket ticket);
+    public abstract void addTicket(Ticket ticket) throws Exception;
     public abstract void removeTicket(Ticket ticket);
     public abstract void addObserver(PropertyChangeListener pcl);
     public abstract void removeObserver(PropertyChangeListener pcl);

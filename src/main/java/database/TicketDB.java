@@ -34,17 +34,51 @@ public class TicketDB extends DatabaseTickets
     }
 
     @Override
-    public void addTicket(Ticket ticket) {
-        if (ticket.getName().isEmpty() || ticket.getAmount() <= 0.0) {
-            System.out.println("TicketDB: Activity name is empty or amount is equal or smaller than 0.0 ");
-        } else {
+    public void addTicket(Ticket ticket) throws Exception
+    {
+        boolean isOK = true;
+        double totalAmount = 0;
+
+        if  (ticket.getAmount() <= 0.0)
+        {
+            isOK = false;
+            //System.out.println("TicketDB: Activity name is empty or amount is equal or smaller than 0.0 ");
+            throw new Exception("The total amount is equal or smaller than 0");
+
+        }
+
+        for (Map.Entry<Person, Double> amountPerPerson : ticket.getAmountPerPerson().entrySet())
+        {
+            if (amountPerPerson.getValue() <= 0.0)
+            {
+                isOK = false;
+                throw new Exception("The amount per person is equal or smaller than 0");
+            }
+            else
+            {
+                totalAmount += amountPerPerson.getValue();
+            }
+        }
+
+        if (totalAmount != ticket.getAmount())
+        {
+            isOK = false;
+            throw new Exception("Sum of amount per person is not equal to the total amount!");
+        }
+
+
+        if (isOK)
+        {
             if (dbPersons.getNames().contains(ticket.getPayer()))    // is met een ComboBox dus moet normaal altijd true zijn
             {
                 support.firePropertyChange("TicketDB add", null, ticket);
                 this.db.put(ticketCount, ticket);
                 ticketCount++;
-            } else {
-                System.out.println("Database doesn't contains this name");
+            }
+            else
+            {
+                //System.out.println("Database doesn't contain this name");
+                throw new Exception("Database doesn't contain this name");
             }
         }
     }

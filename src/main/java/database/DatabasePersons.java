@@ -12,8 +12,8 @@ public abstract class DatabasePersons
     {
     }
 
-    public abstract void addPerson(Person person);
-    public abstract void removePerson(Person person);
+    public abstract void addPerson(Person person) throws Exception;
+    public abstract void removePerson(Person person) throws Exception;
     public abstract void addObserver(PropertyChangeListener pcl);
     public abstract void removeObserver(PropertyChangeListener pcl);
     public abstract ArrayList<Person> getPersons();
