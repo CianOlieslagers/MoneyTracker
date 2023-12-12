@@ -35,14 +35,14 @@ public class TicketController implements TController
     }
 
     @Override
-    public double totaalSum(DatabaseTickets dbt) {
-        return dbt.totaalSum();
+    public double totaalSum() {
+        return db.totaalSum();
     }
 
     @Override
-    public HashMap<String, Double> KostPP(String user, DatabaseTickets dbt){
+    public HashMap<String, Double> KostPP(String user){
 
-        return dbt.KostPP(user);
+        return db.KostPP(user);
     }
 
     @Override

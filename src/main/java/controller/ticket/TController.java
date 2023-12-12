@@ -11,8 +11,8 @@ public interface TController
     void addTicket(Ticket ticket) throws Exception;
     void removeTicket(Ticket ticket);
     ArrayList<Ticket> getTickets();
-    double totaalSum(DatabaseTickets dbt);
-    HashMap<String, Double> KostPP(String user, DatabaseTickets dbt);
+    double totaalSum();
+    HashMap<String, Double> KostPP(String user);
 
     void setActivity(Ticket oldTicket);
 }

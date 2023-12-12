@@ -1,6 +1,7 @@
 package GUI.homescreen.panels;
 
 
+import GUI.calculate.CalculateFrame;
 import GUI.person.add.AddPersonFrame;
 import GUI.person.show.ShowPersonFrame;
 import GUI.ticket.add.AddTicketFrame;
@@ -126,6 +127,8 @@ public class HomePanel extends JPanel
         this.calculate.addActionListener(listener ->
         {
             System.out.println("[HOME-FRAME] : calculate");
+            CalculateFrame frame = new CalculateFrame();
+            frame.initialize();
         });
     }
 }

@@ -67,10 +67,10 @@ public class Main
         Tregister.addTicket(Ticket3);
 
         HashMap<String,Double> AfrekeningBob;
-        AfrekeningBob = Tregister.KostPP("Bob", DbT1);
+        AfrekeningBob = Tregister.KostPP("Bob");
         System.out.print("Rekening voor Bob: " + AfrekeningBob+ "\n");
 
-        double Totaal = Tregister.totaalSum(DbT1);
+        double Totaal = Tregister.totaalSum();
         System.out.print(Totaal+ "\n");
 
 
