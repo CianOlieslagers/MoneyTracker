@@ -46,9 +46,13 @@ public class TicketController implements TController
     }
 
     @Override
-    public void setActivity()
+    public void setActivity(Ticket oldTicket)
     {
         //DECORATOR
+
+//        Ticket newTicket =
+//        db.removeTicket(oldTicket);
+//        db.addTicket(newTicket);
     }
 
 

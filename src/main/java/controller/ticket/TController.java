@@ -14,5 +14,5 @@ public interface TController
     double totaalSum(DatabaseTickets dbt);
     HashMap<String, Double> KostPP(String user, DatabaseTickets dbt);
 
-    void setActivity();
+    void setActivity(Ticket oldTicket);
 }
