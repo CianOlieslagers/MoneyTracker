@@ -9,6 +9,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class TicketDB extends DatabaseTickets
 {
@@ -33,25 +34,20 @@ public class TicketDB extends DatabaseTickets
     }
 
     @Override
-    public void addTicket(Ticket ticket)
-    {
-        if (ticket.getName().isEmpty() || ticket.getAmount() <= 0.0)
-        {
+    public void addTicket(Ticket ticket) {
+        if (ticket.getName().isEmpty() || ticket.getAmount() <= 0.0) {
             System.out.println("TicketDB: Activity name is empty or amount is equal or smaller than 0.0 ");
-        }
-        else
-        {
+        } else {
             if (dbPersons.getNames().contains(ticket.getPayer()))    // is met een ComboBox dus moet normaal altijd true zijn
             {
                 support.firePropertyChange("TicketDB add", null, ticket);
                 this.db.put(ticketCount, ticket);
                 ticketCount++;
-            }
-            else
-            {
+            } else {
                 System.out.println("Database doesn't contains this name");
             }
         }
+    }
 
     @Override
     public void removeTicket(Ticket ticket)
@@ -103,7 +99,7 @@ public class TicketDB extends DatabaseTickets
         for(Map.Entry<Integer, Ticket> e: this.db.entrySet()){
             Ticket ticket = e.getValue();
             String payer = ticket.getPayer(); // Persoon die betaalt
-            HashMap<Double, Person> WaardePP = ticket.getAmountPerPerson();
+            HashMap<Person, Double> WaardePP = ticket.getAmountPerPerson();
 
             if (ticket.getSplitEvenly()){
                 Integer aantal = WaardePP.size();
@@ -119,11 +115,12 @@ public class TicketDB extends DatabaseTickets
                 }
             }
             else{
-                for(Map.Entry<Double,Person> e2: WaardePP.entrySet()){
-                    Person persoon= e2.getValue();
+                for(Map.Entry<Person, Double> e2: WaardePP.entrySet()){
+
+                    Person persoon= e2.getKey();
                     if(Objects.equals(persoon.getName(), user)){
 
-                        Double bedrag = e2.getKey();
+                        Double bedrag = e2.getValue();
                         if(RekeningPP.containsKey(payer)){
                             double Oldvalue = RekeningPP.get(payer);
                             double Newvalue = bedrag + Oldvalue;

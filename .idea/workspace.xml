@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="Decorator en totaalsom">
+    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="TotaalSom Bereken PerPersson">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ticket/TController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ticket/TController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ticket/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ticket/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +86,10 @@
       <workItem from="1701769805884" duration="6396000" />
       <workItem from="1701776879287" duration="15000" />
       <workItem from="1702133549245" duration="1864000" />
-      <workItem from="1702217542273" duration="5140000" />
+      <workItem from="1702217542273" duration="5367000" />
+      <workItem from="1702224461702" duration="1926000" />
+      <workItem from="1702329274946" duration="1194000" />
+      <workItem from="1702375272063" duration="964000" />
     </task>
     <task id="LOCAL-00001" summary="pom file">
       <option name="closed" value="true" />
@@ -141,7 +141,21 @@
       <option name="project" value="LOCAL" />
       <updated>1701774735921</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="TotaalSom Bereken PerPersson">
+      <created>1702223742090</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702223742090</updated>
+    </task>
+    <task id="LOCAL-00009" summary="TotaalSom Bereken PerPersson">
+      <created>1702226823871</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702226823871</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,17 +177,7 @@
     <MESSAGE value="Observer en singleton af" />
     <MESSAGE value="Observer af" />
     <MESSAGE value="Decorator en totaalsom" />
-    <option name="LAST_COMMIT_MESSAGE" value="Decorator en totaalsom" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/database/TicketDB.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="TotaalSom Bereken PerPersson" />
+    <option name="LAST_COMMIT_MESSAGE" value="TotaalSom Bereken PerPersson" />
   </component>
 </project>

@@ -12,6 +12,7 @@ import person.Person;
 import ticket.Category;
 import ticket.Ticket;
 
+import javax.crypto.interfaces.DHPublicKey;
 import java.util.HashMap;
 
 public class Main
@@ -46,21 +47,31 @@ public class Main
         Pregister.addPerson(Charlie);
 
 
-        HashMap<Double,Person> TestValues = new HashMap<>();
-        TestValues.put(10.0, Melanie);
-        TestValues.put(20.0, Mel);
-        TestValues.put(30.0, Bob);
+        HashMap<Person, Double> TestValues = new HashMap<>();
+        TestValues.put(Melanie, 10.0);
+        TestValues.put(Mel, 20.0);
+        TestValues.put(Bob, 30.0);
+
+
+
 
 
         TicketFactory TF1 = new TicketFactory();
         Ticket TicketMelanie = TF1.getTicket("x","Melanie", 60, Category.Food,false, TestValues);
-        Ticket Ticket2 = TF1.getTicket("y","Charlie", 44.4, Category.Food,false, TestValues);
+        Ticket Ticket2 = TF1.getTicket("y","Charlie", 60, Category.Food,false, TestValues);
+        Ticket Ticket3 = TF1.getTicket("y","MEl", 60, Category.Food,false, TestValues);
+
+
 
         System.out.println(DbP1.getNames());
 
         Tregister.addTicket(TicketMelanie);
         Tregister.addTicket(Ticket2);
+        Tregister.addTicket(Ticket3);
 
+        HashMap<String,Double> AfrekeningBob;
+        AfrekeningBob = Tregister.KostPP("Bob", DbT1);
+        System.out.print("Rekening voor Bob: " + AfrekeningBob+ "\n");
 
         double Totaal = Tregister.totaalSum(DbT1);
         System.out.print(Totaal+ "\n");
@@ -71,8 +82,8 @@ public class Main
         // Frame Logica
         //SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
 
-        HomeFrame view = new HomeFrame();
-        view.initialize();
+        //HomeFrame view = new HomeFrame();
+        //view.initialize();
 
 
 
