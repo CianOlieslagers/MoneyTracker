@@ -1,6 +1,7 @@
 package controller.ticket;
 
 import database.DatabaseTickets;
+import person.Person;
 import ticket.Ticket;
 
 import java.util.ArrayList;
@@ -55,5 +56,8 @@ public class TicketController implements TController
 //        db.addTicket(newTicket);
     }
 
-
+    public double getCostPP(Person person)
+    {
+        return db.getCostPP(person);
+    }
 }

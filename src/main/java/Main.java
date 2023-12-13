@@ -45,33 +45,33 @@ public class Main
         Pregister.addPerson(Charlie);
 
 
-        HashMap<Person, Double> TestValues = new HashMap<>();
-        TestValues.put(Melanie, 10.0);
-        TestValues.put(Mel, 20.0);
-        TestValues.put(Bob, 30.0);
-
-
-
-
-        TicketFactory TF1 = new TicketFactory();
-        Ticket TicketMelanie = TF1.getTicket("x","Melanie", 60, Category.Food,false, TestValues);
-        Ticket Ticket2 = TF1.getTicket("y","Charlie", 60, Category.Food,false, TestValues);
-        Ticket Ticket3 = TF1.getTicket("y","Mel", 60, Category.Food,false, TestValues);
-
-
-
-        System.out.println(DbP1.getNames());
-
-        Tregister.addTicket(TicketMelanie);
-        Tregister.addTicket(Ticket2);
-        Tregister.addTicket(Ticket3);
-
-        HashMap<String,Double> AfrekeningBob;
-        AfrekeningBob = Tregister.KostPP("Bob");
-        System.out.print("Rekening voor Bob: " + AfrekeningBob+ "\n");
-
-        double Totaal = Tregister.totaalSum();
-        System.out.print(Totaal+ "\n");
+//        HashMap<Person, Double> TestValues = new HashMap<>();
+//        TestValues.put(Melanie, 10.0);
+//        TestValues.put(Mel, 20.0);
+//        TestValues.put(Bob, 30.0);
+//
+//
+//
+//
+//        TicketFactory TF1 = new TicketFactory();
+//        Ticket TicketMelanie = TF1.getTicket("x","Melanie", 60, Category.Food,false, TestValues);
+//        Ticket Ticket2 = TF1.getTicket("y","Charlie", 60, Category.Food,false, TestValues);
+//        Ticket Ticket3 = TF1.getTicket("z","Mel", 60, Category.Food,false, TestValues);
+//
+//
+//
+//        System.out.println(DbP1.getNames());
+//
+//        Tregister.addTicket(TicketMelanie);
+//        Tregister.addTicket(Ticket2);
+//        Tregister.addTicket(Ticket3);
+//
+//        HashMap<String,Double> AfrekeningBob;
+//        AfrekeningBob = Tregister.KostPP("Bob");
+//        System.out.print("Rekening voor Bob: " + AfrekeningBob+ "\n");
+//
+//        double Totaal = Tregister.totaalSum();
+//        System.out.print(Totaal+ "\n");
 
 
 

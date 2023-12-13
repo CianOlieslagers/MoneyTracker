@@ -1,6 +1,6 @@
 package controller.ticket;
 
-import database.DatabaseTickets;
+import person.Person;
 import ticket.Ticket;
 
 import java.util.ArrayList;
@@ -13,6 +13,6 @@ public interface TController
     ArrayList<Ticket> getTickets();
     double totaalSum();
     HashMap<String, Double> KostPP(String user);
-
     void setActivity(Ticket oldTicket);
+    double getCostPP(Person person);
 }

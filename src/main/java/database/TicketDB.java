@@ -6,6 +6,7 @@ import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -171,6 +172,63 @@ public class TicketDB extends DatabaseTickets
         }
 
         return RekeningPP;
+    }
+
+    public double getCostPP(Person person)
+    {
+        HashMap<Person,Double> bill = new HashMap<>();
+        System.out.println("meegegeven person: " + person);
+
+        for (Map.Entry<Integer,Ticket> e : this.db.entrySet())
+        {
+            Ticket e_ticket = e.getValue();
+            System.out.println("print ticket: " + e_ticket);
+
+            for (Map.Entry<Person, Double> f : e_ticket.getAmountPerPerson().entrySet())
+            {
+                Person f_person = f.getKey();
+                System.out.println(f_person);
+
+                if (Objects.equals(f_person.getName(), e_ticket.getPayer()))
+                {
+                    double f_amountToReceive = e.getValue().getAmount() - f.getValue();
+                    System.out.println("i'm the payer " + f + "and need to receive " + f_amountToReceive) ;
+
+                    if (bill.containsKey(f_person))
+                    {
+                        System.out.println("bill contains " + f_person);
+                        double alreadyAmount = bill.get(f_person);
+                        bill.put(f_person, (alreadyAmount - f_amountToReceive));
+                        System.out.println("BILL: " + bill);
+                    }
+                    else
+                    {
+                        System.out.println("bill doesn't contain " + f_person);
+                        bill.put(f_person, -f_amountToReceive);
+                        System.out.println("BILL: " + bill);
+                    }
+                }
+                else
+                {
+                    System.out.println("not the payer " + f);
+                    Double f_amountToPay = f.getValue();
+
+                    if (bill.containsKey(f_person))
+                    {
+                        double alreadyAmount = bill.get(f_person);
+                        bill.put(f_person, (alreadyAmount + f_amountToPay));
+                        System.out.println("BILL: " + bill);
+                    }
+                    else
+                    {
+                        bill.put(f_person, f_amountToPay);
+                        System.out.println("BILL: " + bill);
+                    }
+                }
+            }
+        }
+
+        return bill.get(person);
     }
 
 }

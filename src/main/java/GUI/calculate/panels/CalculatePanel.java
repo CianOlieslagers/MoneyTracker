@@ -21,8 +21,10 @@ public class CalculatePanel extends JPanel
         this.personController = personController;
         this.ticketController = ticketController;
 
-        this.selectBox = new JComboBox<>(personController.getNames().toArray());
-        this.amountPerson = new JLabel(String.valueOf(ticketController.totaalSum())); //tijdelijk
+        this.selectBox = new JComboBox<>(personController.getPersons().toArray());
+        this.amountPerson = new JLabel("Selecteer iemand"); //tijdelijk
+
+        selecBoxActionListener();
 
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -51,8 +53,13 @@ public class CalculatePanel extends JPanel
     {
         this.selectBox.addActionListener(listener ->
         {
-            HashMap<String,Double> map = ticketController.KostPP((String) selectBox.getSelectedItem());
+            //HashMap<String,Double> map = ticketController.KostPP((String) selectBox.getSelectedItem());
             //this.amountPerson = new JLabel(String.valueOf(map.get(selectBox.getSelectedItem())));
+            //System.out.println(map);
+
+            double map = ticketController.getCostPP((Person) selectBox.getSelectedItem());
+            this.amountPerson.setText(String.valueOf(map));
+            System.out.println(map);
         });
     }
 
