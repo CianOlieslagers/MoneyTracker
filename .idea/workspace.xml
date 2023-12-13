@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="TotaalSom Bereken PerPersson">
-      <change afterPath="$PROJECT_DIR$/src/test/TestUnit.java" afterDir="false" />
+    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="unittest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/calculate/panels/CalculatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/calculate/panels/CalculatePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/UnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ticket/TController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ticket/TController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ticket/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ticket/TicketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/TestUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestUnit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +61,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.TestUnit.testAddTicket">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="MoneyTracker" />
@@ -90,8 +94,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestUnit.testAddTicket" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.TestUnit.testAddTicket" />
         <item itemvalue="Application.UnitTest" />
       </list>
     </recent_temporary>
@@ -119,7 +123,7 @@
       <workItem from="1702224461702" duration="1926000" />
       <workItem from="1702329274946" duration="1194000" />
       <workItem from="1702375272063" duration="6070000" />
-      <workItem from="1702472579297" duration="680000" />
+      <workItem from="1702472579297" duration="4445000" />
     </task>
     <task id="LOCAL-00001" summary="pom file">
       <option name="closed" value="true" />
@@ -192,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702376511793</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="unittest">
+      <created>1702473314732</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702473314732</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +226,7 @@
     <MESSAGE value="Observer af" />
     <MESSAGE value="Decorator en totaalsom" />
     <MESSAGE value="TotaalSom Bereken PerPersson" />
-    <option name="LAST_COMMIT_MESSAGE" value="TotaalSom Bereken PerPersson" />
+    <MESSAGE value="unittest" />
+    <option name="LAST_COMMIT_MESSAGE" value="unittest" />
   </component>
 </project>

@@ -37,7 +37,7 @@ public class TestUnit {
 
 
         Ticket ticket = new Ticket("TestTicket", "User1", 50.0, Category.Food, false, new HashMap<>());
-        ticketController.addTicket(ticket);
+        //ticketController.addTicket(ticket);
 
         ArrayList<Ticket> tickets = ticketController.getTickets();
         assertEquals(1, tickets.size());

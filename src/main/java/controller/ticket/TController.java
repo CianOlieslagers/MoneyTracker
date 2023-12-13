@@ -1,6 +1,9 @@
 package controller.ticket;
 
 import database.DatabaseTickets;
+import database.PersonDB;
+import person.Person;
+import ticket.Category;
 import ticket.Ticket;
 
 import java.util.ArrayList;
@@ -12,7 +15,7 @@ public interface TController
     void removeTicket(Ticket ticket);
     ArrayList<Ticket> getTickets();
     double totaalSum();
-    HashMap<String, Double> KostPP(String user);
+    HashMap<Person, Double> KostPP(Person person);
 
-    void setActivity(Ticket oldTicket);
+    void setActivity(Ticket oldTicket, Category category) throws Exception;
 }

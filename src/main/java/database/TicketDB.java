@@ -126,14 +126,26 @@ public class TicketDB extends DatabaseTickets
     }
 
     @Override
-    public HashMap<String, Double> KostPP(String user) {
+    public HashMap<Person, Double> KostPP(Person person) {
 
-        HashMap<String,Double> RekeningPP = new HashMap<>();
+        HashMap<Person,Double> RekeningPP = new HashMap<>();
 
+        String user = person.getName();
         for(Map.Entry<Integer, Ticket> e: this.db.entrySet()){
             Ticket ticket = e.getValue();
-            String payer = ticket.getPayer(); // Persoon die betaalt
+            String payer = ticket.getPayer();// Persoon die betaalt
             HashMap<Person, Double> WaardePP = ticket.getAmountPerPerson();
+            ArrayList<Person> lijstNamenPersonen = dbPersons.getPersons();
+            Person finalPerson = null;
+            
+            
+            for(int i = 0; i < lijstNamenPersonen.size();i++){
+                Person tijdelijkPersoon = lijstNamenPersonen.get(i);
+                if( payer == tijdelijkPersoon.getName()){
+                    finalPerson = tijdelijkPersoon;
+                }
+            }
+
 
             if (ticket.getSplitEvenly()){
                 Integer aantal = WaardePP.size();
@@ -141,10 +153,10 @@ public class TicketDB extends DatabaseTickets
                 if (RekeningPP.containsKey(payer)){
                     double Oldvalue = RekeningPP.get(payer);
                     double Newvalue = Oldvalue + (bedrag/aantal);
-                    RekeningPP.put(payer,Newvalue);
+                    RekeningPP.put(finalPerson,Newvalue);
                 }
                 else{
-                    RekeningPP.put(payer, bedrag/aantal);
+                    RekeningPP.put(finalPerson, bedrag/aantal);
 
                 }
             }
@@ -158,12 +170,12 @@ public class TicketDB extends DatabaseTickets
                         if(RekeningPP.containsKey(payer)){
                             double Oldvalue = RekeningPP.get(payer);
                             double Newvalue = bedrag + Oldvalue;
-                            RekeningPP.put(payer,Newvalue);
+                            RekeningPP.put(finalPerson,Newvalue);
 
                         }
                         else
                         {
-                            RekeningPP.put(payer,bedrag);
+                            RekeningPP.put(finalPerson,bedrag);
                         }
                     }
                 }

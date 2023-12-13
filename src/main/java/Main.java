@@ -7,6 +7,7 @@ import database.DatabasePersons;
 import database.DatabaseTickets;
 import database.PersonDB;
 import database.TicketDB;
+import decorator.ActivitiesTicketDecorator;
 import factory.TicketFactory;
 import person.Person;
 import ticket.Category;
@@ -45,30 +46,34 @@ public class Main
         Pregister.addPerson(Charlie);
 
 
-        HashMap<Person, Double> TestValues = new HashMap<>();
-        TestValues.put(Melanie, 10.0);
-        TestValues.put(Mel, 20.0);
-        TestValues.put(Bob, 30.0);
+        HashMap<Person, Double> TestValues1 = new HashMap<>();
+        TestValues1.put(Mel, 10.0);
+        TestValues1.put(Bob,20.0);
 
+        HashMap<Person, Double> TestValues2 = new HashMap<>();
+        TestValues2.put(Mel, 20.0);
+        TestValues2.put(Bob,10.0);
 
 
 
         TicketFactory TF1 = new TicketFactory();
-        Ticket TicketMelanie = TF1.getTicket("x","Melanie", 60, Category.Food,false, TestValues);
-        Ticket Ticket2 = TF1.getTicket("y","Charlie", 60, Category.Food,false, TestValues);
-        Ticket Ticket3 = TF1.getTicket("y","Mel", 60, Category.Food,false, TestValues);
-
+        Ticket test1 = TF1.getTicket("test1","Bob", 30, Category.Food,false, TestValues1);
+        Ticket test2 = TF1.getTicket("test2","Mel", 30, Category.Food,false, TestValues2);
 
 
         System.out.println(DbP1.getNames());
 
-        Tregister.addTicket(TicketMelanie);
-        Tregister.addTicket(Ticket2);
-        Tregister.addTicket(Ticket3);
+        Tregister.addTicket(test1);
+        Tregister.addTicket(test2);
 
-        HashMap<String,Double> AfrekeningBob;
-        AfrekeningBob = Tregister.KostPP("Bob");
+        HashMap<Person,Double> AfrekeningBob;
+        AfrekeningBob = Tregister.KostPP(Bob);
         System.out.print("Rekening voor Bob: " + AfrekeningBob+ "\n");
+
+        HashMap<Person,Double> AfrekeningMel;
+        AfrekeningMel = Tregister.KostPP(Mel);
+        System.out.print("Rekening voor Mel: " + AfrekeningMel+ "\n");
+
 
         double Totaal = Tregister.totaalSum();
         System.out.print(Totaal+ "\n");
@@ -79,8 +84,8 @@ public class Main
         // Frame Logica
         //SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
 
-        HomeFrame view = new HomeFrame();
-        view.initialize();
+        //HomeFrame view = new HomeFrame();
+        //view.initialize();
 
 
     }

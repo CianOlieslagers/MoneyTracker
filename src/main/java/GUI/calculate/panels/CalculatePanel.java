@@ -25,6 +25,7 @@ public class CalculatePanel extends JPanel
         this.amountPerson = new JLabel(String.valueOf(ticketController.totaalSum())); //tijdelijk
 
         GroupLayout layout = new GroupLayout(this);
+        selecBoxActionListener();
         this.setLayout(layout);
 
         layout.setAutoCreateGaps(true);
@@ -51,8 +52,10 @@ public class CalculatePanel extends JPanel
     {
         this.selectBox.addActionListener(listener ->
         {
-            HashMap<String,Double> map = ticketController.KostPP((String) selectBox.getSelectedItem());
+            HashMap<Person,Double> map = ticketController.KostPP((Person) selectBox.getSelectedItem());
             //this.amountPerson = new JLabel(String.valueOf(map.get(selectBox.getSelectedItem())));
+            System.out.println(map);
+
         });
     }
 
