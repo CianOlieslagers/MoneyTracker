@@ -114,7 +114,7 @@ public class TicketDB extends DatabaseTickets
 
     @Override
     public Double totaalSum() {
-        Double totaal = 0.0;
+        double totaal = 0.0;
         for(Map.Entry<Integer, Ticket> e: this.db.entrySet()){
             Ticket e_Value = e.getValue();
             totaal = e_Value.getAmount() + totaal;
