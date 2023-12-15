@@ -175,58 +175,48 @@ public class TicketDB extends DatabaseTickets
     public HashMap<Person,Double> getBill()
     {
         HashMap<Person,Double> bill = new HashMap<>();
-        //System.out.println("meegegeven person: " + person);
 
         for (Map.Entry<Integer,Ticket> e : this.db.entrySet())
         {
             Ticket e_ticket = e.getValue();
-            //System.out.println("\nprint ticket: " + e_ticket);
 
             for (Map.Entry<Person,Double> f : e_ticket.getAmountPerPerson().entrySet())
             {
                 Person f_person = f.getKey();
-                //System.out.println(f_person);
 
                 if (Objects.equals(f_person.getName(), e_ticket.getPayer()))
                 {
                     double f_amountToReceive = e.getValue().getAmount() - f.getValue();
-                    //System.out.println("i'm the payer " + f + "and need to receive " + f_amountToReceive) ;
 
                     if (bill.containsKey(f_person))
                     {
-                        //System.out.println("bill contains " + f_person);
                         double alreadyAmount = bill.get(f_person);
                         bill.put(f_person, (alreadyAmount + f_amountToReceive));
-                        //System.out.println("BILL: " + bill);
                     }
                     else
                     {
-                        //System.out.println("bill doesn't contain " + f_person);
                         bill.put(f_person, f_amountToReceive);
-                        //System.out.println("BILL: " + bill);
                     }
                 }
                 else
                 {
-                    //System.out.println("not the payer " + f);
                     double f_amountToPay = -f.getValue();
 
                     if (bill.containsKey(f_person))
                     {
                         double alreadyAmount = bill.get(f_person);
                         bill.put(f_person, (alreadyAmount + f_amountToPay));
-                        //System.out.println("BILL: " + bill);
                     }
                     else
                     {
                         bill.put(f_person, f_amountToPay);
-                        //System.out.println("BILL: " + bill);
                     }
                 }
             }
         }
 
         System.out.println("BILL: " + bill);
+        printBill(bill);
 
         return bill;
     }
@@ -262,8 +252,6 @@ public class TicketDB extends DatabaseTickets
                 bill.put(debtor, bill.get(debtor) + settlementAmount);
                 bill.put(creditor, bill.get(creditor) - settlementAmount);
 
-                //System.out.println(debtor + " needs to pay " + settlementAmount + " to " + creditor);
-
                 if (Objects.equals(debtor, person))
                 {
                     return printTransaction(debtor,creditor,settlementAmount);
@@ -277,11 +265,26 @@ public class TicketDB extends DatabaseTickets
         return (person.getName() + " doesn't have to pay anything!");
     }
 
+
     private String printTransaction(Person debtor, Person creditor, double amount)
     {
         System.out.println(debtor.getName() + " needs to pay " + amount + " euro to " + creditor.getName() + " on the following accountnumber: " + creditor.getAccountNumber());
 
         return (debtor.getName() + " needs to pay " + amount + " euro to " + creditor.getName() + " on the following accountnumber: " + creditor.getAccountNumber());
+    }
+
+
+    private void printBill(HashMap<Person,Double> bill)
+    {
+        for (Map.Entry<Person,Double> entry : bill.entrySet())
+        {
+            if (entry.getValue() > 0)
+                System.out.println(entry.getKey().getName() + " needs to receive " + entry.getValue() + " euro from the group!");
+            else if (entry.getValue() == 0)
+                System.out.println(entry.getKey().getName() + " don't need to pay or receive any money!");
+            else if (entry.getValue() < 0)
+                System.out.println(entry.getKey().getName() + " owes " + -entry.getValue() + " euro to the group!");
+        }
     }
 
 }

@@ -15,7 +15,6 @@ public interface TController
     HashMap<String, Double> KostPP(String user);
     void setActivity(Ticket oldTicket);
     HashMap<Person,Double> getBill();
-
     String getBillPerPerson(Person person);
 
 }
