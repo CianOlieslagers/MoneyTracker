@@ -56,8 +56,15 @@ public class TicketController implements TController
 //        db.addTicket(newTicket);
     }
 
-    public double getCostPP(Person person)
+    public HashMap<Person,Double> getBill()
     {
-        return db.getCostPP(person);
+        return db.getBill();
     }
+
+
+    public String getBillPerPerson(Person person)
+    {
+        return db.getBillPerPerson(person);
+    }
+
 }

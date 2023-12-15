@@ -20,5 +20,7 @@ public abstract class DatabaseTickets
     public abstract ArrayList<Ticket> getTickets();
     public abstract Double totaalSum();
     public abstract HashMap<String,Double> KostPP(String user);
-    public abstract double getCostPP(Person person);
+    public abstract HashMap<Person,Double> getBill();
+    public abstract String getBillPerPerson(Person person);
+
 }

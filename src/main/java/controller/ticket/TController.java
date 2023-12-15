@@ -14,5 +14,8 @@ public interface TController
     double totaalSum();
     HashMap<String, Double> KostPP(String user);
     void setActivity(Ticket oldTicket);
-    double getCostPP(Person person);
+    HashMap<Person,Double> getBill();
+
+    String getBillPerPerson(Person person);
+
 }

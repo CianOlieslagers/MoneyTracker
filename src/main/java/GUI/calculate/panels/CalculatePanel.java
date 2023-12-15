@@ -5,7 +5,6 @@ import controller.ticket.TicketController;
 import person.Person;
 
 import javax.swing.*;
-import java.util.HashMap;
 
 public class CalculatePanel extends JPanel
 {
@@ -21,8 +20,8 @@ public class CalculatePanel extends JPanel
         this.personController = personController;
         this.ticketController = ticketController;
 
-        this.selectBox = new JComboBox<>(personController.getPersons().toArray());
-        this.amountPerson = new JLabel("Selecteer iemand"); //tijdelijk
+        this.selectBox = new JComboBox<>(personController.getNames().toArray());
+        this.amountPerson = new JLabel("Select a person");
 
         selecBoxActionListener();
 
@@ -53,13 +52,9 @@ public class CalculatePanel extends JPanel
     {
         this.selectBox.addActionListener(listener ->
         {
-            //HashMap<String,Double> map = ticketController.KostPP((String) selectBox.getSelectedItem());
-            //this.amountPerson = new JLabel(String.valueOf(map.get(selectBox.getSelectedItem())));
-            //System.out.println(map);
+            Person selectedPerson = this.personController.getPerson((String) this.selectBox.getSelectedItem());
+            this.amountPerson.setText(this.ticketController.getBillPerPerson(selectedPerson));
 
-            double map = ticketController.getCostPP((Person) selectBox.getSelectedItem());
-            this.amountPerson.setText(String.valueOf(map));
-            System.out.println(map);
         });
     }
 

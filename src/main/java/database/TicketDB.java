@@ -6,11 +6,7 @@ import ticket.Ticket;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.lang.reflect.MalformedParameterizedTypeException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class TicketDB extends DatabaseTickets
 {
@@ -174,61 +170,118 @@ public class TicketDB extends DatabaseTickets
         return RekeningPP;
     }
 
-    public double getCostPP(Person person)
+
+    @Override
+    public HashMap<Person,Double> getBill()
     {
         HashMap<Person,Double> bill = new HashMap<>();
-        System.out.println("meegegeven person: " + person);
+        //System.out.println("meegegeven person: " + person);
 
         for (Map.Entry<Integer,Ticket> e : this.db.entrySet())
         {
             Ticket e_ticket = e.getValue();
-            System.out.println("print ticket: " + e_ticket);
+            //System.out.println("\nprint ticket: " + e_ticket);
 
-            for (Map.Entry<Person, Double> f : e_ticket.getAmountPerPerson().entrySet())
+            for (Map.Entry<Person,Double> f : e_ticket.getAmountPerPerson().entrySet())
             {
                 Person f_person = f.getKey();
-                System.out.println(f_person);
+                //System.out.println(f_person);
 
                 if (Objects.equals(f_person.getName(), e_ticket.getPayer()))
                 {
                     double f_amountToReceive = e.getValue().getAmount() - f.getValue();
-                    System.out.println("i'm the payer " + f + "and need to receive " + f_amountToReceive) ;
+                    //System.out.println("i'm the payer " + f + "and need to receive " + f_amountToReceive) ;
 
                     if (bill.containsKey(f_person))
                     {
-                        System.out.println("bill contains " + f_person);
+                        //System.out.println("bill contains " + f_person);
                         double alreadyAmount = bill.get(f_person);
-                        bill.put(f_person, (alreadyAmount - f_amountToReceive));
-                        System.out.println("BILL: " + bill);
+                        bill.put(f_person, (alreadyAmount + f_amountToReceive));
+                        //System.out.println("BILL: " + bill);
                     }
                     else
                     {
-                        System.out.println("bill doesn't contain " + f_person);
-                        bill.put(f_person, -f_amountToReceive);
-                        System.out.println("BILL: " + bill);
+                        //System.out.println("bill doesn't contain " + f_person);
+                        bill.put(f_person, f_amountToReceive);
+                        //System.out.println("BILL: " + bill);
                     }
                 }
                 else
                 {
-                    System.out.println("not the payer " + f);
-                    Double f_amountToPay = f.getValue();
+                    //System.out.println("not the payer " + f);
+                    double f_amountToPay = -f.getValue();
 
                     if (bill.containsKey(f_person))
                     {
                         double alreadyAmount = bill.get(f_person);
                         bill.put(f_person, (alreadyAmount + f_amountToPay));
-                        System.out.println("BILL: " + bill);
+                        //System.out.println("BILL: " + bill);
                     }
                     else
                     {
                         bill.put(f_person, f_amountToPay);
-                        System.out.println("BILL: " + bill);
+                        //System.out.println("BILL: " + bill);
                     }
                 }
             }
         }
 
-        return bill.get(person);
+        System.out.println("BILL: " + bill);
+
+        return bill;
+    }
+
+
+    @Override
+    public String getBillPerPerson(Person person)
+    {
+        HashMap<Person,Double> bill = getBill();
+
+        HashMap<Person,Double> negative = new HashMap<>();
+        HashMap<Person,Double> positive = new HashMap<>();
+
+        for (Map.Entry<Person,Double> e : bill.entrySet())
+        {
+            if (e.getValue() > 0)
+                positive.put(e.getKey(),e.getValue());
+            else if (e.getValue() < 0)
+                negative.put(e.getKey(),e.getValue());
+        }
+
+        for (Map.Entry<Person,Double> e : negative.entrySet())
+        {
+            Person debtor = e.getKey();
+            double debtAmount = e.getValue();
+
+            for (Map.Entry<Person,Double> f : positive.entrySet())
+            {
+                Person creditor = f.getKey();
+                double creditAmount = f.getValue();
+
+                double settlementAmount = Math.min(-debtAmount, creditAmount);
+                bill.put(debtor, bill.get(debtor) + settlementAmount);
+                bill.put(creditor, bill.get(creditor) - settlementAmount);
+
+                //System.out.println(debtor + " needs to pay " + settlementAmount + " to " + creditor);
+
+                if (Objects.equals(debtor, person))
+                {
+                    return printTransaction(debtor,creditor,settlementAmount);
+                }
+
+                debtAmount += settlementAmount;
+                if (debtAmount == 0)
+                    break;
+            }
+        }
+        return (person.getName() + " doesn't have to pay anything!");
+    }
+
+    private String printTransaction(Person debtor, Person creditor, double amount)
+    {
+        System.out.println(debtor.getName() + " needs to pay " + amount + " euro to " + creditor.getName() + " on the following accountnumber: " + creditor.getAccountNumber());
+
+        return (debtor.getName() + " needs to pay " + amount + " euro to " + creditor.getName() + " on the following accountnumber: " + creditor.getAccountNumber());
     }
 
 }
