@@ -1,6 +1,5 @@
 import controller.ticket.TController;
 import controller.ticket.TicketController;
-import database.DatabaseTickets;
 import database.TicketDB;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
-import static ticket.Category.Airplane;
 
 public class TestUnit {
 
