@@ -30,7 +30,7 @@ public class TestUnit {
 
     }
     @Test
-    public void testAddTicket() throws NoSuchFieldException {
+    public void testAddTicket() throws Exception {
 
         Field field = TicketController.class.getDeclaredField("db");
         field.setAccessible(true);
