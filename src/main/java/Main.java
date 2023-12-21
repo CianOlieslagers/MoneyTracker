@@ -7,7 +7,6 @@ import database.DatabasePersons;
 import database.DatabaseTickets;
 import database.PersonDB;
 import database.TicketDB;
-import decorator.ActivitiesTicketDecorator;
 import factory.TicketFactory;
 import person.Person;
 import ticket.Category;

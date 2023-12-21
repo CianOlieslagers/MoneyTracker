@@ -70,23 +70,9 @@ public class TicketController implements TController
             db.addTicket(DrinksTicket);
         }
 
-        Ticket FoodTicket = new FoodTicketDecorator(oldTicket);
-        if(FoodTicket.getCategory() == category){
-            db.removeTicket(oldTicket);
-            db.addTicket(FoodTicket);
-        }
-
-        Ticket OthersTicket = new OthersTicketDecorator(oldTicket);
-        if(OthersTicket.getCategory() == category){
-            db.removeTicket(oldTicket);
-            db.addTicket(OthersTicket);
-        }
-
-        Ticket TaxiTicket = new TaxiTicketDecorator(oldTicket);
-        if(TaxiTicket.getCategory() == category){
-            db.removeTicket(oldTicket);
-            db.addTicket(TaxiTicket);
-        }
+//        Ticket newTicket =
+//        db.removeTicket(oldTicket);
+//        db.addTicket(newTicket);
     }
 
 
