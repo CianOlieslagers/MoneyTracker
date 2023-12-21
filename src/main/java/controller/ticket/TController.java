@@ -17,5 +17,7 @@ public interface TController
     double totaalSum();
     HashMap<Person, Double> KostPP(Person person);
 
+    void printSchulden(HashMap<Person,Double> schuldenmap);
+
     void setActivity(Ticket oldTicket, Category category) throws Exception;
 }

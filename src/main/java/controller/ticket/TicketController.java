@@ -50,6 +50,12 @@ public class TicketController implements TController
     }
 
     @Override
+    public void printSchulden(HashMap<Person, Double> schuldenmap) {
+        db.printSchulden(schuldenmap);
+    }
+
+
+    @Override
     public void setActivity(Ticket oldTicket, Category category) throws Exception {
 
         Ticket AirplaneTicket = new AirplaneTicketDecorator(oldTicket);

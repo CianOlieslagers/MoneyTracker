@@ -102,7 +102,7 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
             if (!this.ticketJList.isSelectionEmpty())
             {
                 System.out.println("You've selected " + this.ticketJList.getSelectedValue() + "to edit");
-                this.ticketController.setActivity(this.ticketJList.getSelectedValue());
+                //this.ticketController.setActivity(this.ticketJList.getSelectedValue());
             }
             else
             {

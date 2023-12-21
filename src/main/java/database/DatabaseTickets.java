@@ -22,4 +22,5 @@ public abstract class DatabaseTickets
     public abstract HashMap<Person,Double> KostPP(Person person);
 
 
+    public abstract void printSchulden(HashMap<Person, Double> schuldenmap);
 }
