@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="Decorator">
+    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="Funtie af">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ticket/show/panels/ShowTicketPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ticket/show/panels/ShowTicketPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/calculate/panels/CalculatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/calculate/panels/CalculatePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ticket/TController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ticket/TController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ticket/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ticket/TicketController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/decorator/TicketDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decorator/TicketDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/TestUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestUnit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +82,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestUnit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MoneyTracker" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestUnit" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestUnit.testAddTicket" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MoneyTracker" />
       <option name="PACKAGE_NAME" value="" />
@@ -91,9 +101,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestUnit.testTotaalSum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MoneyTracker" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestUnit" />
+      <option name="METHOD_NAME" value="testTotaalSum" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.TestUnit" />
+        <item itemvalue="JUnit.TestUnit.testTotaalSum" />
         <item itemvalue="JUnit.TestUnit.testAddTicket" />
         <item itemvalue="Application.UnitTest" />
       </list>
@@ -126,7 +148,9 @@
       <workItem from="1702813647696" duration="1327000" />
       <workItem from="1703076212763" duration="5159000" />
       <workItem from="1703096706877" duration="2917000" />
-      <workItem from="1703159164336" duration="2375000" />
+      <workItem from="1703159164336" duration="4560000" />
+      <workItem from="1703165634778" duration="1572000" />
+      <workItem from="1703171768995" duration="2872000" />
     </task>
     <task id="LOCAL-00001" summary="pom file">
       <option name="closed" value="true" />
@@ -213,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702477140336</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Funtie af">
+      <created>1703161740326</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1703161740326</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +269,8 @@
     <MESSAGE value="TotaalSom Bereken PerPersson" />
     <MESSAGE value="unittest" />
     <MESSAGE value="Decorator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Decorator" />
+    <MESSAGE value="Funtie af" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funtie af" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

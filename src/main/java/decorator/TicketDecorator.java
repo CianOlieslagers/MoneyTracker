@@ -13,10 +13,7 @@ public abstract class TicketDecorator extends Ticket
         this.decoratedTicket = decoratedTicket;
     }
 
-    @Override
-    public Category getCategory()
-    {
-        // Replace this with the desired behavior to modify or replace the category
-        return decoratedTicket.getCategory();
-    }
+
+    public abstract Category getCategory();
+
 }

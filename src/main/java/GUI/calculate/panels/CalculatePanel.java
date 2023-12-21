@@ -54,7 +54,7 @@ public class CalculatePanel extends JPanel
         this.selectBox.addActionListener(listener ->
         {
             Person selectedPerson = this.personController.getPerson((String) this.selectBox.getSelectedItem());
-            this.amountPerson.setText(this.ticketController.getBillPerPerson(selectedPerson));
+            //this.amountPerson.setText(this.ticketController.getBillPerPerson(selectedPerson));
 
         });
     }

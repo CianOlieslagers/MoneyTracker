@@ -195,7 +195,6 @@ public class TicketDB extends DatabaseTickets {
                 debts.add(entry.getKey());
             }
         }
-
         // Sorting in descending order
         credits.sort((p1, p2) -> Double.compare(schuldenMap.get(p2), schuldenMap.get(p1)));
         // Sorting in ascending order
