@@ -218,4 +218,129 @@ public class TicketDB extends DatabaseTickets {
         }
 
     }
+
+    @Override
+    public HashMap<Person,Double> getBill()
+    {
+        HashMap<Person,Double> bill = new HashMap<>();
+
+        for (Map.Entry<Integer,Ticket> e : this.db.entrySet())
+        {
+            Ticket e_ticket = e.getValue();
+
+            for (Map.Entry<Person,Double> f : e_ticket.getAmountPerPerson().entrySet())
+            {
+                Person f_person = f.getKey();
+
+                if (Objects.equals(f_person.getName(), e_ticket.getPayer()))
+                {
+                    double f_amountToReceive = e.getValue().getAmount() - f.getValue();
+
+                    if (bill.containsKey(f_person))
+                    {
+                        double alreadyAmount = bill.get(f_person);
+                        bill.put(f_person, (alreadyAmount + f_amountToReceive));
+                    }
+                    else
+                    {
+                        bill.put(f_person, f_amountToReceive);
+                    }
+                }
+                else
+                {
+                    double f_amountToPay = -f.getValue();
+
+                    if (bill.containsKey(f_person))
+                    {
+                        double alreadyAmount = bill.get(f_person);
+                        bill.put(f_person, (alreadyAmount + f_amountToPay));
+                    }
+                    else
+                    {
+                        bill.put(f_person, f_amountToPay);
+                    }
+                }
+            }
+        }
+
+        System.out.println("BILL: " + bill);
+
+        return bill;
+    }
+
+
+    @Override
+    public ArrayList<String> getBillPerPerson(Person person)
+    {
+        HashMap<Person,Double> bill = getBill();
+
+        HashMap<Person,Double> negative = new HashMap<>();
+        HashMap<Person,Double> positive = new HashMap<>();
+
+        ArrayList<String > result = new ArrayList<>();
+
+        for (Map.Entry<Person,Double> e : bill.entrySet())
+        {
+            if (e.getValue() > 0)
+                positive.put(e.getKey(),e.getValue());
+            else if (e.getValue() < 0)
+                negative.put(e.getKey(),e.getValue());
+        }
+
+        for (Map.Entry<Person,Double> e : negative.entrySet())
+        {
+            Person debtor = e.getKey();
+            double debtAmount = e.getValue();
+
+            for (Map.Entry<Person,Double> f : positive.entrySet())
+            {
+                Person creditor = f.getKey();
+                double creditAmount = f.getValue();
+
+                double settlementAmount = Math.min(-debtAmount, creditAmount);
+                positive.put(creditor, positive.get(creditor) - settlementAmount);
+                negative.put(debtor, negative.get(debtor) + settlementAmount);
+
+                if (Objects.equals(debtor, person))
+                {
+                    result.add(debtor.getName() + " needs to pay " + settlementAmount + " euro to " + creditor.getName());
+                }
+
+                debtAmount += settlementAmount;
+                if (debtAmount == 0)
+                    break;
+            }
+        }
+        System.out.println(result);
+        return result;
+    }
+
+/*
+
+    private String printTransaction(Person debtor, Person creditor, double amount)
+    {
+        System.out.println(debtor.getName() + " needs to pay " + amount + " euro to " + creditor.getName() + " on the following accountnumber: " + creditor.getAccountNumber());
+
+        return (debtor.getName() + " needs to pay " + amount + " euro to " + creditor.getName() + " on the following accountnumber: " + creditor.getAccountNumber());
+    }
+
+
+    private void printBill(HashMap<Person,Double> bill)
+    {
+        for (Map.Entry<Person,Double> entry : bill.entrySet())
+        {
+            if (entry.getValue() > 0)
+                System.out.println(entry.getKey().getName() + " needs to receive " + entry.getValue() + " euro from the group!");
+            else if (entry.getValue() == 0)
+                System.out.println(entry.getKey().getName() + " don't need to pay or receive any money!");
+            else if (entry.getValue() < 0)
+                System.out.println(entry.getKey().getName() + " owes " + -entry.getValue() + " euro to the group!");
+        }
+    }
+*/
+
+
+
+
+
 }

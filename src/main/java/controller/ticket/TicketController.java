@@ -92,15 +92,18 @@ public class TicketController implements TController
             db.removeTicket(oldTicket);
             db.addTicket(OthersTicket);
         }
+    }
 
+    @Override
+    public HashMap<Person,Double> getBill()
+    {
+        return db.getBill();
+    }
 
-
-
-
-
-
-
-
+    @Override
+    public ArrayList<String> getBillPerPerson(Person person)
+    {
+        return db.getBillPerPerson(person);
     }
 
 

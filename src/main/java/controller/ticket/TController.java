@@ -20,4 +20,8 @@ public interface TController
     void printSchulden(HashMap<Person,Double> schuldenmap);
 
     void setActivity(Ticket oldTicket, Category category) throws Exception;
+
+    HashMap<Person,Double> getBill();
+
+    ArrayList<String> getBillPerPerson(Person person);
 }

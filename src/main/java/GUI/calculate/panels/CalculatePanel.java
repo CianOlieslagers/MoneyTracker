@@ -5,7 +5,7 @@ import controller.ticket.TicketController;
 import person.Person;
 
 import javax.swing.*;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class CalculatePanel extends JPanel
 {
@@ -14,7 +14,8 @@ public class CalculatePanel extends JPanel
     TicketController ticketController;
 
     private JComboBox selectBox;
-    private JLabel amountPerson;
+    private JList<String> billJList;
+    private DefaultListModel<String> billListModel;
 
     public CalculatePanel(PersonController personController, TicketController ticketController)
     {
@@ -22,30 +23,18 @@ public class CalculatePanel extends JPanel
         this.ticketController = ticketController;
 
         this.selectBox = new JComboBox<>(personController.getNames().toArray());
-        this.amountPerson = new JLabel("Select a person");
 
         selecBoxActionListener();
 
-        GroupLayout layout = new GroupLayout(this);
+        BoxLayout layout = new BoxLayout(this,BoxLayout.Y_AXIS);
         this.setLayout(layout);
 
-        layout.setAutoCreateGaps(true);
-        layout.setAutoCreateContainerGaps(true);
+        this.billListModel = new DefaultListModel<>();
+        this.billJList = new JList<>(billListModel);
 
+        this.add(this.selectBox);
+        this.add(this.billJList);
 
-        layout.setHorizontalGroup(
-                layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                .addComponent(this.selectBox)
-                                .addComponent(this.amountPerson))
-        );
-        layout.setVerticalGroup(
-                layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                                .addComponent(this.selectBox))
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                                .addComponent(this.amountPerson))
-        );
     }
 
 
@@ -54,7 +43,13 @@ public class CalculatePanel extends JPanel
         this.selectBox.addActionListener(listener ->
         {
             Person selectedPerson = this.personController.getPerson((String) this.selectBox.getSelectedItem());
-            //this.amountPerson.setText(this.ticketController.getBillPerPerson(selectedPerson));
+
+            ArrayList<String> result = this.ticketController.getBillPerPerson(selectedPerson);
+
+            billListModel.clear();
+            for (String elem : result){
+                billListModel.addElement(elem);
+            }
 
         });
     }
