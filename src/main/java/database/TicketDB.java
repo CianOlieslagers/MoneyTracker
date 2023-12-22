@@ -120,7 +120,7 @@ public class TicketDB extends DatabaseTickets {
             // Zet onze payer string om in een persoon
             for (int i = 0; i < lijstNamenPersonen.size(); i++) {
                 Person tijdelijkPersoon = lijstNamenPersonen.get(i);
-                if (payer == tijdelijkPersoon.getName()) {
+                if (Objects.equals(payer, tijdelijkPersoon.getName())) {
                     finalPerson = tijdelijkPersoon;
                 }
             }
