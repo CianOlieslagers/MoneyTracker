@@ -287,6 +287,7 @@ public class TicketDB extends DatabaseTickets {
                 negative.put(e.getKey(),e.getValue());
         }
 
+
         for (Map.Entry<Person,Double> e : negative.entrySet())
         {
             Person debtor = e.getKey();
@@ -294,6 +295,7 @@ public class TicketDB extends DatabaseTickets {
 
             for (Map.Entry<Person,Double> f : positive.entrySet())
             {
+
                 Person creditor = f.getKey();
                 double creditAmount = f.getValue();
 
@@ -301,9 +303,14 @@ public class TicketDB extends DatabaseTickets {
                 positive.put(creditor, positive.get(creditor) - settlementAmount);
                 negative.put(debtor, negative.get(debtor) + settlementAmount);
 
-                if (Objects.equals(debtor, person))
+                if (Objects.equals(debtor, person) && settlementAmount!=0)
                 {
                     result.add(debtor.getName() + " needs to pay " + settlementAmount + " euro to " + creditor.getName());
+                }
+
+                if (Objects.equals(creditor, person) && settlementAmount!=0)
+                {
+                    result.add(creditor.getName() + " needs to receive " + settlementAmount + " euro from " + debtor.getName());
                 }
 
                 debtAmount += settlementAmount;
@@ -311,7 +318,10 @@ public class TicketDB extends DatabaseTickets {
                     break;
             }
         }
-        System.out.println(result);
+
+        if (result.isEmpty())
+            result.add(person.getName() + " doesn't need to pay/receive any money!");
+
         return result;
     }
 

@@ -68,7 +68,7 @@ public class Main
         Tregister.addTicket(test1);
         Tregister.addTicket(test2);
 
-        HashMap<Person,Double> AfrekeningBob;
+/*        HashMap<Person,Double> AfrekeningBob;
         AfrekeningBob = Tregister.KostPP(Bob);
         System.out.print("Rekening voor Bob: " + AfrekeningBob+ "\n");
 
@@ -84,17 +84,14 @@ public class Main
         double Totaal = Tregister.totaalSum();
         System.out.print(Totaal+ "\n");
 
-        System.out.print("Test1 decorator" + "\n" +test1);
-
-
+        System.out.print("Test1 decorator" + "\n" +test1);*/
 
 
         // Frame Logica
         //SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
 
-        //HomeFrame view = new HomeFrame();
-        //view.initialize();
-
+        HomeFrame view = new HomeFrame();
+        view.initialize();
 
     }
 

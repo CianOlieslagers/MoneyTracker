@@ -13,6 +13,7 @@ public class CalculatePanel extends JPanel
     PersonController personController;
     TicketController ticketController;
 
+    private JLabel selectLabel;
     private JComboBox selectBox;
     private JList<String> billJList;
     private DefaultListModel<String> billListModel;
@@ -23,15 +24,18 @@ public class CalculatePanel extends JPanel
         this.ticketController = ticketController;
 
         this.selectBox = new JComboBox<>(personController.getNames().toArray());
+        this.selectLabel = new JLabel("Select a person:");
 
         selecBoxActionListener();
 
         BoxLayout layout = new BoxLayout(this,BoxLayout.Y_AXIS);
+
         this.setLayout(layout);
 
         this.billListModel = new DefaultListModel<>();
         this.billJList = new JList<>(billListModel);
 
+        this.add(this.selectLabel);
         this.add(this.selectBox);
         this.add(this.billJList);
 
