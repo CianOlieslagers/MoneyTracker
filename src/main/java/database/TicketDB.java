@@ -130,7 +130,7 @@ public class TicketDB extends DatabaseTickets {
                 Integer aantal = WaardePP.size();
                 Double bedrag = ticket.getAmount();
                 if (RekeningPP.containsKey(payer)) {
-                    if (payer == finalPerson.getName()) {
+                    if (Objects.equals(payer, finalPerson.getName())) {
                         double Oldvalue = RekeningPP.get(payer);
                         double Newvalue = Oldvalue + (bedrag / aantal);
                         RekeningPP.put(finalPerson, Newvalue);
@@ -140,7 +140,7 @@ public class TicketDB extends DatabaseTickets {
                         RekeningPP.put(finalPerson, Newvalue);
                     }
                 } else {
-                    if (payer == finalPerson.getName()) {
+                    if (Objects.equals(payer, finalPerson.getName())) {
                         RekeningPP.put(finalPerson, bedrag / aantal);
                     } else {
                         RekeningPP.put(finalPerson, -(bedrag / aantal));
@@ -154,7 +154,7 @@ public class TicketDB extends DatabaseTickets {
 
                     if (RekeningPP.containsKey(persoon)) { // Checkt of de persoon al in onze eindrekening zit
 
-                        if (payer == persoon.getName()) {
+                        if (Objects.equals(payer, persoon.getName())) {
                             double Oldvalue = RekeningPP.get(finalPerson);
                             double Newvalue = (Oldvalue + (ticket.getAmount() - bedrag));
                             RekeningPP.put(persoon, Newvalue);
@@ -164,7 +164,7 @@ public class TicketDB extends DatabaseTickets {
                             RekeningPP.put(persoon, Newvalue);
                         }
                     } else {
-                        if (payer == persoon.getName()) {
+                        if (Objects.equals(payer, persoon.getName())) {
                             double bedrag2 = ticket.getAmount() - bedrag;
                             RekeningPP.put(persoon, bedrag2);
                         } else {

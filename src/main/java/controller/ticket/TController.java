@@ -1,7 +1,5 @@
 package controller.ticket;
 
-import database.DatabaseTickets;
-import database.PersonDB;
 import person.Person;
 import ticket.Category;
 import ticket.Ticket;
