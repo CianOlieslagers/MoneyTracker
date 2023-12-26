@@ -11,8 +11,9 @@ public class FoodTicketDecorator extends TicketDecorator
     }
 
     @Override
-    public Category getCategory()
-    {
-        return Category.Food;
-    }
+    public Ticket decorate(Ticket oldTicket) {
+        oldTicket.setCategory(Category.Food);
+        return oldTicket;
 }
+}
+

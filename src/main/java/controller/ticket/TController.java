@@ -1,5 +1,8 @@
 package controller.ticket;
 
+import database.DatabaseTickets;
+import database.PersonDB;
+import decorator.TicketDecorator;
 import person.Person;
 import ticket.Category;
 import ticket.Ticket;
@@ -17,7 +20,7 @@ public interface TController
 
     void printSchulden(HashMap<Person,Double> schuldenmap);
 
-    void setActivity(Ticket oldTicket, Category category) throws Exception;
+    void setActivity(Ticket oldTicket, TicketDecorator decorator) throws Exception;
 
     HashMap<Person,Double> getBill();
 

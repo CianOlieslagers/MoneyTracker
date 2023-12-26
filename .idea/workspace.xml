@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="Funtie af">
+    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="Funtie verdeling af">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/calculate/panels/CalculatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/calculate/panels/CalculatePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ticket/TController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ticket/TController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ticket/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ticket/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DatabaseTickets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/decorator/ActivitiesTicketDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decorator/ActivitiesTicketDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/decorator/AirplaneTicketDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decorator/AirplaneTicketDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/decorator/DrinksTicketDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decorator/DrinksTicketDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/decorator/FoodTicketDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decorator/FoodTicketDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/decorator/OthersTicketDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decorator/OthersTicketDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/decorator/TaxiTicketDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decorator/TaxiTicketDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/decorator/TicketDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decorator/TicketDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/TestUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestUnit.java" afterDir="false" />
     </list>
@@ -151,6 +155,8 @@
       <workItem from="1703159164336" duration="4560000" />
       <workItem from="1703165634778" duration="1572000" />
       <workItem from="1703171768995" duration="2872000" />
+      <workItem from="1703174668103" duration="485000" />
+      <workItem from="1703415579825" duration="2658000" />
     </task>
     <task id="LOCAL-00001" summary="pom file">
       <option name="closed" value="true" />
@@ -244,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703161740326</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Funtie verdeling af">
+      <created>1703174928329</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1703174928329</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +283,8 @@
     <MESSAGE value="unittest" />
     <MESSAGE value="Decorator" />
     <MESSAGE value="Funtie af" />
-    <option name="LAST_COMMIT_MESSAGE" value="Funtie af" />
+    <MESSAGE value="Funtie verdeling af" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funtie verdeling af" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

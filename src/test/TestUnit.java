@@ -2,6 +2,7 @@ import controller.ticket.TController;
 import controller.ticket.TicketController;
 import database.DatabaseTickets;
 import database.TicketDB;
+import decorator.TicketDecorator;
 import org.junit.Before;
 import org.junit.Test;
 import person.Person;
@@ -75,7 +76,7 @@ public class TestUnit {
     @Test
     public void testSetActivity() throws Exception {
         Ticket mockOldTicket = mock(Ticket.class);
-        Category mockCategory = mock(Category.class);
+        TicketDecorator mockCategory = mock(TicketDecorator.class);
         ticketController.setActivity(mockOldTicket, mockCategory);
 
         // Add your assertions for setting activity if needed

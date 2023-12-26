@@ -7,11 +7,14 @@ import database.DatabasePersons;
 import database.DatabaseTickets;
 import database.PersonDB;
 import database.TicketDB;
+import decorator.AirplaneTicketDecorator;
+import decorator.TicketDecorator;
 import factory.TicketFactory;
 import person.Person;
 import ticket.Category;
 import ticket.Ticket;
 
+import javax.crypto.interfaces.DHPublicKey;
 import java.util.HashMap;
 
 public class Main
@@ -66,7 +69,7 @@ public class Main
         Tregister.addTicket(test1);
         Tregister.addTicket(test2);
 
-/*        HashMap<Person,Double> AfrekeningBob;
+        HashMap<Person,Double> AfrekeningBob;
         AfrekeningBob = Tregister.KostPP(Bob);
         System.out.print("Rekening voor Bob: " + AfrekeningBob+ "\n");
 
@@ -77,19 +80,30 @@ public class Main
         System.out.print("please lord werk: "+ "\n");
         DbT1.printSchulden(AfrekeningBob);
 
-        Ticket airplaneTicket = new AirplaneTicketDecorator(test1);
-        System.out.print("Test2 decorator" + "\n" +airplaneTicket);
+
+
+        // Test voor de decorator te laten zien.
+        System.out.print("Voor de decorator: " + "\n" +test1);
+
+
+
+        TicketDecorator decorator = new AirplaneTicketDecorator(test1);
+        Tregister.setActivity(test1, decorator);
+
+        System.out.print("Na de decorator" + "\n" +test1);
         double Totaal = Tregister.totaalSum();
         System.out.print(Totaal+ "\n");
 
-        System.out.print("Test1 decorator" + "\n" +test1);*/
+
+
 
 
         // Frame Logica
         //SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
 
-        HomeFrame view = new HomeFrame();
-        view.initialize();
+        //HomeFrame view = new HomeFrame();
+        //view.initialize();
+
 
     }
 
