@@ -42,14 +42,12 @@ public class PersonDB extends DatabasePersons
             if (e_person.getName().equals(person.getName()))
             {
                 existing = true;
-                System.out.println(person.getName() + " is already in use!");
                 throw new Exception(person.getName() + " is already in use!");
             }
 
             if (e_person.getAccountNumber().equals(person.getAccountNumber()))
             {
                 existing = true;
-                System.out.println("Accountnumber: " + person.getAccountNumber() + " is already in use!");
                 throw new Exception("Accountnumber: " + person.getAccountNumber() + " is already in use!");
             }
         }

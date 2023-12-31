@@ -23,9 +23,6 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
     private JList<String> accountJList;
     private DefaultListModel<String> accountListModel;
 
-    private JList<Person> personJList;
-    private DefaultListModel<Person> personDefaultListModel;
-
 
     public ShowPersonPanel(PersonController personController, TicketController ticketController)
     {
@@ -33,24 +30,20 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
         this.ticketController = ticketController;
 
         this.deleteButton = new JButton("Delete selected person");
-
         this.nameLabel = new JLabel("Name");
         this.accountnumberLabel = new JLabel("Accountnumber");
 
         this.namesListModel = new DefaultListModel<>();
         this.accountListModel = new DefaultListModel<>();
-        this.personDefaultListModel = new DefaultListModel<>();
 
         for (Person person : personController.getPersons())
         {
             namesListModel.addElement(person.getName());
             accountListModel.addElement(person.getAccountNumber());
-            personDefaultListModel.addElement(person);
         }
 
         this.namesJList = new JList<>(namesListModel);
         this.accountJList = new JList<>(accountListModel);
-        this.personJList = new JList<>(personDefaultListModel);
 
         this.namesJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -72,8 +65,6 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(this.accountnumberLabel)
                                 .addComponent(this.accountJList))
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addComponent(this.personJList))
         );
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
@@ -82,8 +73,7 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
                                 .addComponent(this.accountnumberLabel))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(this.namesJList)
-                                .addComponent(this.accountJList)
-                                .addComponent(this.personJList))
+                                .addComponent(this.accountJList))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(deleteButton))
         );
@@ -95,19 +85,8 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
     {
         this.deleteButton.addActionListener(listener ->
         {
-            /*if (!namesJList.getSelectedValue().isEmpty() && this.personController.getPersons().contains(this.personController.getPerson(this.namesJList.getSelectedValue())))
-            {
-                System.out.println("You've selected: " + namesJList.getSelectedValue());
-                Person deletedPerson = this.personController.getPerson(this.namesJList.getSelectedValue());
-                this.personController.removePerson(deletedPerson);
-            }
-            else
-            {
-                System.out.println("No person selected!");
-            }*/
             if (!this.namesJList.isSelectionEmpty())
             {
-                //System.out.println("You've selected: " + namesJList.getSelectedValue());
                 Person deletedPerson = this.personController.getPerson(this.namesJList.getSelectedValue());
 
                 try
@@ -116,12 +95,11 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
                 }
                 catch (Exception e)
                 {
-                    JOptionPane.showMessageDialog(this,e.getMessage(),"Test?",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this,e.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
                 }
             }
             else
             {
-                System.out.println("No person selected!");
                 JOptionPane.showMessageDialog(this,"No person selected","Warning",JOptionPane.WARNING_MESSAGE);
             }
         });
@@ -136,8 +114,6 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
             Person person = (Person) evt.getNewValue();
             this.namesListModel.removeElement(person.getName());
             this.accountListModel.removeElement(person.getAccountNumber());
-            this.personDefaultListModel.removeElement(person);
-            JOptionPane.showMessageDialog(this,person.getName() + " is removed!","Person removed",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

@@ -17,7 +17,8 @@ public class TicketDB extends DatabaseTickets {
     private final DatabasePersons dbPersons = PersonDB.getInstance();
 
 
-    private TicketDB() {
+    private TicketDB()
+    {
         this.db = new HashMap<>();
         this.addObserver(new PrintUpdated());
     }
@@ -28,66 +29,79 @@ public class TicketDB extends DatabaseTickets {
     }
 
     @Override
-    public void addTicket(Ticket ticket) throws Exception {
+    public void addTicket(Ticket ticket) throws Exception
+    {
         boolean isOK = true;
         double totalAmount = 0;
 
-        if (ticket.getAmount() <= 0.0) {
+        if (ticket.getAmount() <= 0.0)
+        {
             isOK = false;
-            //System.out.println("TicketDB: Activity name is empty or amount is equal or smaller than 0.0 ");
             throw new Exception("The total amount is equal or smaller than 0");
 
         }
 
-        for (Map.Entry<Person, Double> amountPerPerson : ticket.getAmountPerPerson().entrySet()) {
-            if (amountPerPerson.getValue() <= 0.0) {
+        for (Map.Entry<Person,Double> amountPerPerson : ticket.getAmountPerPerson().entrySet())
+        {
+            if (amountPerPerson.getValue() <= 0.0)
+            {
                 isOK = false;
                 throw new Exception("The amount per person is equal or smaller than 0");
-            } else {
+            }
+            else
+            {
                 totalAmount += amountPerPerson.getValue();
             }
         }
 
-        if (totalAmount != ticket.getAmount()) {
+        if (totalAmount != ticket.getAmount())
+        {
             isOK = false;
             throw new Exception("Sum of amount per person is not equal to the total amount!");
         }
 
 
-        if (isOK) {
+        if (isOK)
+        {
             if (dbPersons.getNames().contains(ticket.getPayer()))    // is met een ComboBox dus moet normaal altijd true zijn
             {
                 support.firePropertyChange("TicketDB add", null, ticket);
                 this.db.put(ticketCount, ticket);
                 ticketCount++;
-            } else {
-                //System.out.println("Database doesn't contain this name");
+            }
+            else
+            {
                 throw new Exception("Database doesn't contain this name");
             }
         }
     }
 
     @Override
-    public void removeTicket(Ticket ticket) {
+    public void removeTicket(Ticket ticket)
+    {
         support.firePropertyChange("TicketDB remove", null, ticket);
         this.db.remove(ticketCount, ticket);
         ticketCount--;
     }
 
     @Override
-    public void addObserver(PropertyChangeListener pcl) {
+    public void addObserver(PropertyChangeListener pcl)
+    {
         support.addPropertyChangeListener(pcl);
     }
 
     @Override
-    public void removeObserver(PropertyChangeListener pcl) {
+    public void removeObserver(PropertyChangeListener pcl)
+    {
         support.removePropertyChangeListener(pcl);
     }
 
     @Override
-    public ArrayList<Ticket> getTickets() {
+    public ArrayList<Ticket> getTickets()
+    {
         ArrayList<Ticket> ticketList = new ArrayList<>();
-        for (Map.Entry<Integer, Ticket> e : this.db.entrySet()) {
+        for (Map.Entry<Integer, Ticket> e : this.db.entrySet())
+        {
             Ticket e_Value = e.getValue();
             ticketList.add(e_Value);
         }
@@ -324,33 +338,5 @@ public class TicketDB extends DatabaseTickets {
 
         return result;
     }
-
-/*
-
-    private String printTransaction(Person debtor, Person creditor, double amount)
-    {
-        System.out.println(debtor.getName() + " needs to pay " + amount + " euro to " + creditor.getName() + " on the following accountnumber: " + creditor.getAccountNumber());
-
-        return (debtor.getName() + " needs to pay " + amount + " euro to " + creditor.getName() + " on the following accountnumber: " + creditor.getAccountNumber());
-    }
-
-
-    private void printBill(HashMap<Person,Double> bill)
-    {
-        for (Map.Entry<Person,Double> entry : bill.entrySet())
-        {
-            if (entry.getValue() > 0)
-                System.out.println(entry.getKey().getName() + " needs to receive " + entry.getValue() + " euro from the group!");
-            else if (entry.getValue() == 0)
-                System.out.println(entry.getKey().getName() + " don't need to pay or receive any money!");
-            else if (entry.getValue() < 0)
-                System.out.println(entry.getKey().getName() + " owes " + -entry.getValue() + " euro to the group!");
-        }
-    }
-*/
-
-
-
-
 
 }

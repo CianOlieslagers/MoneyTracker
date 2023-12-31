@@ -13,6 +13,7 @@ public class AirplaneTicketDecorator extends TicketDecorator
     @Override
     public Ticket decorate(Ticket oldTicket) {
         oldTicket.setCategory(Category.Airplane);
-        return oldTicket;}
+        return oldTicket;
+    }
 
 }

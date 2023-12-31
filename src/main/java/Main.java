@@ -90,6 +90,7 @@ public class Main
         TicketDecorator decorator = new AirplaneTicketDecorator(test1);
         Tregister.setActivity(test1, decorator);
 
+
         System.out.print("Na de decorator" + "\n" +test1);
         double Totaal = Tregister.totaalSum();
         System.out.print(Totaal+ "\n");
@@ -101,8 +102,8 @@ public class Main
         // Frame Logica
         //SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
 
-        //HomeFrame view = new HomeFrame();
-        //view.initialize();
+        HomeFrame view = new HomeFrame();
+        view.initialize();
 
 
     }

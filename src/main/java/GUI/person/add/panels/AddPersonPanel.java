@@ -7,12 +7,13 @@ import person.Person;
 import javax.swing.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.security.spec.ECField;
+
 
 public class AddPersonPanel extends JPanel implements PropertyChangeListener
 {
     PersonController personController;
     TicketController ticketController;
+    JFrame frame;
 
     private JLabel nameLabel;
     private JLabel accountLabel;
@@ -21,10 +22,11 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
     private JButton save;
 
 
-    public AddPersonPanel(PersonController personController, TicketController ticketController)
+    public AddPersonPanel(PersonController personController, TicketController ticketController, JFrame frame)
     {
         this.personController = personController;
         this.ticketController = ticketController;
+        this.frame = frame;
 
         this.nameLabel = new JLabel("Name:");
         this.accountLabel = new JLabel("Accountnumber:");
@@ -85,11 +87,8 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
             else
             {
                 if (this.nameField.getText().isEmpty())
-                {
                     JOptionPane.showMessageDialog(this, "Name field is empty", "Warning", JOptionPane.WARNING_MESSAGE);
-                }
-
-                if (this.accountField.getText().isEmpty() && !this.nameField.getText().isEmpty())
+                else if (this.accountField.getText().isEmpty())
                     JOptionPane.showMessageDialog(this,"Accountnumber field is empty","Warning",JOptionPane.WARNING_MESSAGE);
             }
         });
@@ -105,6 +104,7 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
             this.nameField.setText("");
             this.accountField.setText("");
             JOptionPane.showMessageDialog(this,person.getName() + " is added!","Person added",JOptionPane.INFORMATION_MESSAGE);
+            frame.dispose();
         }
     }
 }

@@ -1,30 +1,31 @@
-package GUI.person.add;
+package GUI.ticket.change;
 
-import GUI.person.add.panels.AddPersonPanel;
+import GUI.ticket.change.panels.ChangeTicketPanel;
+import GUI.ticket.show.panels.ShowTicketPanel;
 import controller.person.PersonController;
 import controller.ticket.TicketController;
-import database.DatabasePersons;
+import database.DatabaseTickets;
 import database.PersonDB;
 import database.TicketDB;
+import ticket.Ticket;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class AddPersonFrame extends JFrame
+public class ChangeTicketFrame extends JFrame
 {
+
     PersonController personController = new PersonController(PersonDB.getInstance());
     TicketController ticketController = new TicketController(TicketDB.getInstance());
+    DatabaseTickets ticketDB = TicketDB.getInstance();
+    ChangeTicketPanel buttons;
+    Ticket ticket;
 
-    DatabasePersons personDB = PersonDB.getInstance();
-
-    AddPersonPanel buttons;
-
-
-    public AddPersonFrame()
+    public ChangeTicketFrame(Ticket ticket)
     {
-        super("ADD PERSON SCREEN");
+        super("CHANGE TICKET SCREEN");
+        this.ticket = ticket;
     }
-
 
     public void initialize()
     {
@@ -37,11 +38,12 @@ public class AddPersonFrame extends JFrame
         this.setLayout(layout);
 
         // Pass the controller to the ButtonPanel
-        buttons = new AddPersonPanel(personController, ticketController,this);
+        buttons = new ChangeTicketPanel(personController, ticketController, ticket,this);
 
-        personDB.addObserver(buttons);
 
         this.add(buttons);
         this.setVisible(true);
     }
+
+
 }
