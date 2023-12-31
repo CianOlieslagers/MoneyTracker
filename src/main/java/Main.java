@@ -46,22 +46,36 @@ public class Main
         Pregister.addPerson(Mel);
         Pregister.addPerson(Bob);
         Pregister.addPerson(Charlie);
-        Pregister.addPerson(LordPlease);
+        //Pregister.addPerson(LordPlease);
 
 
         HashMap<Person, Double> TestValues1 = new HashMap<>();
         TestValues1.put(Charlie, 20.0);
         TestValues1.put(Bob ,20.0);
-        TestValues1.put(Mel,30.0);
+        TestValues1.put(Melanie,30.0);
 
         HashMap<Person, Double> TestValues2 = new HashMap<>();
         TestValues2.put(Mel, 10.0);
         TestValues2.put(Melanie,40.0);
         TestValues2.put(Charlie,10.0);
 
+        HashMap<Person, Double> TestValues3 = new HashMap<>();
+        TestValues3.put(Mel, 44.);
+        TestValues3.put(Charlie,55.);
+
+        HashMap<Person, Double> TestValues4 = new HashMap<>();
+        TestValues4.put(Bob, 20.);
+        TestValues4.put(Melanie,20.);
+        TestValues4.put(Charlie,4.);
+
+        HashMap<Person, Double> TestValues5 = new HashMap<>();
+        TestValues5.put(Mel, 10.0);
+        TestValues5.put(Melanie,40.0);
+        TestValues5.put(Bob,20.0);
+
         TicketFactory TF1 = new TicketFactory();
-        Ticket test2 = TF1.getTicket("test1","Charlie", 70, Category.Food,false, TestValues1);
-        Ticket test1 = TF1.getTicket("test2","Mel", 60, Category.Food,false, TestValues2);
+        Ticket test1 = TF1.getTicket("test1","Charlie", 70, Category.Food,false, TestValues1);
+        Ticket test2 = TF1.getTicket("test2","Mel", 60, Category.Food,false, TestValues2);
 
 
         System.out.println(DbP1.getNames());
@@ -69,6 +83,15 @@ public class Main
         Tregister.addTicket(test1);
         Tregister.addTicket(test2);
 
+        Ticket ticket3 = TF1.getTicket("test3","Melanie",99,Category.Airplane,false,TestValues3);
+        Ticket ticket4 = TF1.getTicket("test4","Bob",44,Category.Airplane,false,TestValues4);
+        Ticket ticket5 = TF1.getTicket("test5","Melanie",70,Category.Food,false,TestValues5);
+
+        Tregister.addTicket(ticket3);
+        Tregister.addTicket(ticket4);
+        //Tregister.addTicket(ticket5);
+
+        /*
         HashMap<Person,Double> AfrekeningBob;
         AfrekeningBob = Tregister.KostPP(Bob);
         System.out.print("Rekening voor Bob: " + AfrekeningBob+ "\n");
@@ -98,6 +121,12 @@ public class Main
 
 
 
+        System.out.println("Melanie: " + Tregister.KostPP(Melanie));
+        System.out.println("Bob: " + Tregister.KostPP(Bob));
+        System.out.println("Mel: " + Tregister.KostPP(Mel));
+        System.out.println("Charlie: " + Tregister.KostPP(Charlie));
+
+         */
 
         // Frame Logica
         //SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));

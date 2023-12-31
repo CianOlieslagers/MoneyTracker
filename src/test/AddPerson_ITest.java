@@ -13,7 +13,7 @@ public class AddPerson_ITest
 {
 
     private PController controllerPerson;
-    private Person Ann;
+    private Person Ann,Ben,Charlie;
 
 
     public AddPerson_ITest()
@@ -29,8 +29,8 @@ public class AddPerson_ITest
 
 
         this.Ann = new Person("Ann","11");
-        Person Ben = new Person("Ben", "22");
-        Person Charlie = new Person("Charlie", "33");
+        this.Ben = new Person("Ben", "22");
+        this.Charlie = new Person("Charlie", "33");
 
 
         try {
@@ -85,14 +85,8 @@ public class AddPerson_ITest
         } catch (Exception e) {
             assertEquals("John can not be removed!", e.getMessage());
         }
-    }
 
-
-
-    @Test
-    public void testGetPerson()
-    {
-
+        // Check if the person was successfully returned by name
         assertEquals(Ann,controllerPerson.getPerson("Ann"));
 
         assertNotEquals(Ann,controllerPerson.getPerson("Ben"));

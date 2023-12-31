@@ -78,12 +78,12 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
         {
             if (!this.ticketJList.isSelectionEmpty())
             {
-                System.out.println("You've selected " + this.ticketJList.getSelectedValue() + " to remove");
+                //System.out.println("You've selected " + this.ticketJList.getSelectedValue() + " to remove");
                 this.ticketController.removeTicket(this.ticketJList.getSelectedValue());
             }
             else
             {
-                System.out.println("No ticket selected!");
+                //System.out.println("No ticket selected!");
                 JOptionPane.showMessageDialog(this,"No ticket selected","",JOptionPane.WARNING_MESSAGE);
             }
         });
@@ -101,7 +101,7 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
             }
             else
             {
-                System.out.println("No ticket selected!");
+                //System.out.println("No ticket selected!");
                 JOptionPane.showMessageDialog(this,"No ticket selected","",JOptionPane.WARNING_MESSAGE);
             }
         });
@@ -115,6 +115,11 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
         {
             Ticket ticket = (Ticket) evt.getNewValue();
             this.ticketListModel.removeElement(ticket);
+        }
+        if (evt.getPropertyName().equals("TicketDB add"))
+        {
+            Ticket ticket = (Ticket) evt.getNewValue();
+            this.ticketListModel.addElement(ticket);
         }
     }
 }

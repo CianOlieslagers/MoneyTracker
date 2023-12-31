@@ -24,12 +24,12 @@ public class PrintUpdated implements PropertyChangeListener
         if (evt.getPropertyName().equals("TicketDB add"))
         {
             Ticket ticket = (Ticket) evt.getNewValue();
-            System.out.println("Database Tickets updated: " + ticket + " added!");
+            System.out.println("Database Tickets updated: " + ticket.print() + " added!");
         }
         if (evt.getPropertyName().equals("TicketDB remove"))
         {
             Ticket ticket = (Ticket) evt.getNewValue();
-            System.out.println("Database Tickets updated: " + ticket + " removed!");
+            System.out.println("Database Tickets updated: " + ticket.print() + " removed!");
         }
     }
 }

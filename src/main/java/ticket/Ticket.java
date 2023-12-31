@@ -78,8 +78,8 @@ public class Ticket
         this.category = category;
     }
 
-    @Override
-    public String toString() {
+
+    public String print() {
         return "Ticket{" +
                 "name='" + name + '\'' +
                 ", payer='" + payer + '\'' +
@@ -88,5 +88,12 @@ public class Ticket
                 ", splitEvenly=" + splitEvenly +
                 ", amountPerPerson=" + amountPerPerson +
                 '}';
+    }
+
+
+    @Override
+    public String toString()
+    {
+        return (name + " (€" + amount + ") paid by " + payer + " in category " + category);
     }
 }

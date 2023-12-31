@@ -10,7 +10,7 @@ import java.util.*;
 
 public class TicketDB extends DatabaseTickets {
 
-    private final HashMap<Integer, Ticket> db;
+    private final HashMap<Integer,Ticket> db;
     private static final TicketDB ticketDB = new TicketDB();
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     private int ticketCount = 0;
@@ -66,7 +66,7 @@ public class TicketDB extends DatabaseTickets {
             if (dbPersons.getNames().contains(ticket.getPayer()))    // is met een ComboBox dus moet normaal altijd true zijn
             {
                 support.firePropertyChange("TicketDB add", null, ticket);
-                this.db.put(ticketCount, ticket);
+                this.db.put(ticketCount,ticket);
                 ticketCount++;
             }
             else
@@ -79,9 +79,15 @@ public class TicketDB extends DatabaseTickets {
     @Override
     public void removeTicket(Ticket ticket)
     {
-        support.firePropertyChange("TicketDB remove", null, ticket);
-        this.db.remove(ticketCount, ticket);
-        ticketCount--;
+        for (Map.Entry<Integer,Ticket> entry : this.db.entrySet())
+        {
+            if (ticket == entry.getValue())
+            {
+                this.db.remove(entry.getKey());
+                support.firePropertyChange("TicketDB remove", null, ticket);
+                break;
+            }
+        }
     }
 
     @Override
@@ -275,13 +281,17 @@ public class TicketDB extends DatabaseTickets {
                     }
                 }
             }
+
+            if (!e_ticket.getAmountPerPerson().containsKey(dbPersons.getPerson(e_ticket.getPayer()))) {
+                double amountAlready = bill.get(dbPersons.getPerson(e_ticket.getPayer()));
+                bill.put(dbPersons.getPerson(e_ticket.getPayer()), amountAlready + e_ticket.getAmount());
+            }
         }
 
-        System.out.println("BILL: " + bill);
+        //System.out.println("BILL: " + bill);
 
         return bill;
     }
-
 
     @Override
     public ArrayList<String> getBillPerPerson(Person person)
