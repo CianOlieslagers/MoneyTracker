@@ -174,12 +174,11 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
     @Override
     public void propertyChange(PropertyChangeEvent evt)
     {
-        //System.out.println("property received");
         if (evt.getPropertyName().equals("TicketDB add"))
         {
             Ticket ticket = (Ticket) evt.getNewValue();
-            //System.out.println("Hoeveel keer ga je printen???");
-            //JOptionPane.showMessageDialog(this,"Ticket: " + ticket.getName() + "(" + ticket.getAmount() + ") is added!","Ticket added",JOptionPane.INFORMATION_MESSAGE);
+            // MYSTERIE
+            //JOptionPane.showMessageDialog(thids,"Ticket: " + ticket.getName() + "(" + ticket.getAmount() + ") is added!","Ticket added",JOptionPane.INFORMATION_MESSAGE);
             this.activityField.setText("");
             this.amountField.setText("");
             this.checkBox.setSelected(true);

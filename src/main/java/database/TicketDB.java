@@ -248,6 +248,8 @@ public class TicketDB extends DatabaseTickets {
         {
             Ticket e_ticket = e.getValue();
 
+            boolean alreadyAdded = false;
+
             for (Map.Entry<Person,Double> f : e_ticket.getAmountPerPerson().entrySet())
             {
                 Person f_person = f.getKey();
@@ -280,15 +282,29 @@ public class TicketDB extends DatabaseTickets {
                         bill.put(f_person, f_amountToPay);
                     }
                 }
-            }
 
-            if (!e_ticket.getAmountPerPerson().containsKey(dbPersons.getPerson(e_ticket.getPayer()))) {
-                double amountAlready = bill.get(dbPersons.getPerson(e_ticket.getPayer()));
-                bill.put(dbPersons.getPerson(e_ticket.getPayer()), amountAlready + e_ticket.getAmount());
+
+                if (!e_ticket.getAmountPerPerson().containsKey(dbPersons.getPerson(e_ticket.getPayer())) && !alreadyAdded)
+                {
+
+                    System.out.println("YUUUP");
+                    System.out.println(e_ticket);
+                    alreadyAdded = true;
+                    if (bill.containsKey(dbPersons.getPerson(e_ticket.getPayer())))
+                    {
+                        double amountAlready = bill.get(dbPersons.getPerson(e_ticket.getPayer()));
+                        bill.put(dbPersons.getPerson(e_ticket.getPayer()), amountAlready + e_ticket.getAmount());
+                    }
+                    else
+                    {
+                        bill.put(dbPersons.getPerson(e_ticket.getPayer()), e_ticket.getAmount());
+                    }
+                }
+
             }
         }
 
-        //System.out.println("BILL: " + bill);
+        System.out.println("BILL: " + bill);
 
         return bill;
     }
