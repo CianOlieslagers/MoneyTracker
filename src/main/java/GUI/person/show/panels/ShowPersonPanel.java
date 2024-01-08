@@ -7,7 +7,6 @@ import person.Person;
 import javax.swing.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.security.spec.ECField;
 
 public class ShowPersonPanel extends JPanel implements PropertyChangeListener
 {

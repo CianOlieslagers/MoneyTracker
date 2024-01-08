@@ -7,14 +7,11 @@ import database.DatabasePersons;
 import database.DatabaseTickets;
 import database.PersonDB;
 import database.TicketDB;
-import decorator.AirplaneTicketDecorator;
-import decorator.TicketDecorator;
 import factory.TicketFactory;
 import person.Person;
 import ticket.Category;
 import ticket.Ticket;
 
-import javax.crypto.interfaces.DHPublicKey;
 import java.util.HashMap;
 
 public class Main

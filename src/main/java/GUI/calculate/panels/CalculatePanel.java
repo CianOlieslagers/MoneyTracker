@@ -2,7 +2,6 @@ package GUI.calculate.panels;
 
 import controller.person.PersonController;
 import controller.ticket.TicketController;
-import database.PersonDB;
 import person.Person;
 
 import javax.swing.*;

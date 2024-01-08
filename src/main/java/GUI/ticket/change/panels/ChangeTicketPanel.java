@@ -7,7 +7,6 @@ import ticket.Category;
 import ticket.Ticket;
 
 import javax.swing.*;
-import java.beans.PropertyChangeEvent;
 
 public class ChangeTicketPanel extends JPanel
 {
