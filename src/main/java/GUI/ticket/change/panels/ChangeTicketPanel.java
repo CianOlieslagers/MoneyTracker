@@ -36,6 +36,7 @@ public class ChangeTicketPanel extends JPanel
         this.categoryLabel = new JLabel("Select a new category for the ticket:");
         this.saveButton = new JButton("Save");
         this.back = new JButton("Back");
+        this.categoryBox.setSelectedItem(ticket.getCategory());
 
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
