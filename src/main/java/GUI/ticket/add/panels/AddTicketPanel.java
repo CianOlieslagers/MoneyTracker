@@ -35,6 +35,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
     private JCheckBox checkBox;
     private AddTicketFrame frame;
     private double amount;
+    private JButton back;
 
 
     public AddTicketPanel(PersonController personController, TicketController ticketController, AddTicketFrame frame)
@@ -53,10 +54,12 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         this.checkBox = new JCheckBox((Icon) null, true);
         this.categoryLabel = new JLabel("Select category:");
         this.frame = frame;
+        this.back = new JButton("Back");
 
 
         saveButtonActionListener();
         checkboxActionListener();
+        backButtonActionListener();
 
 
         GroupLayout layout = new GroupLayout(this);
@@ -73,7 +76,8 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
                                 .addComponent(this.payerLabel)
                                 .addComponent(this.amountLabel)
                                 .addComponent(this.splitLabel)
-                                .addComponent(this.categoryLabel))
+                                .addComponent(this.categoryLabel)
+                                .addComponent(this.back))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                                 .addComponent(this.activityField)
                                 .addComponent(this.payerBox)
@@ -100,7 +104,8 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
                                 .addComponent(this.categoryLabel)
                                 .addComponent(this.categoryBox))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                                .addComponent(this.save))
+                                .addComponent(this.save)
+                                .addComponent(this.back))
         );
     }
 
@@ -167,6 +172,15 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         this.checkBox.addActionListener(listener ->
         {
             this.frame.setField(!this.checkBox.isSelected());
+        });
+    }
+
+
+    public void backButtonActionListener()
+    {
+        this.back.addActionListener(listener ->
+        {
+            this.frame.dispose();
         });
     }
 

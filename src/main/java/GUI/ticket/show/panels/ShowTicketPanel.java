@@ -20,17 +20,21 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
     private JButton editButton;
     private JList<Ticket> ticketJList;
     private DefaultListModel<Ticket> ticketListModel;
+    private JButton back;
+    private JFrame frame;
 
-    public ShowTicketPanel(PersonController personController, TicketController ticketController)
+    public ShowTicketPanel(PersonController personController, TicketController ticketController, JFrame frame)
     {
 
         this.personController = personController;
         this.ticketController = ticketController;
+        this.frame = frame;
 
         this.ticketLabel = new JLabel("Tickets");
         this.deleteButton = new JButton("Delete selected ticket");
         this.editButton = new JButton("Edit selected ticket");
         this.ticketListModel = new DefaultListModel<>();
+        this.back = new JButton("Back");
 
         for (Ticket ticket : ticketController.getTickets())
         {
@@ -42,6 +46,7 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
 
         deleteButtonActionListener();
         editButtonActionListener();
+        backButtonActionListener();
 
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -55,7 +60,8 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
                                 .addComponent(this.ticketLabel)
                                 .addComponent(this.deleteButton)
                                 .addComponent(this.editButton)
-                                .addComponent(this.ticketJList))
+                                .addComponent(this.ticketJList)
+                                .addComponent(this.back))
         );
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
@@ -67,6 +73,8 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
                                 .addComponent(this.editButton))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                                 .addComponent(this.deleteButton))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                                .addComponent(this.back))
         );
 
     }
@@ -86,6 +94,15 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
                 //System.out.println("No ticket selected!");
                 JOptionPane.showMessageDialog(this,"No ticket selected","",JOptionPane.WARNING_MESSAGE);
             }
+        });
+    }
+
+
+    public void backButtonActionListener()
+    {
+        this.back.addActionListener(listener ->
+        {
+            this.frame.dispose();
         });
     }
 

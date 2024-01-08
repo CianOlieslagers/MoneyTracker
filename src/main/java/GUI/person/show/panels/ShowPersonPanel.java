@@ -14,9 +14,12 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
     PersonController personController;
     TicketController ticketController;
 
+    private JFrame frame;
+
     private JLabel nameLabel;
     private JLabel accountnumberLabel;
     private JButton deleteButton;
+    private JButton back;
 
     private JList<String> namesJList;
     private DefaultListModel<String> namesListModel;
@@ -24,14 +27,16 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
     private DefaultListModel<String> accountListModel;
 
 
-    public ShowPersonPanel(PersonController personController, TicketController ticketController)
+    public ShowPersonPanel(PersonController personController, TicketController ticketController, JFrame frame)
     {
         this.personController = personController;
         this.ticketController = ticketController;
 
+        this.frame = frame;
         this.deleteButton = new JButton("Delete selected person");
         this.nameLabel = new JLabel("Name");
         this.accountnumberLabel = new JLabel("Accountnumber");
+        this.back = new JButton("Back");
 
         this.namesListModel = new DefaultListModel<>();
         this.accountListModel = new DefaultListModel<>();
@@ -49,6 +54,8 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
 
 
         deleteButtonActionListener();
+        backButtonActionListener();
+
 
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -61,10 +68,11 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(this.nameLabel)
                                 .addComponent(this.namesJList)
-                                .addComponent(this.deleteButton))
+                                .addComponent(this.back))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(this.accountnumberLabel)
-                                .addComponent(this.accountJList))
+                                .addComponent(this.accountJList)
+                                .addComponent(this.deleteButton))
         );
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
@@ -75,7 +83,8 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
                                 .addComponent(this.namesJList)
                                 .addComponent(this.accountJList))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addComponent(deleteButton))
+                                .addComponent(this.deleteButton)
+                                .addComponent(this.back))
         );
 
     }
@@ -102,6 +111,15 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
             {
                 JOptionPane.showMessageDialog(this,"No person selected","Warning",JOptionPane.WARNING_MESSAGE);
             }
+        });
+    }
+
+
+    public void backButtonActionListener()
+    {
+        this.back.addActionListener(listener ->
+        {
+            this.frame.dispose();
         });
     }
 

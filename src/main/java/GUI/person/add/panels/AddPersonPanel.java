@@ -20,6 +20,7 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
     private JTextField nameField;
     private JTextField accountField;
     private JButton save;
+    private JButton back;
 
 
     public AddPersonPanel(PersonController personController, TicketController ticketController, JFrame frame)
@@ -33,9 +34,11 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
         this.nameField = new JTextField(10);
         this.accountField = new JTextField(15);
         this.save = new JButton("Save");
+        this.back = new JButton("Back");
 
 
         saveButtonActionListener();
+        backButtonActionListener();
 
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -47,7 +50,8 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
                 layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                                 .addComponent(this.nameLabel)
-                                .addComponent(this.accountLabel))
+                                .addComponent(this.accountLabel)
+                                .addComponent(this.back))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                                 .addComponent(this.nameField)
                                 .addComponent(this.accountField)
@@ -62,7 +66,8 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
                                 .addComponent(this.accountLabel)
                                 .addComponent(this.accountField))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                                .addComponent(this.save))
+                                .addComponent(this.save)
+                                .addComponent(this.back))
         );
 
     }
@@ -95,6 +100,14 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
     }
 
 
+    public void backButtonActionListener()
+    {
+        this.back.addActionListener(listener ->
+        {
+            this.frame.dispose();
+        });
+    }
+
     @Override
     public void propertyChange(PropertyChangeEvent evt)
     {
@@ -103,8 +116,8 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
             Person person = (Person) evt.getNewValue();
             this.nameField.setText("");
             this.accountField.setText("");
-            JOptionPane.showMessageDialog(this,person.getName() + " is added!","Person added",JOptionPane.INFORMATION_MESSAGE);
-            frame.dispose();
+            JOptionPane.showMessageDialog(this,person.getName() + " is added!","Person added", JOptionPane.INFORMATION_MESSAGE);
+            this.frame.dispose();
         }
     }
 }

@@ -35,7 +35,7 @@ public class ShowTicketFrame extends JFrame
         this.setLayout(layout);
 
         // Pass the controller to the ButtonPanel
-        buttons = new ShowTicketPanel(personController, ticketController);
+        buttons = new ShowTicketPanel(personController, ticketController,this);
 
         ticketDB.addObserver(buttons);
 

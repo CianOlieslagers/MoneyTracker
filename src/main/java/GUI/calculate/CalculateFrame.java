@@ -32,7 +32,7 @@ public class CalculateFrame extends JFrame
         GridBagLayout layout = new GridBagLayout();
         this.setLayout(layout);
 
-        this.panel = new CalculatePanel(personController, ticketController);
+        this.panel = new CalculatePanel(personController, ticketController,this);
 
         this.add(panel);
         this.setVisible(true);

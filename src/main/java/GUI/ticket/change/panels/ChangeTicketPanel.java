@@ -22,6 +22,7 @@ public class ChangeTicketPanel extends JPanel
     private JComboBox categoryBox;
     private JLabel categoryLabel;
     private JButton saveButton;
+    private JButton back;
 
 
     public ChangeTicketPanel(PersonController personController, TicketController ticketController, Ticket ticket, JFrame frame)
@@ -34,12 +35,35 @@ public class ChangeTicketPanel extends JPanel
         this.categoryBox = new JComboBox<>(categories);
         this.categoryLabel = new JLabel("Select a new category for the ticket:");
         this.saveButton = new JButton("Save");
+        this.back = new JButton("Back");
 
-        this.add(categoryLabel);
-        this.add(categoryBox);
-        this.add(saveButton);
+        GroupLayout layout = new GroupLayout(this);
+        this.setLayout(layout);
+
+        layout.setAutoCreateGaps(true);
+        layout.setAutoCreateContainerGaps(true);
+
+        layout.setHorizontalGroup(
+                layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                .addComponent(this.categoryLabel)
+                                .addComponent(this.back))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                                .addComponent(this.categoryBox)
+                                .addComponent(this.saveButton))
+        );
+        layout.setVerticalGroup(
+                layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                                .addComponent(this.categoryLabel)
+                                .addComponent(this.categoryBox))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                                .addComponent(this.saveButton)
+                                .addComponent(this.back))
+        );
 
         saveButtonActionListener();
+        backButtonActionListener();
 
     }
 
@@ -77,6 +101,15 @@ public class ChangeTicketPanel extends JPanel
             }
 
             frame.dispose();
+        });
+    }
+
+
+    public void backButtonActionListener()
+    {
+        this.back.addActionListener(listener ->
+        {
+            this.frame.dispose();
         });
     }
 

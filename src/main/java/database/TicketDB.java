@@ -287,8 +287,6 @@ public class TicketDB extends DatabaseTickets {
                 if (!e_ticket.getAmountPerPerson().containsKey(dbPersons.getPerson(e_ticket.getPayer())) && !alreadyAdded)
                 {
 
-                    System.out.println("YUUUP");
-                    System.out.println(e_ticket);
                     alreadyAdded = true;
                     if (bill.containsKey(dbPersons.getPerson(e_ticket.getPayer())))
                     {
