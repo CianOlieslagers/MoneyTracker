@@ -134,7 +134,6 @@ public class Main
         HomeFrame view = new HomeFrame();
         view.initialize();
 
-
     }
 
 

@@ -59,12 +59,9 @@ public class TicketController implements TController
     @Override
     public void setActivity(Ticket oldTicket, TicketDecorator decorator) throws Exception
     {
-        System.out.println("oldticket: " + oldTicket);
-        Ticket decoratedTicket = decorator.decorate(oldTicket);
-        System.out.println("decoratedticket" + decoratedTicket);
         db.removeTicket(oldTicket);
+        Ticket decoratedTicket = decorator.decorate(oldTicket);
         db.addTicket(decoratedTicket);
-        System.out.println(db.getTickets());
     }
 
 
@@ -79,6 +76,5 @@ public class TicketController implements TController
     {
         return db.getBillPerPerson(person);
     }
-
 
 }

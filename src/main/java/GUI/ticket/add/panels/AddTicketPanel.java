@@ -55,6 +55,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         this.categoryLabel = new JLabel("Select category:");
         this.frame = frame;
         this.back = new JButton("Back");
+        this.amountField.setToolTipText("in euro's");
 
 
         saveButtonActionListener();
@@ -191,13 +192,11 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         if (evt.getPropertyName().equals("TicketDB add"))
         {
             Ticket ticket = (Ticket) evt.getNewValue();
-            // MYSTERIE
-            //JOptionPane.showMessageDialog(thids,"Ticket: " + ticket.getName() + "(" + ticket.getAmount() + ") is added!","Ticket added",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this,"Ticket: " + ticket.getName() + "(" + ticket.getAmount() + ") is added!","Ticket added",JOptionPane.INFORMATION_MESSAGE);
             this.activityField.setText("");
-            this.amountField.setText("");
+            this.amountField.setText("0.0");
             this.checkBox.setSelected(true);
             this.frame.resetEvenlyPaidPanel();
-            frame.dispose();
         }
     }
 }
