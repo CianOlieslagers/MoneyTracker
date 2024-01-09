@@ -57,7 +57,8 @@ public class CalculatePanel extends JPanel
             ArrayList<String> result = this.ticketController.getBillPerPerson(selectedPerson);
 
             billListModel.clear();
-            for (String elem : result){
+            for (String elem : result)
+            {
                 billListModel.addElement(elem);
             }
 

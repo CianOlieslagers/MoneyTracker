@@ -97,7 +97,7 @@ public class ChangeTicketPanel extends JPanel
 
             } catch (Exception e)
             {
-                e.getMessage();
+                JOptionPane.showMessageDialog(this,"No decorator selected!","Warning",JOptionPane.WARNING_MESSAGE);
             }
 
             frame.dispose();

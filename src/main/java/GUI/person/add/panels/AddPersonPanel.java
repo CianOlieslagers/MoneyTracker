@@ -81,7 +81,8 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
             {
                 String name = this.nameField.getText();
                 String accountNumber = this.accountField.getText();
-                try {
+                try
+                {
                     this.personController.addPerson(new Person(name,accountNumber));
                 }
                 catch (Exception e)

@@ -11,8 +11,10 @@ public class ActivitiesTicketDecorator extends TicketDecorator
     }
 
     @Override
-    public Ticket decorate(Ticket oldTicket) {
+    public Ticket decorate(Ticket oldTicket)
+    {
         oldTicket.setCategory(Category.Activities);
-        return oldTicket;}
+        return oldTicket;
+    }
 
 }

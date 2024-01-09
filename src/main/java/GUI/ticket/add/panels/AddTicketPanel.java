@@ -45,7 +45,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         this.categoryBox = new JComboBox(categories);
         this.save = new JButton("Save");
         this.activityLabel = new JLabel("Activity name:");
-        this.payerLabel = new JLabel("Payer:");
+        this.payerLabel = new JLabel("Paid by:");
         this.amountLabel = new JLabel("Amount:");
         this.activityField = new JTextField();
         this.payerBox = new JComboBox(personController.getNames().toArray());

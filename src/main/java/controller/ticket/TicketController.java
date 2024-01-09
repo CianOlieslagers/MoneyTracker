@@ -37,13 +37,14 @@ public class TicketController implements TController
     }
 
     @Override
-    public double totaalSum() {
+    public double totaalSum()
+    {
         return db.totaalSum();
     }
 
     @Override
-    public HashMap<Person, Double> KostPP(Person person){
-
+    public HashMap<Person, Double> KostPP(Person person)
+    {
         return db.KostPP(person);
     }
 
@@ -52,8 +53,6 @@ public class TicketController implements TController
         db.printSchulden(schuldenmap);
     }
 
-
-
     @Override
     public void setActivity(Ticket oldTicket, TicketDecorator decorator) throws Exception
     {
@@ -61,7 +60,6 @@ public class TicketController implements TController
         Ticket decoratedTicket = decorator.decorate(oldTicket);
         db.addTicket(decoratedTicket);
     }
-
 
     @Override
     public HashMap<Person,Double> getBill()

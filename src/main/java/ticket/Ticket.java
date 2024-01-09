@@ -79,7 +79,8 @@ public class Ticket
     }
 
 
-    public String print() {
+    public String print()
+    {
         return "Ticket{" +
                 "name='" + name + '\'' +
                 ", payer='" + payer + '\'' +

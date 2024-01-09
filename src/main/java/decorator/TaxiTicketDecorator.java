@@ -11,7 +11,8 @@ public class TaxiTicketDecorator extends TicketDecorator
     }
 
     @Override
-    public Ticket decorate(Ticket oldTicket) {
+    public Ticket decorate(Ticket oldTicket)
+    {
         oldTicket.setCategory(Category.Taxi);
         return oldTicket;
     }
