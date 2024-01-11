@@ -43,6 +43,7 @@ public class Main
         Pregister.addPerson(Bob);
         Pregister.addPerson(Charlie);
 
+
         HashMap<Person, Double> TestValues1 = new HashMap<>();
         TestValues1.put(Charlie, 20.0);
         TestValues1.put(Bob ,20.0);
@@ -71,8 +72,6 @@ public class Main
         Ticket test1 = TF1.getTicket("test1","Charlie", 70, Category.Food,false, TestValues1);
         Ticket test2 = TF1.getTicket("test2","Ann", 60, Category.Food,false, TestValues2);
 
-
-        System.out.println(DbP1.getNames());
 
         Tregister.addTicket(test1);
         Tregister.addTicket(test2);

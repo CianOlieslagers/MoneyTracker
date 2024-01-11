@@ -14,7 +14,7 @@ public class TicketDB extends DatabaseTickets {
     private static final TicketDB ticketDB = new TicketDB();
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     private int ticketCount = 0;
-    private final DatabasePersons dbPersons = PersonDB.getInstance();
+    private DatabasePersons dbPersons = PersonDB.getInstance();
 
 
     private TicketDB()
@@ -61,8 +61,10 @@ public class TicketDB extends DatabaseTickets {
         }
 
 
+
         if (isOK)
         {
+            dbPersons = PersonDB.getInstance();
             if (dbPersons.getNames().contains(ticket.getPayer()))    // is met een ComboBox dus moet normaal altijd true zijn
             {
                 support.firePropertyChange("TicketDB add", null, ticket);
@@ -71,7 +73,7 @@ public class TicketDB extends DatabaseTickets {
             }
             else
             {
-                throw new Exception("Database doesn't contain this name");
+                throw new Exception("Database doesn't contain the name of the payer");
             }
         }
     }

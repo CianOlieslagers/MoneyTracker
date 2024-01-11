@@ -8,14 +8,16 @@ import java.util.Map;
 
 import observers.PrintUpdated;
 import person.Person;
+import ticket.Ticket;
 
 
 public class PersonDB extends DatabasePersons
 {
-    private final LinkedHashMap<Integer, Person> db;
+    private final LinkedHashMap<Integer,Person> db;
     private static final PersonDB personDB = new PersonDB();
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     private int personCount = 0;
+    private final DatabaseTickets dbTickets = TicketDB.getInstance();
 
 
     private PersonDB()
@@ -73,6 +75,22 @@ public class PersonDB extends DatabasePersons
 
             if (e_person.getName().equals(person.getName()) && e_person.getAccountNumber().equals(person.getAccountNumber()))
             {
+                for (Ticket e_ticket : dbTickets.getTickets())
+                {
+                    if (e_ticket.getPayer().equals(person.getName()))
+                        throw new Exception(person.getName() + " can not be removed because " +  person.getName() + " is the payer of " + e_ticket.getName());
+                    else
+                    {
+                        for (Map.Entry<Person, Double> entry1 : e_ticket.getAmountPerPerson().entrySet())
+                        {
+                            if (entry1.getKey().equals(person))
+                            {
+                                throw new Exception(person.getName() + " can not be removed because " + person.getName() + " needs to pay in " + e_ticket.getName());
+                            }
+                        }
+                    }
+                }
+
                 removable = true;
                 this.db.remove(e_personID,e_person);
                 support.firePropertyChange("PersonDB remove", null, person);
