@@ -32,7 +32,8 @@ public class Person
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", accountNumber='" + accountNumber + '\'' +

@@ -32,7 +32,8 @@ public class PersonController implements PController
 
 
     @Override
-    public ArrayList<String> getNames() {
+    public ArrayList<String> getNames()
+    {
         return (db.getNames());
     }
 

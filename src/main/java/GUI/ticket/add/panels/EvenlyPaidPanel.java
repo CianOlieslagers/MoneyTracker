@@ -71,7 +71,6 @@ public class EvenlyPaidPanel extends JPanel
                 {
                     double amountPerson = totalAmount/totalPersons;
                     result.put(e.getKey(), amountPerson);
-                    //System.out.println(e.getKey().getName() + " participated to the activity and it cost " + amountPerson);
                 }
                 else
                 {
@@ -83,16 +82,14 @@ public class EvenlyPaidPanel extends JPanel
                         }
                         catch (NumberFormatException nfe)
                         {
-                            throw new NumberFormatException(nfe.getMessage());
+                            throw new NumberFormatException("Give a valid value for amount! e.g. '10.45'");
                         }
                         result.put(e.getKey(), amountPerson);
                     }
                     else
                     {
-                        //JOptionPane.showMessageDialog(this,"Fill in an amount for every selected person!","Warning",JOptionPane.WARNING_MESSAGE);
                         throw new Exception("Fill in an amount for every selected person!");
                     }
-                    //System.out.println(e.getKey().getName() + " participated at the activity and it cost " + amountPerson);
                 }
             }
         }

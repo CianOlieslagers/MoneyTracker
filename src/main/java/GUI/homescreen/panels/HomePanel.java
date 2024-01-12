@@ -17,6 +17,7 @@ public class HomePanel extends JPanel
     private PersonController personController;
     private TicketController ticketController;
 
+    private JLabel choise;
     private JButton addPerson;
     private JButton showPersons;
     private JButton addTicket;
@@ -30,7 +31,7 @@ public class HomePanel extends JPanel
         this.ticketController = ticketController;
 
 
-        JLabel label = new JLabel("Choise");
+        this.choise = new JLabel("Choise:");
         this.addPerson = new JButton("Add a person");
         this.showPersons = new JButton("Show all persons");
         this.addTicket = new JButton("Add a ticket");
@@ -53,7 +54,7 @@ public class HomePanel extends JPanel
 
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
-                        .addComponent(label)
+                        .addComponent(this.choise)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                             .addComponent(this.addPerson)
                             .addComponent(this.showPersons))
@@ -66,11 +67,11 @@ public class HomePanel extends JPanel
                 layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                                 .addComponent(this.addPerson)
-                                .addComponent(this.addTicket))
+                                .addComponent(this.addTicket)
+                                .addComponent(this.choise))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                                 .addComponent(this.showPersons)
-                                .addComponent(this.showTickets)
-                                .addComponent(label))
+                                .addComponent(this.showTickets))
                         .addComponent(this.calculate)
         );
 
@@ -81,7 +82,6 @@ public class HomePanel extends JPanel
     {
         this.addPerson.addActionListener(listener ->
         {
-            // Insert here your controller functionality
             System.out.println("[HOME-FRAME] : add person");
             AddPersonFrame frame = new AddPersonFrame();
             frame.initialize();

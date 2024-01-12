@@ -3,11 +3,9 @@ package controller.ticket;
 import database.DatabaseTickets;
 import decorator.*;
 import person.Person;
-import ticket.Category;
 import ticket.Ticket;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -40,13 +38,14 @@ public class TicketController implements TController
     }
 
     @Override
-    public double totaalSum() {
+    public double totaalSum()
+    {
         return db.totaalSum();
     }
 
     @Override
-    public HashMap<Person, Double> KostPP(Person person){
-
+    public HashMap<Person, Double> KostPP(Person person)
+    {
         return db.KostPP(person);
     }
 
@@ -55,17 +54,13 @@ public class TicketController implements TController
         return db.printSchulden(schuldenmap);
     }
 
-
-
     @Override
-    public void setActivity(Ticket oldTicket, TicketDecorator decorator) throws Exception {
-        Ticket decoratedTicket = decorator.decorate(oldTicket);
+    public void setActivity(Ticket oldTicket, TicketDecorator decorator) throws Exception
+    {
         db.removeTicket(oldTicket);
+        Ticket decoratedTicket = decorator.decorate(oldTicket);
         db.addTicket(decoratedTicket);
-}
-
-
-
+    }
 
     @Override
     public HashMap<Person,Double> getBill()
@@ -78,6 +73,5 @@ public class TicketController implements TController
     {
         return db.getBillPerPerson(person);
     }
-
 
 }

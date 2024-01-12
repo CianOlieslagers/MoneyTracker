@@ -1,5 +1,6 @@
 package GUI.ticket.show.panels;
 
+import GUI.ticket.change.ChangeTicketFrame;
 import controller.person.PersonController;
 import controller.ticket.TicketController;
 import ticket.Ticket;
@@ -19,27 +20,25 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
     private JButton editButton;
     private JList<Ticket> ticketJList;
     private DefaultListModel<Ticket> ticketListModel;
-    private JList<String> ticketNameJList;
-    private DefaultListModel<String> ticketNameModel;
-    private JList<Double> ticketAmountJList;
-    private DefaultListModel<Double> ticketAmountModel;
+    private JButton back;
+    private JFrame frame;
 
-    public ShowTicketPanel(PersonController personController, TicketController ticketController)
+    public ShowTicketPanel(PersonController personController, TicketController ticketController, JFrame frame)
     {
 
         this.personController = personController;
         this.ticketController = ticketController;
+        this.frame = frame;
 
         this.ticketLabel = new JLabel("Tickets");
         this.deleteButton = new JButton("Delete selected ticket");
         this.editButton = new JButton("Edit selected ticket");
         this.ticketListModel = new DefaultListModel<>();
+        this.back = new JButton("Back");
 
         for (Ticket ticket : ticketController.getTickets())
         {
             ticketListModel.addElement(ticket);
-            //ticketNameModel.addElement(ticket.getName());
-            //ticketAmountModel.addElement(ticket.getAmount());
         }
 
 
@@ -47,6 +46,7 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
 
         deleteButtonActionListener();
         editButtonActionListener();
+        backButtonActionListener();
 
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -60,7 +60,8 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
                                 .addComponent(this.ticketLabel)
                                 .addComponent(this.deleteButton)
                                 .addComponent(this.editButton)
-                                .addComponent(this.ticketJList))
+                                .addComponent(this.ticketJList)
+                                .addComponent(this.back))
         );
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
@@ -72,6 +73,8 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
                                 .addComponent(this.editButton))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                                 .addComponent(this.deleteButton))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                                .addComponent(this.back))
         );
 
     }
@@ -83,14 +86,21 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
         {
             if (!this.ticketJList.isSelectionEmpty())
             {
-                System.out.println("You've selected " + this.ticketJList.getSelectedValue() + " to remove");
                 this.ticketController.removeTicket(this.ticketJList.getSelectedValue());
             }
             else
             {
-                System.out.println("No ticket selected!");
                 JOptionPane.showMessageDialog(this,"No ticket selected","",JOptionPane.WARNING_MESSAGE);
             }
+        });
+    }
+
+
+    public void backButtonActionListener()
+    {
+        this.back.addActionListener(listener ->
+        {
+            this.frame.dispose();
         });
     }
 
@@ -101,17 +111,14 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
         {
             if (!this.ticketJList.isSelectionEmpty())
             {
-                System.out.println("You've selected " + this.ticketJList.getSelectedValue() + "to edit");
-                //this.ticketController.setActivity(this.ticketJList.getSelectedValue());
+                ChangeTicketFrame frame = new ChangeTicketFrame(this.ticketJList.getSelectedValue());
+                frame.initialize();
             }
             else
             {
-                System.out.println("No ticket selected!");
                 JOptionPane.showMessageDialog(this,"No ticket selected","",JOptionPane.WARNING_MESSAGE);
             }
-        }
-
-        );
+        });
     }
 
 
@@ -122,7 +129,11 @@ public class ShowTicketPanel extends JPanel implements PropertyChangeListener
         {
             Ticket ticket = (Ticket) evt.getNewValue();
             this.ticketListModel.removeElement(ticket);
-            JOptionPane.showMessageDialog(this,ticket + " is removed!","Ticket removed",JOptionPane.INFORMATION_MESSAGE);
+        }
+        if (evt.getPropertyName().equals("TicketDB add"))
+        {
+            Ticket ticket = (Ticket) evt.getNewValue();
+            this.ticketListModel.addElement(ticket);
         }
     }
 }

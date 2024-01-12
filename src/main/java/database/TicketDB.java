@@ -10,14 +10,15 @@ import java.util.*;
 
 public class TicketDB extends DatabaseTickets {
 
-    private final HashMap<Integer, Ticket> db;
+    private final HashMap<Integer,Ticket> db;
     private static final TicketDB ticketDB = new TicketDB();
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     private int ticketCount = 0;
-    private final DatabasePersons dbPersons = PersonDB.getInstance();
+    private DatabasePersons dbPersons = PersonDB.getInstance();
 
 
-    private TicketDB() {
+    private TicketDB()
+    {
         this.db = new HashMap<>();
         this.addObserver(new PrintUpdated());
     }
@@ -28,66 +29,87 @@ public class TicketDB extends DatabaseTickets {
     }
 
     @Override
-    public void addTicket(Ticket ticket) throws Exception {
+    public void addTicket(Ticket ticket) throws Exception
+    {
         boolean isOK = true;
         double totalAmount = 0;
 
-        if (ticket.getAmount() <= 0.0) {
+        if (ticket.getAmount() <= 0.0)
+        {
             isOK = false;
-            //System.out.println("TicketDB: Activity name is empty or amount is equal or smaller than 0.0 ");
             throw new Exception("The total amount is equal or smaller than 0");
 
         }
 
-        for (Map.Entry<Person, Double> amountPerPerson : ticket.getAmountPerPerson().entrySet()) {
-            if (amountPerPerson.getValue() <= 0.0) {
+        for (Map.Entry<Person,Double> amountPerPerson : ticket.getAmountPerPerson().entrySet())
+        {
+            if (amountPerPerson.getValue() <= 0.0)
+            {
                 isOK = false;
                 throw new Exception("The amount per person is equal or smaller than 0");
-            } else {
+            }
+            else
+            {
                 totalAmount += amountPerPerson.getValue();
             }
         }
 
-        if (totalAmount != ticket.getAmount()) {
+        if (totalAmount != ticket.getAmount())
+        {
             isOK = false;
             throw new Exception("Sum of amount per person is not equal to the total amount!");
         }
 
 
-        if (isOK) {
+
+        if (isOK)
+        {
+            dbPersons = PersonDB.getInstance();
             if (dbPersons.getNames().contains(ticket.getPayer()))    // is met een ComboBox dus moet normaal altijd true zijn
             {
                 support.firePropertyChange("TicketDB add", null, ticket);
-                this.db.put(ticketCount, ticket);
+                this.db.put(ticketCount,ticket);
                 ticketCount++;
-            } else {
-                //System.out.println("Database doesn't contain this name");
-                throw new Exception("Database doesn't contain this name");
+            }
+            else
+            {
+                throw new Exception("Database doesn't contain the name of the payer");
             }
         }
     }
 
     @Override
-    public void removeTicket(Ticket ticket) {
-        support.firePropertyChange("TicketDB remove", null, ticket);
-        this.db.remove(ticketCount, ticket);
-        ticketCount--;
+    public void removeTicket(Ticket ticket)
+    {
+        for (Map.Entry<Integer,Ticket> entry : this.db.entrySet())
+        {
+            if (ticket == entry.getValue())
+            {
+                this.db.remove(entry.getKey());
+                support.firePropertyChange("TicketDB remove", null, ticket);
+                break;
+            }
+        }
     }
 
     @Override
-    public void addObserver(PropertyChangeListener pcl) {
+    public void addObserver(PropertyChangeListener pcl)
+    {
         support.addPropertyChangeListener(pcl);
     }
 
     @Override
-    public void removeObserver(PropertyChangeListener pcl) {
+    public void removeObserver(PropertyChangeListener pcl)
+    {
         support.removePropertyChangeListener(pcl);
     }
 
     @Override
-    public ArrayList<Ticket> getTickets() {
+    public ArrayList<Ticket> getTickets()
+    {
         ArrayList<Ticket> ticketList = new ArrayList<>();
-        for (Map.Entry<Integer, Ticket> e : this.db.entrySet()) {
+        for (Map.Entry<Integer, Ticket> e : this.db.entrySet())
+        {
             Ticket e_Value = e.getValue();
             ticketList.add(e_Value);
         }
@@ -236,6 +258,8 @@ public class TicketDB extends DatabaseTickets {
         {
             Ticket e_ticket = e.getValue();
 
+            boolean alreadyAdded = false;
+
             for (Map.Entry<Person,Double> f : e_ticket.getAmountPerPerson().entrySet())
             {
                 Person f_person = f.getKey();
@@ -268,6 +292,23 @@ public class TicketDB extends DatabaseTickets {
                         bill.put(f_person, f_amountToPay);
                     }
                 }
+
+
+                if (!e_ticket.getAmountPerPerson().containsKey(dbPersons.getPerson(e_ticket.getPayer())) && !alreadyAdded)
+                {
+
+                    alreadyAdded = true;
+                    if (bill.containsKey(dbPersons.getPerson(e_ticket.getPayer())))
+                    {
+                        double amountAlready = bill.get(dbPersons.getPerson(e_ticket.getPayer()));
+                        bill.put(dbPersons.getPerson(e_ticket.getPayer()), amountAlready + e_ticket.getAmount());
+                    }
+                    else
+                    {
+                        bill.put(dbPersons.getPerson(e_ticket.getPayer()), e_ticket.getAmount());
+                    }
+                }
+
             }
         }
 
@@ -332,7 +373,7 @@ public class TicketDB extends DatabaseTickets {
 
         return result;
     }
-}
+
 /*
 
     private String printTransaction(Person debtor, Person creditor, double amount)
@@ -361,4 +402,4 @@ public class TicketDB extends DatabaseTickets {
 
 
 
-
+}

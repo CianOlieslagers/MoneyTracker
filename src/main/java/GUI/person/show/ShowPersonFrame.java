@@ -36,7 +36,7 @@ public class ShowPersonFrame extends JFrame
         this.setLayout(layout);
 
         // Pass the controller to the ButtonPanel
-        buttons = new ShowPersonPanel(personController, ticketController);
+        buttons = new ShowPersonPanel(personController, ticketController,this);
 
         personDB.addObserver(buttons);
 

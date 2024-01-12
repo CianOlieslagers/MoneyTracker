@@ -35,6 +35,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
     private JCheckBox checkBox;
     private AddTicketFrame frame;
     private double amount;
+    private JButton back;
 
 
     public AddTicketPanel(PersonController personController, TicketController ticketController, AddTicketFrame frame)
@@ -44,7 +45,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         this.categoryBox = new JComboBox(categories);
         this.save = new JButton("Save");
         this.activityLabel = new JLabel("Activity name:");
-        this.payerLabel = new JLabel("Payer:");
+        this.payerLabel = new JLabel("Paid by:");
         this.amountLabel = new JLabel("Amount:");
         this.activityField = new JTextField();
         this.payerBox = new JComboBox(personController.getNames().toArray());
@@ -53,10 +54,13 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         this.checkBox = new JCheckBox((Icon) null, true);
         this.categoryLabel = new JLabel("Select category:");
         this.frame = frame;
+        this.back = new JButton("Back");
+        this.amountField.setToolTipText("in euro's");
 
 
         saveButtonActionListener();
         checkboxActionListener();
+        backButtonActionListener();
 
 
         GroupLayout layout = new GroupLayout(this);
@@ -73,7 +77,8 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
                                 .addComponent(this.payerLabel)
                                 .addComponent(this.amountLabel)
                                 .addComponent(this.splitLabel)
-                                .addComponent(this.categoryLabel))
+                                .addComponent(this.categoryLabel)
+                                .addComponent(this.back))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
                                 .addComponent(this.activityField)
                                 .addComponent(this.payerBox)
@@ -100,7 +105,8 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
                                 .addComponent(this.categoryLabel)
                                 .addComponent(this.categoryBox))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                                .addComponent(this.save))
+                                .addComponent(this.save)
+                                .addComponent(this.back))
         );
     }
 
@@ -112,18 +118,26 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
             String name = this.activityField.getText();
             String payer = (String) this.payerBox.getSelectedItem();
             Category category = (Category) this.categoryBox.getSelectedItem();
-            Boolean splitEvenly = this.checkBox.isSelected();
+            boolean splitEvenly = this.checkBox.isSelected();
+            boolean amountExists = false;
+
 
             try
             {
                 this.amount = Double.parseDouble(this.amountField.getText());
+                amountExists = true;
             }
             catch (NumberFormatException nfe)
             {
                 JOptionPane.showMessageDialog(this,"Give a valid value for amount! e.g. '10.45'","Warning",JOptionPane.WARNING_MESSAGE);
             }
 
-            if (!name.isEmpty() && !this.amountField.getText().isEmpty() && splitEvenly)
+            if (name.isEmpty() && amountExists)
+            {
+                JOptionPane.showMessageDialog(this,"Name of the activity is empty","Warning",JOptionPane.WARNING_MESSAGE);
+            }
+
+            if (!name.isEmpty() && amountExists && splitEvenly)
             {
                 try
                 {
@@ -132,11 +146,12 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
                 }
                 catch (Exception e)
                 {
-                    JOptionPane.showMessageDialog(this,e.getMessage(),"",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this,e.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
                 }
 
             }
-            else if (!name.isEmpty() && !this.amountField.getText().isEmpty() && !splitEvenly)
+
+            if (!name.isEmpty() && amountExists && !splitEvenly)
             {
                 try
                 {
@@ -145,14 +160,9 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
                 }
                 catch (Exception e)
                 {
-                    JOptionPane.showMessageDialog(this,e.getMessage()," ",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this,e.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
                 }
             }
-            else
-            {
-                JOptionPane.showMessageDialog(this,"Name or Amount is empty","Warning",JOptionPane.WARNING_MESSAGE);
-            }
-
 
         });
     }
@@ -162,15 +172,16 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
     {
         this.checkBox.addActionListener(listener ->
         {
-            System.out.println("checkbox action");
-            if (this.checkBox.isSelected())
-            {
-                this.frame.setField(false);
-            }
-            else
-            {
-                this.frame.setField(true);
-            }
+            this.frame.setField(!this.checkBox.isSelected());
+        });
+    }
+
+
+    public void backButtonActionListener()
+    {
+        this.back.addActionListener(listener ->
+        {
+            this.frame.dispose();
         });
     }
 
@@ -181,11 +192,11 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
         if (evt.getPropertyName().equals("TicketDB add"))
         {
             Ticket ticket = (Ticket) evt.getNewValue();
+            JOptionPane.showMessageDialog(this,"Ticket: " + ticket.getName() + "(" + ticket.getAmount() + ") is added!","Ticket added",JOptionPane.INFORMATION_MESSAGE);
             this.activityField.setText("");
-            this.amountField.setText("");
+            this.amountField.setText("0.0");
             this.checkBox.setSelected(true);
             this.frame.resetEvenlyPaidPanel();
-            JOptionPane.showMessageDialog(this,"Ticket: " + ticket.getName() + "(" + ticket.getAmount() + ") is added!","Ticket added",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

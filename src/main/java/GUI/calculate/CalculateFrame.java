@@ -1,7 +1,6 @@
 package GUI.calculate;
 
 import GUI.calculate.panels.CalculatePanel;
-import GUI.person.add.panels.AddPersonPanel;
 import controller.person.PersonController;
 import controller.ticket.TicketController;
 import database.PersonDB;
@@ -32,7 +31,7 @@ public class CalculateFrame extends JFrame
         GridBagLayout layout = new GridBagLayout();
         this.setLayout(layout);
 
-        this.panel = new CalculatePanel(personController, ticketController);
+        this.panel = new CalculatePanel(personController, ticketController,this);
 
         this.add(panel);
         this.setVisible(true);
