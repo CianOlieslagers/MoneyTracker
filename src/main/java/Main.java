@@ -16,6 +16,7 @@ import ticket.Ticket;
 
 import javax.crypto.interfaces.DHPublicKey;
 import java.util.HashMap;
+import java.util.List;
 
 public class Main
 {
@@ -78,9 +79,13 @@ public class Main
         System.out.print("Rekening voor Mel: " + AfrekeningMel+ "\n");
 
         System.out.print("please lord werk: "+ "\n");
-        DbT1.printSchulden(AfrekeningBob);
+        List<String> test = DbT1.printSchulden(AfrekeningBob);
 
+        System.out.print("\n"+"\n"+"\n"+"\n"+"\n");
 
+        System.out.print(test);
+
+        System.out.print("\n"+"\n"+"\n"+"\n"+"\n");
 
         // Test voor de decorator te laten zien.
         System.out.print("Voor de decorator: " + "\n" +test1);

@@ -183,9 +183,10 @@ public class TicketDB extends DatabaseTickets {
     }
 
     @Override
-    public void printSchulden(HashMap<Person, Double> schuldenMap) {
+    public List<String> printSchulden(HashMap<Person, Double> schuldenMap) {
         List<Person> credits = new ArrayList<>();
         List<Person> debts = new ArrayList<>();
+        List<String> OutputArray = new ArrayList<>();
 
         // Splitting the debts and credits
         for (Map.Entry<Person, Double> entry : schuldenMap.entrySet()) {
@@ -204,6 +205,9 @@ public class TicketDB extends DatabaseTickets {
             double creditAmount = schuldenMap.get(credit);
             System.out.println(credit.getName() + " moet nog " + creditAmount + " euro ontvangen aan:");
 
+            String output1 = credit.getName() + " moet nog " + creditAmount + " euro ontvangen aan:";
+            OutputArray.add(output1);
+
             for (Person debt : debts) {
                 double debtAmount = schuldenMap.get(debt);
                 if (debtAmount < 0) {
@@ -212,10 +216,14 @@ public class TicketDB extends DatabaseTickets {
                         System.out.println("  - " + debt.getName() + ": " + settleAmount + " euro");
                         creditAmount -= settleAmount;
                         schuldenMap.put(debt, debtAmount + settleAmount);
+
+                        String output2 = "  - " + debt.getName() + ": " + settleAmount + " euro";
+                        OutputArray.add(output2);
                     }
                 }
             }
         }
+        return OutputArray;
 
     }
 
@@ -324,7 +332,7 @@ public class TicketDB extends DatabaseTickets {
 
         return result;
     }
-
+}
 /*
 
     private String printTransaction(Person debtor, Person creditor, double amount)
@@ -353,4 +361,4 @@ public class TicketDB extends DatabaseTickets {
 
 
 
-}
+

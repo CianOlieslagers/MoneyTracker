@@ -9,6 +9,7 @@ import ticket.Ticket;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 
 public class TicketController implements TController
@@ -50,8 +51,8 @@ public class TicketController implements TController
     }
 
     @Override
-    public void printSchulden(HashMap<Person, Double> schuldenmap) {
-        db.printSchulden(schuldenmap);
+    public List<String> printSchulden(HashMap<Person, Double> schuldenmap) {
+        return db.printSchulden(schuldenmap);
     }
 
 
