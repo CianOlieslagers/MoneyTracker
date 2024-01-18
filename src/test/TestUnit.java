@@ -1,9 +1,6 @@
-import controller.ticket.TController;
 import controller.ticket.TicketController;
-import database.DatabasePersons;
 import database.DatabaseTickets;
 import database.TicketDB;
-import decorator.TicketDecorator;
 import factory.TicketFactory;
 import org.junit.After;
 import org.junit.Before;
@@ -12,13 +9,10 @@ import person.Person;
 import ticket.Category;
 import ticket.Ticket;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.lang.reflect.Field;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class TestUnit {
