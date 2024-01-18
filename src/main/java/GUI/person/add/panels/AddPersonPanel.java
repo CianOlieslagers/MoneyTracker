@@ -30,7 +30,7 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
         this.frame = frame;
 
         this.nameLabel = new JLabel("Name:");
-        this.accountLabel = new JLabel("Accountnumber:");
+        this.accountLabel = new JLabel("Account number:");
         this.nameField = new JTextField(10);
         this.accountField = new JTextField(15);
         this.save = new JButton("Save");

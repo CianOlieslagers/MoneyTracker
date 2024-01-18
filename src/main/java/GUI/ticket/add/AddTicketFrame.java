@@ -34,7 +34,7 @@ public class AddTicketFrame extends JFrame
 
     public void initialize()
     {
-        this.setSize(600, 400);
+        this.setSize(1200, 800);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         setLocationRelativeTo(null);

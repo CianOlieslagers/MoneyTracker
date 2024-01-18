@@ -3,6 +3,7 @@ package database;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ import ticket.Ticket;
 
 public class PersonDB extends DatabasePersons
 {
-    private final LinkedHashMap<Integer,Person> db;
+    private final HashMap<Integer,Person> db;
     private static final PersonDB personDB = new PersonDB();
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     private int personCount = 0;

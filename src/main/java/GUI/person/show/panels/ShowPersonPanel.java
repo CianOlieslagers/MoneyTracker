@@ -34,7 +34,7 @@ public class ShowPersonPanel extends JPanel implements PropertyChangeListener
         this.frame = frame;
         this.deleteButton = new JButton("Delete selected person");
         this.nameLabel = new JLabel("Name");
-        this.accountnumberLabel = new JLabel("Accountnumber");
+        this.accountnumberLabel = new JLabel("Account number");
         this.back = new JButton("Back");
 
         this.namesListModel = new DefaultListModel<>();
