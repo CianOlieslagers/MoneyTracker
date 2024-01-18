@@ -7,12 +7,15 @@ import database.DatabasePersons;
 import database.DatabaseTickets;
 import database.PersonDB;
 import database.TicketDB;
+import decorator.AirplaneTicketDecorator;
+import decorator.TicketDecorator;
 import factory.TicketFactory;
 import person.Person;
 import ticket.Category;
 import ticket.Ticket;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class Main
 {
@@ -84,7 +87,7 @@ public class Main
         Tregister.addTicket(ticket4);
         Tregister.addTicket(ticket5);
 
-        /*
+
         HashMap<Person,Double> AfrekeningBob;
         AfrekeningBob = Tregister.KostPP(Bob);
         System.out.print("Rekening voor Bob: " + AfrekeningBob+ "\n");
@@ -94,9 +97,13 @@ public class Main
         System.out.print("Rekening voor Ann: " + AfrekeningAnn+ "\n");
 
         System.out.print("please lord werk: "+ "\n");
-        DbT1.printSchulden(AfrekeningBob);
+        List<String> test = DbT1.printSchulden(AfrekeningAnn);
 
+        System.out.print("\n"+"\n"+"\n"+"\n"+"\n");
 
+        System.out.print(test);
+
+        System.out.print("\n"+"\n"+"\n"+"\n"+"\n");
 
         // Test voor de decorator te laten zien.
         System.out.print("Voor de decorator: " + "\n" +test1);
@@ -119,7 +126,7 @@ public class Main
         System.out.println("Ann: " + Tregister.KostPP(Ann));
         System.out.println("Charlie: " + Tregister.KostPP(Charlie));
 
-         */
+
 
         HomeFrame view = new HomeFrame();
         view.initialize();

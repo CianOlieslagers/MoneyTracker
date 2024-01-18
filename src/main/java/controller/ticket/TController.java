@@ -9,6 +9,7 @@ import ticket.Ticket;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public interface TController
 {
@@ -18,7 +19,7 @@ public interface TController
     double totaalSum();
     HashMap<Person, Double> KostPP(Person person);
 
-    void printSchulden(HashMap<Person,Double> schuldenmap);
+    List<String> printSchulden(HashMap<Person,Double> schuldenmap);
 
     void setActivity(Ticket oldTicket, TicketDecorator decorator) throws Exception;
 

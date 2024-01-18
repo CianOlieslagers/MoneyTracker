@@ -205,9 +205,10 @@ public class TicketDB extends DatabaseTickets {
     }
 
     @Override
-    public void printSchulden(HashMap<Person, Double> schuldenMap) {
+    public List<String> printSchulden(HashMap<Person, Double> schuldenMap) {
         List<Person> credits = new ArrayList<>();
         List<Person> debts = new ArrayList<>();
+        List<String> OutputArray = new ArrayList<>();
 
         // Splitting the debts and credits
         for (Map.Entry<Person, Double> entry : schuldenMap.entrySet()) {
@@ -226,6 +227,9 @@ public class TicketDB extends DatabaseTickets {
             double creditAmount = schuldenMap.get(credit);
             System.out.println(credit.getName() + " moet nog " + creditAmount + " euro ontvangen aan:");
 
+            String output1 = credit.getName() + " moet nog " + creditAmount + " euro ontvangen aan:";
+            OutputArray.add(output1);
+
             for (Person debt : debts) {
                 double debtAmount = schuldenMap.get(debt);
                 if (debtAmount < 0) {
@@ -234,10 +238,14 @@ public class TicketDB extends DatabaseTickets {
                         System.out.println("  - " + debt.getName() + ": " + settleAmount + " euro");
                         creditAmount -= settleAmount;
                         schuldenMap.put(debt, debtAmount + settleAmount);
+
+                        String output2 = "  - " + debt.getName() + ": " + settleAmount + " euro";
+                        OutputArray.add(output2);
                     }
                 }
             }
         }
+        return OutputArray;
 
     }
 
@@ -309,6 +317,7 @@ public class TicketDB extends DatabaseTickets {
         return bill;
     }
 
+
     @Override
     public ArrayList<String> getBillPerPerson(Person person)
     {
@@ -364,5 +373,33 @@ public class TicketDB extends DatabaseTickets {
 
         return result;
     }
+
+/*
+
+    private String printTransaction(Person debtor, Person creditor, double amount)
+    {
+        System.out.println(debtor.getName() + " needs to pay " + amount + " euro to " + creditor.getName() + " on the following accountnumber: " + creditor.getAccountNumber());
+
+        return (debtor.getName() + " needs to pay " + amount + " euro to " + creditor.getName() + " on the following accountnumber: " + creditor.getAccountNumber());
+    }
+
+
+    private void printBill(HashMap<Person,Double> bill)
+    {
+        for (Map.Entry<Person,Double> entry : bill.entrySet())
+        {
+            if (entry.getValue() > 0)
+                System.out.println(entry.getKey().getName() + " needs to receive " + entry.getValue() + " euro from the group!");
+            else if (entry.getValue() == 0)
+                System.out.println(entry.getKey().getName() + " don't need to pay or receive any money!");
+            else if (entry.getValue() < 0)
+                System.out.println(entry.getKey().getName() + " owes " + -entry.getValue() + " euro to the group!");
+        }
+    }
+*/
+
+
+
+
 
 }
