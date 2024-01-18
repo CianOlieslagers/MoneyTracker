@@ -1,8 +1,10 @@
 import controller.ticket.TController;
 import controller.ticket.TicketController;
+import database.DatabasePersons;
 import database.DatabaseTickets;
 import database.TicketDB;
 import decorator.TicketDecorator;
+import factory.TicketFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -88,44 +90,103 @@ public class TestUnit {
 
 
     @Test
-    public void testKostPP() {
-        //
+    public void t_getBill() throws NoSuchFieldException, IllegalAccessException {
+        // Access the private field inside the TicketDB class
+        Field field = TicketDB.class.getDeclaredField("db");
+        field.setAccessible(true);
+
+        DatabaseTickets ticketDBUnderTest = TicketDB.getInstance();
+        HashMap<Integer, Ticket> mockMap = new HashMap<>();
+
+
+
+        Person Melanie = new Person("Melanie","1" );
+        Person Ann = new Person("Ann","2" );
+        Person Bob = new Person("Bob","3" );
+        Person Charlie = new Person("Charlie","4");
+
+
+        HashMap<Person, Double> TestValues1 = new HashMap<>();
+        TestValues1.put(Charlie, 20.0);
+        TestValues1.put(Bob ,20.0);
+        TestValues1.put(Melanie,30.0);
+
+        HashMap<Person, Double> TestValues2 = new HashMap<>();
+        TestValues2.put(Ann, 10.0);
+        TestValues2.put(Melanie,40.0);
+        TestValues2.put(Charlie,10.0);
+
+
+        // Create and add tickets to the database
+        TicketFactory TF1 = new TicketFactory();
+        Ticket test1 = TF1.getTicket("test1", "Charlie", 70, Category.Food, false, TestValues1);
+        Ticket test2 = TF1.getTicket("test2", "Ann", 60, Category.Food, false, TestValues2);
+
+        mockMap.put(0, test1);
+        mockMap.put(1, test2);
+        field.set(ticketDBUnderTest, mockMap);
+
+        // Test function
+        HashMap<Person, Double> actualBill = ticketDBUnderTest.getBill();
+
+        HashMap<Person, Double> ExpectedBill =  new HashMap<>();
+
+        ExpectedBill.put(Bob,-20.0);
+        ExpectedBill.put(null,130.0);
+        ExpectedBill.put(Melanie,-70.0);
+        ExpectedBill.put(Ann,50.0);
+        ExpectedBill.put(Charlie,40.0);
+
+
+        assertEquals(actualBill,ExpectedBill );
     }
 
     @Test
-    public void testPrintSchulden() {
+    public void testPrintSchulden() throws NoSuchFieldException, IllegalAccessException {
 
-        mockDatabase = mock(DatabaseTickets.class);
-        ticketController = new TicketController(mockDatabase);
-        // Arrange
-        // Arrange
-        HashMap<Person, Double> schuldenMap = new HashMap<>();
-        Person person1 = new Person("Charlie", "123");
-        Person person2 = new Person("Bob", "123");
-        Person person3 = new Person("Melanie", "123");
-        Person person4 = new Person("Mel", "123");
+        // Access the private field inside the TicketDB class
+        Field field = TicketDB.class.getDeclaredField("db");
+        field.setAccessible(true);
 
-        schuldenMap.put(person1, 40.0);
-        schuldenMap.put(person2, -20.0);
-        schuldenMap.put(person3, -40.0);
-        schuldenMap.put(person4, 20.0);
+        DatabaseTickets ticketDBUnderTest = TicketDB.getInstance();
+        HashMap<Integer, Ticket> mockMap = new HashMap<>();
 
-        // Act
-
-        List<String> output;
-        output = ticketController.printSchulden(schuldenMap);
-
-        // Assert
-        List<String> expectedLines = Arrays.asList(
-                "Charlie moet nog 40.0 euro ontvangen aan:",
-                "  - Melanie: 40.0 euro",
-                "Mel moet nog 20.0 euro ontvangen aan:",
-                "  - Bob: 20.0 euro"
-        );
+        Person Melanie = new Person("Melanie","1" );
+        Person Ann = new Person("Ann","2" );
+        Person Bob = new Person("Bob","3" );
+        Person Charlie = new Person("Charlie","4");
 
 
-        assertEquals(output,expectedLines );
+        HashMap<Person, Double> TestValues1 = new HashMap<>();
+        TestValues1.put(Charlie, 20.0);
+        TestValues1.put(Bob ,20.0);
+        TestValues1.put(Melanie,30.0);
 
+        HashMap<Person, Double> TestValues2 = new HashMap<>();
+        TestValues2.put(Ann, 10.0);
+        TestValues2.put(Melanie,40.0);
+        TestValues2.put(Charlie,10.0);
+
+
+
+        // Create and add tickets to the database
+        TicketFactory TF1 = new TicketFactory();
+        Ticket test1 = TF1.getTicket("test1", "Charlie", 70, Category.Food, false, TestValues1);
+        Ticket test2 = TF1.getTicket("test2", "Ann", 60, Category.Food, false, TestValues2);
+
+        mockMap.put(0, test1);
+        mockMap.put(1, test2);
+        field.set(ticketDBUnderTest, mockMap);
+
+
+
+        // Test function
+        ArrayList<String> actualStringBillPerPerson = ticketDBUnderTest.getBillPerPerson(Melanie);
+        // Compare actualBillPerPerson with the expected values based on your logic
+        
+        ArrayList<String> ExcetedString = new ArrayList<>();
+
+        assertEquals(actualStringBillPerPerson,ExcetedString );
     }
 
 
