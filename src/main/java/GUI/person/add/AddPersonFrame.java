@@ -16,7 +16,6 @@ public class AddPersonFrame extends JFrame
     TicketController ticketController = new TicketController(TicketDB.getInstance());
 
     DatabasePersons personDB = PersonDB.getInstance();
-
     AddPersonPanel buttons;
 
 
@@ -45,7 +44,7 @@ public class AddPersonFrame extends JFrame
         this.setVisible(true);
     }
 
-    // anders wordt de fire property vaker opgenomen
+
     @Override
     public void dispose()
     {

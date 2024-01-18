@@ -151,7 +151,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
 
             }
 
-            else if (!name.isEmpty() && amountExists && !splitEvenly)
+            if (!name.isEmpty() && amountExists && !splitEvenly)
             {
                 try
                 {
@@ -163,7 +163,6 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
                     JOptionPane.showMessageDialog(this,e.getMessage(),"Warning",JOptionPane.WARNING_MESSAGE);
                 }
             }
-
         });
     }
 

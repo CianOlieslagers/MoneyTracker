@@ -16,7 +16,7 @@ public class Person
         return name;
     }
 
-    public void setName(String name)
+    private void setName(String name)
     {
         this.name = name;
     }
@@ -26,7 +26,7 @@ public class Person
         return accountNumber;
     }
 
-    public void setAccountNumber(String accountNumber)
+    private void setAccountNumber(String accountNumber)
     {
         this.accountNumber = accountNumber;
     }

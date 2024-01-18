@@ -86,12 +86,12 @@ public class Main
         Tregister.addTicket(ticket5);
 
 
-        System.out.println(ticket1.getName() + "voor de decorator: " + "\n" + ticket1);
+        System.out.println(ticket1.getName() + " before the decorator: " + "\n" + ticket1);
 
         TicketDecorator decorator = new AirplaneTicketDecorator(ticket1);
         Tregister.setActivity(ticket1, decorator);
 
-        System.out.print(ticket1.getName() + "na de decorator: " + "\n" + ticket1);
+        System.out.print(ticket1.getName() + " after the decorator: " + "\n" + ticket1);
 
         HomeFrame view = new HomeFrame();
         view.initialize();

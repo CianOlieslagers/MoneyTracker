@@ -7,6 +7,7 @@ import ticket.Category;
 import ticket.Ticket;
 
 import javax.swing.*;
+import java.util.Objects;
 
 public class ChangeTicketPanel extends JPanel
 {
@@ -74,22 +75,22 @@ public class ChangeTicketPanel extends JPanel
         {
             try {
                 TicketDecorator decorator = null;
-                if (this.categoryBox.getSelectedItem().equals(Category.Activities)){
+                if (Objects.equals(this.categoryBox.getSelectedItem(), Category.Activities)){
                     decorator = new ActivitiesTicketDecorator(ticket);
                 }
-                else if (this.categoryBox.getSelectedItem().equals(Category.Airplane)){
+                else if (Objects.equals(this.categoryBox.getSelectedItem(), Category.Airplane)){
                     decorator = new AirplaneTicketDecorator(ticket);
                 }
-                else if (this.categoryBox.getSelectedItem().equals(Category.Drinks)){
+                else if (Objects.equals(this.categoryBox.getSelectedItem(), Category.Drinks)){
                     decorator = new DrinksTicketDecorator(ticket);
                 }
-                else if (this.categoryBox.getSelectedItem().equals(Category.Food)){
+                else if (Objects.equals(this.categoryBox.getSelectedItem(), Category.Food)){
                     decorator = new FoodTicketDecorator(ticket);
                 }
-                else if (this.categoryBox.getSelectedItem().equals(Category.Taxi)){
+                else if (Objects.equals(this.categoryBox.getSelectedItem(), Category.Taxi)){
                     decorator = new TaxiTicketDecorator(ticket);
                 }
-                else if (this.categoryBox.getSelectedItem().equals(Category.Others)){
+                else if (Objects.equals(this.categoryBox.getSelectedItem(), Category.Others)){
                     decorator = new OthersTicketDecorator(ticket);
                 }
                 if (decorator != null)
@@ -112,6 +113,5 @@ public class ChangeTicketPanel extends JPanel
             this.frame.dispose();
         });
     }
-
 
 }

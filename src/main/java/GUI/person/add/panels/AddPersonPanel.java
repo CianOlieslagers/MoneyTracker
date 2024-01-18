@@ -109,10 +109,10 @@ public class AddPersonPanel extends JPanel implements PropertyChangeListener
         });
     }
 
+
     @Override
     public void propertyChange(PropertyChangeEvent evt)
     {
-        System.out.println("hoeveel");
         if (evt.getPropertyName().equals("PersonDB add"))
         {
             Person person = (Person) evt.getNewValue();

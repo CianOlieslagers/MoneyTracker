@@ -28,7 +28,7 @@ public class Ticket
         return payer;
     }
 
-    public void setPayer(String payer) {
+    private void setPayer(String payer) {
         this.payer = payer;
     }
 
@@ -36,7 +36,7 @@ public class Ticket
         return splitEvenly;
     }
 
-    public void setSplitEvenly(Boolean splitEvenly) {
+    private void setSplitEvenly(Boolean splitEvenly) {
         this.splitEvenly = splitEvenly;
     }
 
@@ -44,7 +44,7 @@ public class Ticket
         return amountPerPerson;
     }
 
-    public void setAmountPerPerson(HashMap<Person,Double> amountPerPerson) {
+    private void setAmountPerPerson(HashMap<Person,Double> amountPerPerson) {
         this.amountPerPerson = amountPerPerson;
     }
 
@@ -53,7 +53,7 @@ public class Ticket
         return name;
     }
 
-    public void setName(String name)
+    private void setName(String name)
     {
         this.name = name;
     }
@@ -63,7 +63,7 @@ public class Ticket
         return amount;
     }
 
-    public void setAmount(double amount)
+    private void setAmount(double amount)
     {
         this.amount = amount;
     }

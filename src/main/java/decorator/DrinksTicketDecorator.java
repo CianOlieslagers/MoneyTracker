@@ -14,6 +14,6 @@ public class DrinksTicketDecorator extends TicketDecorator
     public Ticket decorate(Ticket oldTicket)
     {
         oldTicket.setCategory(Category.Drinks);
-        return oldTicket;}
-
+        return oldTicket;
+    }
 }
