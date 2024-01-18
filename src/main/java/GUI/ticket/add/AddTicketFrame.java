@@ -81,4 +81,11 @@ public class AddTicketFrame extends JFrame
     {
         this.evenlyPaidPanel.resetPanel();
     }
+
+    @Override
+    public void dispose()
+    {
+        ticketDB.removeObserver(addTicketPanel);
+        super.dispose();
+    }
 }

@@ -30,10 +30,10 @@ public class Main
         main.run();
 
         DatabasePersons DbP1 = PersonDB.getInstance();
-        PController Pregister = new PersonController(DbP1);
-
         DatabaseTickets DbT1 = TicketDB.getInstance();
+
         TController Tregister = new TicketController(DbT1);
+        PController Pregister = new PersonController(DbP1);
 
 
         Person Melanie = new Person("Melanie","1" );
@@ -72,61 +72,26 @@ public class Main
         TestValues5.put(Bob,20.0);
 
         TicketFactory TF1 = new TicketFactory();
-        Ticket test1 = TF1.getTicket("test1","Charlie", 70, Category.Food,false, TestValues1);
-        Ticket test2 = TF1.getTicket("test2","Ann", 60, Category.Food,false, TestValues2);
 
-
-        Tregister.addTicket(test1);
-        Tregister.addTicket(test2);
-
+        Ticket ticket1 = TF1.getTicket("test1","Charlie", 70, Category.Food,false, TestValues1);
+        Ticket ticket2 = TF1.getTicket("test2","Ann", 60, Category.Food,false, TestValues2);
         Ticket ticket3 = TF1.getTicket("test3","Melanie",99,Category.Airplane,false,TestValues3);
         Ticket ticket4 = TF1.getTicket("test4","Bob",44,Category.Airplane,false,TestValues4);
         Ticket ticket5 = TF1.getTicket("test5","Melanie",70,Category.Food,false,TestValues5);
 
+        Tregister.addTicket(ticket1);
+        Tregister.addTicket(ticket2);
         Tregister.addTicket(ticket3);
         Tregister.addTicket(ticket4);
         Tregister.addTicket(ticket5);
 
 
-        HashMap<Person,Double> AfrekeningBob;
-        AfrekeningBob = Tregister.KostPP(Bob);
-        System.out.print("Rekening voor Bob: " + AfrekeningBob+ "\n");
+        System.out.println(ticket1.getName() + "voor de decorator: " + "\n" + ticket1);
 
-        HashMap<Person,Double> AfrekeningAnn;
-        AfrekeningAnn = Tregister.KostPP(Ann);
-        System.out.print("Rekening voor Ann: " + AfrekeningAnn+ "\n");
+        TicketDecorator decorator = new AirplaneTicketDecorator(ticket1);
+        Tregister.setActivity(ticket1, decorator);
 
-        System.out.print("please lord werk: "+ "\n");
-        List<String> test = DbT1.printSchulden(AfrekeningAnn);
-
-        System.out.print("\n"+"\n"+"\n"+"\n"+"\n");
-
-        System.out.print(test);
-
-        System.out.print("\n"+"\n"+"\n"+"\n"+"\n");
-
-        // Test voor de decorator te laten zien.
-        System.out.print("Voor de decorator: " + "\n" +test1);
-
-
-
-        TicketDecorator decorator = new AirplaneTicketDecorator(test1);
-        Tregister.setActivity(test1, decorator);
-
-
-        System.out.print("Na de decorator" + "\n" +test1);
-        double Totaal = Tregister.totaalSum();
-        System.out.print(Totaal+ "\n");
-
-
-
-
-        System.out.println("Melanie: " + Tregister.KostPP(Melanie));
-        System.out.println("Bob: " + Tregister.KostPP(Bob));
-        System.out.println("Ann: " + Tregister.KostPP(Ann));
-        System.out.println("Charlie: " + Tregister.KostPP(Charlie));
-
-
+        System.out.print(ticket1.getName() + "na de decorator: " + "\n" + ticket1);
 
         HomeFrame view = new HomeFrame();
         view.initialize();

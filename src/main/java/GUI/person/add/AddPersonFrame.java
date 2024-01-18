@@ -44,4 +44,12 @@ public class AddPersonFrame extends JFrame
         this.add(buttons);
         this.setVisible(true);
     }
+
+    // anders wordt de fire property vaker opgenomen
+    @Override
+    public void dispose()
+    {
+        personDB.removeObserver(buttons);
+        super.dispose();
+    }
 }

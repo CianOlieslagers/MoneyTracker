@@ -151,7 +151,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
 
             }
 
-            if (!name.isEmpty() && amountExists && !splitEvenly)
+            else if (!name.isEmpty() && amountExists && !splitEvenly)
             {
                 try
                 {
@@ -189,6 +189,7 @@ public class AddTicketPanel extends JPanel implements PropertyChangeListener
     @Override
     public void propertyChange(PropertyChangeEvent evt)
     {
+        System.out.println("hoeveel");
         if (evt.getPropertyName().equals("TicketDB add"))
         {
             Ticket ticket = (Ticket) evt.getNewValue();

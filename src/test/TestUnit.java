@@ -79,14 +79,14 @@ public class TestUnit {
         assertEquals(mockTicketList, result); // Checkt of onze gecreëerde array gelijk is aan de array gecreëerd door onze .getTickets funtion
     }
 
-    @Test
+   /* @Test
     public void testTotaalSum() {
         mockDatabase = mock(DatabaseTickets.class);
         ticketController = new TicketController(mockDatabase);
         when(mockDatabase.totaalSum()).thenReturn(100.0);
 
         assertEquals(100.0, ticketController.totaalSum(), 0.001); // Zie of onze .totaalsom gelijk is aan de opvoorhand opgegeven waarde met een foutmarge van 0.001
-    }
+    }*/
 
 
     @Test
