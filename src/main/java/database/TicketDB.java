@@ -225,7 +225,7 @@ public class TicketDB extends DatabaseTickets {
 
                 if (Objects.equals(debtor, person) && settlementAmount!=0)
                 {
-                    result.add(debtor.getName() + " needs to pay " + settlementAmount + " euro to " + creditor.getName());
+                    result.add(debtor.getName() + " needs to pay " + settlementAmount + " euro to " + creditor.getName() + " on this account number: " + creditor.getAccountNumber());
                 }
 
                 if (Objects.equals(creditor, person) && settlementAmount!=0)

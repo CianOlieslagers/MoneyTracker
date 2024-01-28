@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="Printschulden aangepast">
+    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="FINAL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/TestUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestUnit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/AddPerson_ITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AddPerson_ITest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +24,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="ee7f539c0d6155ee684d8eb19b39da147ac5f8d2" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -32,17 +38,26 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2YACtwkPIT68KNJhmAU2vrweoW0" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AddPerson_ITest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AddPerson_ITest.testAddAndRemovePerson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AddPerson_ITest.testAddPerson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AddPerson_ITest.testGetPerson.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/32497/JavaProjects/Semester5/Labo1/Lab1_Diagrams&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -52,11 +67,11 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.TestUnit.testPrintSchulden">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="MoneyTracker" />
@@ -64,40 +79,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUnit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AddPerson_ITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MoneyTracker" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestUnit" />
+      <option name="MAIN_CLASS_NAME" value="AddPerson_ITest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUnit.t_getBill" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AddPerson_ITest.testAddAndRemovePerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MoneyTracker" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestUnit" />
-      <option name="METHOD_NAME" value="t_getBill" />
+      <option name="MAIN_CLASS_NAME" value="AddPerson_ITest" />
+      <option name="METHOD_NAME" value="testAddAndRemovePerson" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUnit.testPrintSchulden" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AddPerson_ITest.testAddPerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MoneyTracker" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestUnit" />
-      <option name="METHOD_NAME" value="testPrintSchulden" />
+      <option name="MAIN_CLASS_NAME" value="AddPerson_ITest" />
+      <option name="METHOD_NAME" value="testAddPerson" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUnit.testTotaalSum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AddPerson_ITest.testGetPerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MoneyTracker" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestUnit" />
-      <option name="METHOD_NAME" value="testTotaalSum" />
+      <option name="MAIN_CLASS_NAME" value="AddPerson_ITest" />
+      <option name="METHOD_NAME" value="testGetPerson" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -105,11 +120,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestUnit.testPrintSchulden" />
-        <item itemvalue="JUnit.TestUnit.t_getBill" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.TestUnit" />
-        <item itemvalue="JUnit.TestUnit.testTotaalSum" />
+        <item itemvalue="JUnit.AddPerson_ITest" />
+        <item itemvalue="JUnit.AddPerson_ITest.testGetPerson" />
+        <item itemvalue="JUnit.AddPerson_ITest.testAddAndRemovePerson" />
+        <item itemvalue="JUnit.AddPerson_ITest.testAddPerson" />
       </list>
     </recent_temporary>
   </component>
@@ -143,11 +158,25 @@
       <workItem from="1703159164336" duration="4560000" />
       <workItem from="1703165634778" duration="1572000" />
       <workItem from="1703171768995" duration="2872000" />
-      <workItem from="1703174668103" duration="485000" />
-      <workItem from="1703415579825" duration="2781000" />
-      <workItem from="1703622419902" duration="5383000" />
-      <workItem from="1705090740318" duration="2333000" />
-      <workItem from="1705518123491" duration="8252000" />
+      <workItem from="1703326885398" duration="598000" />
+      <workItem from="1703424799984" duration="2545000" />
+      <workItem from="1703427361517" duration="51000" />
+      <workItem from="1703427417388" duration="2450000" />
+      <workItem from="1703844101936" duration="255000" />
+      <workItem from="1704010888015" duration="18305000" />
+      <workItem from="1704036960727" duration="94000" />
+      <workItem from="1704633424405" duration="4773000" />
+      <workItem from="1704706235139" duration="7687000" />
+      <workItem from="1704814553132" duration="675000" />
+      <workItem from="1704842083271" duration="1436000" />
+      <workItem from="1704880777587" duration="3343000" />
+      <workItem from="1704987365676" duration="401000" />
+      <workItem from="1705163829405" duration="872000" />
+      <workItem from="1705434719035" duration="2692000" />
+      <workItem from="1705483029828" duration="5875000" />
+      <workItem from="1705567251008" duration="8652000" />
+      <workItem from="1705583259689" duration="68000" />
+      <workItem from="1706360595349" duration="11294000" />
     </task>
     <task id="LOCAL-00001" summary="pom file">
       <option name="closed" value="true" />
@@ -241,21 +270,167 @@
       <option name="project" value="LOCAL" />
       <updated>1703161740326</updated>
     </task>
-    <task id="LOCAL-00014" summary="Funtie verdeling af">
-      <created>1703174928329</created>
+    <task id="LOCAL-00014" summary="calculate">
+      <option name="closed" value="true" />
+      <created>1703269290501</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1703174928329</updated>
+      <updated>1703269290501</updated>
     </task>
-    <task id="LOCAL-00015" summary="Decorator af">
-      <created>1703618000486</created>
+    <task id="LOCAL-00015" summary="calculate">
+      <option name="closed" value="true" />
+      <created>1703269975980</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1703618000486</updated>
+      <updated>1703269975980</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="calculate">
+      <option name="closed" value="true" />
+      <created>1703272068501</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1703272068501</updated>
+    </task>
+    <task id="LOCAL-00017" summary="calculate">
+      <option name="closed" value="true" />
+      <created>1703272124845</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1703272124845</updated>
+    </task>
+    <task id="LOCAL-00018" summary="calculate">
+      <option name="closed" value="true" />
+      <created>1703272152281</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1703272152281</updated>
+    </task>
+    <task id="LOCAL-00019" summary="...">
+      <option name="closed" value="true" />
+      <created>1704030286405</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1704030286405</updated>
+    </task>
+    <task id="LOCAL-00020" summary="integration test&#10;calculate afmaken&#10;edit ticket in GUI&#10;remove ticket db aangepast&#10;ticket display veranderd">
+      <option name="closed" value="true" />
+      <created>1704036849118</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1704036849118</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Bill">
+      <option name="closed" value="true" />
+      <created>1704660397830</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1704660397831</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Back button">
+      <option name="closed" value="true" />
+      <created>1704707876801</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1704707876801</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Joption shit opgelost">
+      <option name="closed" value="true" />
+      <created>1704711737643</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1704711737643</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Main instellen">
+      <option name="closed" value="true" />
+      <created>1704712426287</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1704712426287</updated>
+    </task>
+    <task id="LOCAL-00025" summary="final??">
+      <option name="closed" value="true" />
+      <created>1704726439884</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1704726439884</updated>
+    </task>
+    <task id="LOCAL-00026" summary="final?? + unused import statements gone">
+      <option name="closed" value="true" />
+      <created>1704726536938</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1704726536938</updated>
+    </task>
+    <task id="LOCAL-00027" summary="clean up">
+      <option name="closed" value="true" />
+      <created>1704815203020</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1704815203020</updated>
+    </task>
+    <task id="LOCAL-00028" summary="only delete person if they are not included in a ticket">
+      <option name="closed" value="true" />
+      <created>1704987748017</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1704987748018</updated>
+    </task>
+    <task id="LOCAL-00029" summary="commit">
+      <option name="closed" value="true" />
+      <created>1705164090770</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1705164090770</updated>
+    </task>
+    <task id="LOCAL-00030" summary="commit">
+      <option name="closed" value="true" />
+      <created>1705570015601</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1705570015601</updated>
+    </task>
+    <task id="LOCAL-00031" summary="commit">
+      <option name="closed" value="true" />
+      <created>1705574515438</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1705574515438</updated>
+    </task>
+    <task id="LOCAL-00032" summary="FINAL">
+      <option name="closed" value="true" />
+      <created>1705582628462</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1705582628462</updated>
+    </task>
+    <task id="LOCAL-00033" summary="FINAL">
+      <option name="closed" value="true" />
+      <created>1705582713003</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1705582713003</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,15 +456,23 @@
     <MESSAGE value="unittest" />
     <MESSAGE value="Decorator" />
     <MESSAGE value="Funtie af" />
-    <MESSAGE value="Funtie verdeling af" />
-    <MESSAGE value="Decorator af" />
-    <option name="LAST_COMMIT_MESSAGE" value="Decorator af" />
+    <MESSAGE value="calculate" />
+    <MESSAGE value="..." />
+    <MESSAGE value="integration test&#10;calculate afmaken&#10;edit ticket in GUI&#10;remove ticket db aangepast&#10;ticket display veranderd" />
+    <MESSAGE value="Bill" />
+    <MESSAGE value="Back button" />
+    <MESSAGE value="Joption shit opgelost" />
+    <MESSAGE value="Main instellen" />
+    <MESSAGE value="final??" />
+    <MESSAGE value="final?? + unused import statements gone" />
+    <MESSAGE value="clean up" />
+    <MESSAGE value="only delete person if they are not included in a ticket" />
+    <MESSAGE value="commit" />
+    <MESSAGE value="FINAL" />
+    <option name="LAST_COMMIT_MESSAGE" value="FINAL" />
   </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="lijstNamenPersonen" />
-      </configuration>
-    </watches-manager>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

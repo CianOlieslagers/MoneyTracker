@@ -31,19 +31,19 @@ public class Main
         DatabasePersons DbP1 = PersonDB.getInstance();
         DatabaseTickets DbT1 = TicketDB.getInstance();
 
-        TController Tregister = new TicketController(DbT1);
-        PController Pregister = new PersonController(DbP1);
+        TController ticketController = new TicketController(DbT1);
+        PController personController = new PersonController(DbP1);
 
 
-        Person Melanie = new Person("Melanie","1" );
-        Person Ann = new Person("Ann","2" );
-        Person Bob = new Person("Bob","3" );
-        Person Charlie = new Person("Charlie","4");
+        Person Melanie = new Person("Melanie","BE25 7690 7345 9203");
+        Person Ann = new Person("Ann","BE48 3521 5544 9890");
+        Person Bob = new Person("Bob","BE34 0987 6543 2100");
+        Person Charlie = new Person("Charlie","BE56 2468 0876 3429");
 
-        Pregister.addPerson(Melanie);
-        Pregister.addPerson(Ann);
-        Pregister.addPerson(Bob);
-        Pregister.addPerson(Charlie);
+        personController.addPerson(Melanie);
+        personController.addPerson(Ann);
+        personController.addPerson(Bob);
+        personController.addPerson(Charlie);
 
 
         HashMap<Person, Double> TestValues1 = new HashMap<>();
@@ -70,25 +70,25 @@ public class Main
         TestValues5.put(Melanie,40.0);
         TestValues5.put(Bob,20.0);
 
-        TicketFactory TF1 = new TicketFactory();
+        TicketFactory factory = new TicketFactory();
 
-        Ticket ticket1 = TF1.getTicket("test1","Charlie", 70, Category.Food,false, TestValues1);
-        Ticket ticket2 = TF1.getTicket("test2","Ann", 60, Category.Food,false, TestValues2);
-        Ticket ticket3 = TF1.getTicket("test3","Melanie",99,Category.Airplane,false,TestValues3);
-        Ticket ticket4 = TF1.getTicket("test4","Bob",44,Category.Airplane,false,TestValues4);
-        Ticket ticket5 = TF1.getTicket("test5","Melanie",70,Category.Food,false,TestValues5);
+        Ticket ticket1 = factory.getTicket("Delhaize","Charlie", 70, Category.Food,false, TestValues1);
+        Ticket ticket2 = factory.getTicket("Restaurant","Ann", 60, Category.Food,false, TestValues2);
+        Ticket ticket3 = factory.getTicket("Tickets","Melanie",99,Category.Airplane,false,TestValues3);
+        Ticket ticket4 = factory.getTicket("Paintball","Bob",44,Category.Activities,false,TestValues4);
+        Ticket ticket5 = factory.getTicket("Cafe","Melanie",70,Category.Drinks,false,TestValues5);
 
-        Tregister.addTicket(ticket1);
-        Tregister.addTicket(ticket2);
-        Tregister.addTicket(ticket3);
-        Tregister.addTicket(ticket4);
-        Tregister.addTicket(ticket5);
+        ticketController.addTicket(ticket1);
+        ticketController.addTicket(ticket2);
+        ticketController.addTicket(ticket3);
+        ticketController.addTicket(ticket4);
+        ticketController.addTicket(ticket5);
 
 
         System.out.println(ticket1.getName() + " before the decorator: " + "\n" + ticket1);
 
         TicketDecorator decorator = new AirplaneTicketDecorator(ticket1);
-        Tregister.setActivity(ticket1, decorator);
+        ticketController.setActivity(ticket1, decorator);
 
         System.out.print(ticket1.getName() + " after the decorator: " + "\n" + ticket1);
 
@@ -100,6 +100,6 @@ public class Main
 
     public void run()
     {
-        System.out.println("running");
+        System.out.println("running...");
     }
 }
