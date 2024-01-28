@@ -14,7 +14,7 @@ public class TicketDB extends DatabaseTickets {
     private static final TicketDB ticketDB = new TicketDB();
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     private int ticketCount = 0;
-    private DatabasePersons dbPersons;
+    private DatabasePersons dbPersons = PersonDB.getInstance();
 
 
     private TicketDB()
