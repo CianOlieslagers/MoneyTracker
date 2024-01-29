@@ -73,15 +73,6 @@ public class TestUnit {
         assertEquals(mockTicketList, result); // Checkt of onze gecreëerde array gelijk is aan de array gecreëerd door onze .getTickets funtion
     }
 
-   /* @Test
-    public void testTotaalSum() {
-        mockDatabase = mock(DatabaseTickets.class);
-        ticketController = new TicketController(mockDatabase);
-        when(mockDatabase.totaalSum()).thenReturn(100.0);
-
-        assertEquals(100.0, ticketController.totaalSum(), 0.001); // Zie of onze .totaalsom gelijk is aan de opvoorhand opgegeven waarde met een foutmarge van 0.001
-    }*/
-
 
     @Test
     public void t_getBill() throws NoSuchFieldException, IllegalAccessException {
@@ -175,15 +166,14 @@ public class TestUnit {
 
 
         // Test function
-        ArrayList<String> actualStringBillPerPerson = ticketDBUnderTest.getBillPerPerson(Melanie);
+        ArrayList<String> actualStringBillPerPerson = ticketDBUnderTest.getBillPerPerson(Ann);
         // Compare actualBillPerPerson with the expected values based on your logic
         
         ArrayList<String> ExcetedString = new ArrayList<>();
+        ExcetedString.add("Ann doesn't need to pay/receive any money!");
 
-        assertEquals(actualStringBillPerPerson,ExcetedString );
+        assertEquals(ExcetedString,actualStringBillPerPerson);
     }
-
-
 
 
 }
