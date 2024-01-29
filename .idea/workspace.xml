@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="FINAL2.0">
+    <list default="true" id="b1cde932-2bd4-4c35-b0b9-25af7b2e74d1" name="Changes" comment="FINAL2.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/TicketDB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +69,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.TestUnit">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="MoneyTracker" />
@@ -118,8 +117,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TestUnit" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.AddPerson_ITest" />
         <item itemvalue="JUnit.AddPerson_ITest.testGetPerson" />
         <item itemvalue="JUnit.AddPerson_ITest.testAddAndRemovePerson" />
@@ -174,7 +173,7 @@
       <workItem from="1705483029828" duration="5875000" />
       <workItem from="1705567251008" duration="8652000" />
       <workItem from="1705583259689" duration="68000" />
-      <workItem from="1706360595349" duration="11920000" />
+      <workItem from="1706360595349" duration="14843000" />
     </task>
     <task id="LOCAL-00001" summary="pom file">
       <option name="closed" value="true" />
@@ -436,7 +435,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706441861207</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="FINAL2.1">
+      <option name="closed" value="true" />
+      <created>1706442488098</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1706442488098</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,7 +454,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="github/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -476,7 +495,8 @@
     <MESSAGE value="commit" />
     <MESSAGE value="FINAL" />
     <MESSAGE value="FINAL2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="FINAL2.0" />
+    <MESSAGE value="FINAL2.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="FINAL2.1" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
